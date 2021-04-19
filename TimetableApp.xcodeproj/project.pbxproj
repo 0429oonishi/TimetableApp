@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */; };
 		ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */; };
-		ABB6A2B9262D055D00CFB798 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B8262D055D00CFB798 /* ViewController.swift */; };
-		ABB6A2BC262D055D00CFB798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2BA262D055D00CFB798 /* Main.storyboard */; };
 		ABB6A2BE262D056100CFB798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2BD262D056100CFB798 /* Assets.xcassets */; };
 		ABB6A2C1262D056100CFB798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2BF262D056100CFB798 /* LaunchScreen.storyboard */; };
+		ABB6A2CA262D074500CFB798 /* Timetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2C9262D074500CFB798 /* Timetable.storyboard */; };
+		ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2CE262D077300CFB798 /* TimetableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ABB6A2B1262D055D00CFB798 /* TimetableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimetableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ABB6A2B8262D055D00CFB798 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ABB6A2BB262D055D00CFB798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABB6A2BD262D056100CFB798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABB6A2C0262D056100CFB798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABB6A2C2262D056100CFB798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABB6A2C9262D074500CFB798 /* Timetable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timetable.storyboard; sourceTree = "<group>"; };
+		ABB6A2CE262D077300CFB798 /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			children = (
 				ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */,
 				ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */,
-				ABB6A2B8262D055D00CFB798 /* ViewController.swift */,
-				ABB6A2BA262D055D00CFB798 /* Main.storyboard */,
+				ABB6A2C9262D074500CFB798 /* Timetable.storyboard */,
+				ABB6A2CE262D077300CFB798 /* TimetableViewController.swift */,
 				ABB6A2BD262D056100CFB798 /* Assets.xcassets */,
 				ABB6A2BF262D056100CFB798 /* LaunchScreen.storyboard */,
 				ABB6A2C2262D056100CFB798 /* Info.plist */,
@@ -126,7 +126,7 @@
 			files = (
 				ABB6A2C1262D056100CFB798 /* LaunchScreen.storyboard in Resources */,
 				ABB6A2BE262D056100CFB798 /* Assets.xcassets in Resources */,
-				ABB6A2BC262D055D00CFB798 /* Main.storyboard in Resources */,
+				ABB6A2CA262D074500CFB798 /* Timetable.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB6A2B9262D055D00CFB798 /* ViewController.swift in Sources */,
 				ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */,
+				ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */,
 				ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +146,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ABB6A2BA262D055D00CFB798 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABB6A2BB262D055D00CFB798 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ABB6A2BF262D056100CFB798 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
