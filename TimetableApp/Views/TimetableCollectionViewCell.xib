@@ -20,7 +20,22 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5A-tw-sn6">
                         <rect key="frame" x="0.0" y="0.0" width="104" height="146"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuu-w0-rzi" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                <rect key="frame" x="5" y="5" width="94" height="136"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <action selector="neumorphismView:" destination="gTV-IL-0wX" eventType="valueChanged" id="IfR-DY-vcv"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yuu-w0-rzi" secondAttribute="trailing" constant="5" id="3RQ-2B-5tp"/>
+                            <constraint firstItem="yuu-w0-rzi" firstAttribute="leading" secondItem="N5A-tw-sn6" secondAttribute="leading" constant="5" id="4RV-9d-2tA"/>
+                            <constraint firstAttribute="bottom" secondItem="yuu-w0-rzi" secondAttribute="bottom" constant="5" id="Ouk-q9-JRP"/>
+                            <constraint firstItem="yuu-w0-rzi" firstAttribute="top" secondItem="N5A-tw-sn6" secondAttribute="top" constant="5" id="rgg-w8-f1R"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -32,12 +47,15 @@
                 <constraint firstItem="N5A-tw-sn6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RVg-ue-Dvp"/>
             </constraints>
             <size key="customSize" width="104" height="146"/>
+            <connections>
+                <outlet property="myView" destination="yuu-w0-rzi" id="WUe-nl-iHV"/>
+            </connections>
             <point key="canvasLocation" x="179.71014492753625" y="166.07142857142856"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

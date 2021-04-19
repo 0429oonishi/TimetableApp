@@ -8,25 +8,53 @@
 import UIKit
 
 final class TimetableViewController: UIViewController {
-
-    @IBOutlet private weak var collectionView: UICollectionView!
     
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private var weekViews: [NeumorphismView]!
+    @IBOutlet private var periodViews: [NeumorphismView]!
+    
+    private let weeks = [Character]("月火水木金土")
+    private let periods = [Character]("123456")
     private let horizontalItemCount = 6
     private let verticalItemCount = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(TimetableCollectionViewCell.nib(),
                                 forCellWithReuseIdentifier: TimetableCollectionViewCell.identifier)
-    
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        setupWeekAndPeriodViews(weekViews, weeks)
+        setupWeekAndPeriodViews(periodViews, periods)
+        setupCollectionView()
+        
+    }
+    
+    private func setupWeekAndPeriodViews(_ views: [NeumorphismView], _ array: [Character]) {
+        views.enumerated().forEach { index, view in
+            view.type = .normal
+            let label = UILabel()
+            label.text = String(array[index])
+            label.font = .boldSystemFont(ofSize: 15)
+            label.textColor = .black
+            label.translatesAutoresizingMaskIntoConstraints = false
+            view.setContentView(label)
+            [label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ].forEach { $0.isActive = true }
+        }
+    }
+    
+    private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 2
         layout.minimumInteritemSpacing = 2
@@ -39,7 +67,6 @@ final class TimetableViewController: UIViewController {
             height: totalItemSize.height / CGFloat(verticalItemCount)
         )
         collectionView.collectionViewLayout = layout
-        
     }
     
 }
@@ -61,4 +88,3 @@ extension TimetableViewController: UICollectionViewDataSource {
     }
     
 }
-
