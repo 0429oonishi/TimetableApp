@@ -25,7 +25,12 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
         
     }
     
-    private func setupNeumorphismView() {
+}
+
+// MARK: - setup
+private extension TimetableCollectionViewCell {
+    
+    func setupNeumorphismView() {
         myView.type = .pushButton
         myView.cornerRadius = 15
         myView.addTarget(self, action: #selector(someFunc), for: .touchUpInside)
@@ -59,6 +64,10 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
          baseView.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
         ].forEach { $0.isActive = true }
     }
+    
+}
+
+private extension TimetableCollectionViewCell {
     
     @objc func someFunc() {
         print(#function)

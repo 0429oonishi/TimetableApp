@@ -39,7 +39,12 @@ final class TimetableViewController: UIViewController {
         
     }
     
-    private func setupWeekAndPeriodViews(_ views: [NeumorphismView], _ array: [Character]) {
+}
+
+// MARK: - setup
+private extension TimetableViewController {
+    
+    func setupWeekAndPeriodViews(_ views: [NeumorphismView], _ array: [Character]) {
         views.enumerated().forEach { index, view in
             view.type = .normal
             let label = UILabel()
@@ -54,7 +59,7 @@ final class TimetableViewController: UIViewController {
         }
     }
     
-    private func setupCollectionView() {
+    func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 2
         layout.minimumInteritemSpacing = 2
