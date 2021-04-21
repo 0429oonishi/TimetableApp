@@ -304,7 +304,7 @@
         <!--時間割-->
         <scene sceneID="xH4-A3-WAa">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dQn-cJ-jjc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dQn-cJ-jjc" customClass="MyUINavigationController" customModule="TimetableApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="時間割" image="timer" catalog="system" id="tce-sN-dxv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vct-RF-ovu">
@@ -320,10 +320,10 @@
             </objects>
             <point key="canvasLocation" x="1474" y="169"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--MyUI Tab Bar Controller-->
         <scene sceneID="ao8-Fv-hdq">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7qN-3S-J8u" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7qN-3S-J8u" customClass="MyUITabBarController" customModule="TimetableApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jju-Zt-QKI">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
