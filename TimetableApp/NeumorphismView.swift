@@ -46,7 +46,6 @@ class NeumorphismView: UIControl {
     func setContentView(_ contentView: UIView?,
                         selectedContentView: UIView? = nil,
                         selectedTransform: CGAffineTransform? = CGAffineTransform(scaleX: 0.95, y: 0.95)) {
-        
         resetContentView(contentView,
                          selectedContentView: selectedContentView,
                          selectedTransform: selectedTransform)
@@ -206,6 +205,7 @@ private extension NeumorphismView {
         }()
         
         updateSublayersShape()
+        
     }
     
     func createOuterShadowLayer(shadowColor: CGColor, shadowOffset: CGSize) -> CAShapeLayer {
@@ -285,6 +285,7 @@ private extension NeumorphismView {
         self.selectedTransform = selectedTransform
         
         updateContentView()
+        
     }
     
     func updateContentView() {
@@ -366,7 +367,7 @@ private extension NeumorphismView {
 extension CGSize {
     
     var inverse: CGSize {
-        .init(width: -1 * width, height: -1 * height)
+        CGSize(width: -1 * width, height: -1 * height)
     }
     
 }
