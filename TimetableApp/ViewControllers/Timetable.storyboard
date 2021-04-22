@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7qN-3S-J8u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dQn-cJ-jjc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -278,6 +278,7 @@
                             <constraint firstItem="oec-wu-alq" firstAttribute="leading" secondItem="lj5-Tk-GXS" secondAttribute="trailing" constant="2" id="xTE-MJ-Udo"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" id="bQP-KO-bVP"/>
                     <navigationItem key="navigationItem" id="FHE-Yl-cus"/>
                     <connections>
                         <outlet property="collectionView" destination="yAA-9s-ty2" id="xn2-hB-gIl"/>
@@ -297,13 +298,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zR5-a2-vPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253.6231884057975" y="168.75"/>
+            <point key="canvasLocation" x="2404" y="169"/>
         </scene>
-        <!--時間割-->
+        <!--MyUI Navigation Controller-->
         <scene sceneID="xH4-A3-WAa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dQn-cJ-jjc" customClass="MyUINavigationController" customModule="TimetableApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="時間割" image="timer" catalog="system" id="tce-sN-dxv"/>
+                    <tabBarItem key="tabBarItem" title="" id="tce-sN-dxv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vct-RF-ovu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -311,34 +312,34 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="e6e-eT-0jV" kind="relationship" relationship="rootViewController" id="NKV-vi-rLA"/>
+                        <segue destination="7qN-3S-J8u" kind="relationship" relationship="rootViewController" id="cGu-PE-W2K"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c51-6q-mLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="169"/>
+            <point key="canvasLocation" x="875" y="169"/>
         </scene>
         <!--MyUI Tab Bar Controller-->
         <scene sceneID="ao8-Fv-hdq">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7qN-3S-J8u" customClass="MyUITabBarController" customModule="TimetableApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="P5J-i6-0H9"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jju-Zt-QKI">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="dQn-cJ-jjc" kind="relationship" relationship="viewControllers" id="gSN-vl-uPX"/>
+                        <segue destination="e6e-eT-0jV" kind="relationship" relationship="viewControllers" id="Eho-dE-I8v"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWI-xX-MZ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708.69565217391312" y="168.75"/>
+            <point key="canvasLocation" x="1629" y="169"/>
         </scene>
     </scenes>
     <resources>
-        <image name="timer" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

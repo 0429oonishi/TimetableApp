@@ -69,7 +69,7 @@ private extension MyUINavigationController {
         let titleButtonWidth: CGFloat = 70
         let titleButtonHeight: CGFloat = 30
         let titleButton = NeumorphismView(
-            frame: CGRect(x: navigationBar.center.x - titleButtonWidth / 2,
+            frame: CGRect(x: (navigationBar.frame.size.width - titleButtonWidth) / 2,
                           y: (navigationBar.frame.size.height - titleButtonHeight) / 2,
                           width: titleButtonWidth,
                           height: titleButtonHeight

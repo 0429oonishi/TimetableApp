@@ -28,7 +28,6 @@ final class TimetableViewController: UIViewController {
         collectionView.register(TimetableCollectionViewCell.nib(),
                                 forCellWithReuseIdentifier: TimetableCollectionViewCell.identifier)
         
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,7 +36,7 @@ final class TimetableViewController: UIViewController {
         setupWeekAndPeriodViews(weekViews, weeks)
         setupWeekAndPeriodViews(periodViews, periods)
         setupCollectionView()
-
+        
     }
     
 }
