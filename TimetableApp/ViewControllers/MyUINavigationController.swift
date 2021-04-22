@@ -21,6 +21,7 @@ final class MyUINavigationController: UINavigationController {
         
         setupScreenshotButton()
         setupTitleButton()
+        setupSettingButton()
         
     }
     
@@ -34,7 +35,7 @@ private extension MyUINavigationController {
         let screenshotButtonHeight: CGFloat = 30
         let screenshotButton = NeumorphismView(
             frame: CGRect(
-                x: navigationBar.frame.size.width - (10 + screenshotButtonWidth),
+                x: navigationBar.frame.size.width - (15 + screenshotButtonWidth),
                 y: (navigationBar.frame.size.height - screenshotButtonHeight) / 2,
                 width: screenshotButtonWidth,
                 height: screenshotButtonHeight
@@ -100,6 +101,39 @@ private extension MyUINavigationController {
         ].forEach { $0.isActive = true }
     }
     
+    func setupSettingButton() {
+        let settingButtonWidth: CGFloat = 32
+        let settingButtonHeight: CGFloat = 32
+        let settingButton = NeumorphismView(
+            frame: CGRect(x: 15,
+                          y: (navigationBar.frame.size.height - settingButtonHeight) / 2,
+                          width: settingButtonWidth,
+                          height: settingButtonHeight
+            )
+        )
+        settingButton.type = .pushButton
+        settingButton.cornerRadius = settingButton.frame.size.height / 2
+        settingButton.addTarget(self, action: #selector(settingButtonDidTapped), for: .touchUpInside)
+        navigationBar.addSubview(settingButton)
+        
+        let baseView = UIView()
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        settingButton.setContentView(baseView)
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "gearshape")
+        imageView.tintColor = .black
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        baseView.addSubview(imageView)
+        [imageView.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
+         imageView.centerYAnchor.constraint(equalTo: baseView.centerYAnchor),
+        ].forEach { $0.isActive = true }
+        
+        [baseView.centerXAnchor.constraint(equalTo: settingButton.centerXAnchor),
+         baseView.centerYAnchor.constraint(equalTo: settingButton.centerYAnchor),
+        ].forEach { $0.isActive = true }
+    }
+    
 }
 
 private extension MyUINavigationController {
@@ -109,6 +143,10 @@ private extension MyUINavigationController {
     }
     
     @objc func titleButtonDidTapped() {
+        print(#function)
+    }
+    
+    @objc func settingButtonDidTapped() {
         print(#function)
     }
     

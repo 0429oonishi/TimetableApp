@@ -19,7 +19,7 @@ final class MyUITabBarController: UITabBarController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        setupTimetableTabBarButton()
+        setupTimetableButton()
         
     }
 
@@ -28,25 +28,25 @@ final class MyUITabBarController: UITabBarController {
 // MARK: - setup
 private extension MyUITabBarController {
     
-    func setupTimetableTabBarButton() {
-        let timetableTabBarButtonWidth: CGFloat = 40
-        let timetableTabBarButtonHeight: CGFloat = 40
-        let timetableTabBarButton = NeumorphismView(
+    func setupTimetableButton() {
+        let timetableButtonWidth: CGFloat = 40
+        let timetableButtonHeight: CGFloat = 40
+        let timetableButton = NeumorphismView(
             frame: CGRect(
-                x: (tabBar.frame.size.width - timetableTabBarButtonWidth) / 2,
-                y: (tabBar.frame.size.height - timetableTabBarButtonHeight) / 2 - 10,
-                width: timetableTabBarButtonWidth,
-                height: timetableTabBarButtonHeight
+                x: (tabBar.frame.size.width - timetableButtonWidth) / 2,
+                y: (tabBar.frame.size.height - timetableButtonHeight) / 2 - 10,
+                width: timetableButtonWidth,
+                height: timetableButtonHeight
             )
         )
-        timetableTabBarButton.type = .pushButton
-        timetableTabBarButton.cornerRadius = timetableTabBarButton.frame.height / 2
-        timetableTabBarButton.addTarget(self, action: #selector(timetableTabBarButtonDidTapped), for: .touchUpInside)
-        tabBar.addSubview(timetableTabBarButton)
+        timetableButton.type = .pushButton
+        timetableButton.cornerRadius = timetableButton.frame.height / 2
+        timetableButton.addTarget(self, action: #selector(timetableButtonDidTapped), for: .touchUpInside)
+        tabBar.addSubview(timetableButton)
 
         let baseView = UIView()
         baseView.translatesAutoresizingMaskIntoConstraints = false
-        timetableTabBarButton.setContentView(baseView)
+        timetableButton.setContentView(baseView)
 
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "graduationcap")
@@ -57,8 +57,8 @@ private extension MyUITabBarController {
          imageView.centerYAnchor.constraint(equalTo: baseView.centerYAnchor),
         ].forEach { $0.isActive = true }
         
-        [baseView.centerXAnchor.constraint(equalTo: timetableTabBarButton.centerXAnchor),
-         baseView.centerYAnchor.constraint(equalTo: timetableTabBarButton.centerYAnchor),
+        [baseView.centerXAnchor.constraint(equalTo: timetableButton.centerXAnchor),
+         baseView.centerYAnchor.constraint(equalTo: timetableButton.centerYAnchor),
         ].forEach { $0.isActive = true }
     }
     
@@ -66,7 +66,7 @@ private extension MyUITabBarController {
 
 private extension MyUITabBarController {
     
-    @objc func timetableTabBarButtonDidTapped() {
+    @objc func timetableButtonDidTapped() {
         print(#function)
     }
     
