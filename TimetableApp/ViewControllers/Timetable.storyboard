@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--タイトル-->
+        <!--Timetable View Controller-->
         <scene sceneID="g2f-hs-YNq">
             <objects>
                 <viewController id="e6e-eT-0jV" customClass="TimetableViewController" customModule="TimetableApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -278,9 +278,7 @@
                             <constraint firstItem="oec-wu-alq" firstAttribute="leading" secondItem="lj5-Tk-GXS" secondAttribute="trailing" constant="2" id="xTE-MJ-Udo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="タイトル" id="FHE-Yl-cus">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4fb-qK-b2k"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="FHE-Yl-cus"/>
                     <connections>
                         <outlet property="collectionView" destination="yAA-9s-ty2" id="xn2-hB-gIl"/>
                         <outletCollection property="weekViews" destination="a1k-dB-NMW" collectionClass="NSMutableArray" id="9Yv-hO-DP0"/>

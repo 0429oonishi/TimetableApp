@@ -42,6 +42,7 @@ private extension TimetableCollectionViewCell {
         let label = UILabel()
         label.text = "授業"
         label.textColor = .black
+        label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         baseView.addSubview(label)
@@ -52,6 +53,7 @@ private extension TimetableCollectionViewCell {
         let label2 = UILabel()
         label2.text = "教室"
         label2.textColor = .black
+        label.textAlignment = .center
         label2.font = .boldSystemFont(ofSize: 12)
         label2.translatesAutoresizingMaskIntoConstraints = false
         baseView.addSubview(label2)

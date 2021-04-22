@@ -28,6 +28,7 @@ final class TimetableViewController: UIViewController {
         collectionView.register(TimetableCollectionViewCell.nib(),
                                 forCellWithReuseIdentifier: TimetableCollectionViewCell.identifier)
         
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -36,7 +37,7 @@ final class TimetableViewController: UIViewController {
         setupWeekAndPeriodViews(weekViews, weeks)
         setupWeekAndPeriodViews(periodViews, periods)
         setupCollectionView()
-        
+
     }
     
 }
@@ -49,8 +50,9 @@ private extension TimetableViewController {
             view.type = .normal
             let label = UILabel()
             label.text = String(array[index])
-            label.font = .boldSystemFont(ofSize: 15)
             label.textColor = .black
+            label.textAlignment = .center
+            label.font = .boldSystemFont(ofSize: 15)
             label.translatesAutoresizingMaskIntoConstraints = false
             view.setContentView(label)
             [label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
