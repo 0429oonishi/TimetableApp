@@ -13,10 +13,10 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private var weekViews: [NeumorphismView]!
     @IBOutlet private var periodViews: [NeumorphismView]!
     
-    private let weeks = [Character]("月火水木金土")
-    private let periods = [Character]("123456")
-    private let horizontalItemCount = 6
-    private let verticalItemCount = 6
+    private var weeks = Week.allCases.map { $0.rawValue }
+    private var periods = Period.allCases.map { $0.rawValue }
+    private var horizontalItemCount: Int { weeks.count }
+    private var verticalItemCount: Int { periods.count }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ final class TimetableViewController: UIViewController {
 // MARK: - setup
 private extension TimetableViewController {
     
-    func setupWeekAndPeriodViews(_ views: [NeumorphismView], _ array: [Character]) {
+    func setupWeekAndPeriodViews(_ views: [NeumorphismView], _ array: [String]) {
         views.enumerated().forEach { index, view in
             view.type = .normal
             let label = UILabel()
