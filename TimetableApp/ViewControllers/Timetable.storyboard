@@ -282,18 +282,18 @@
                     <navigationItem key="navigationItem" id="FHE-Yl-cus"/>
                     <connections>
                         <outlet property="collectionView" destination="yAA-9s-ty2" id="xn2-hB-gIl"/>
-                        <outletCollection property="weekViews" destination="a1k-dB-NMW" collectionClass="NSMutableArray" id="9Yv-hO-DP0"/>
-                        <outletCollection property="weekViews" destination="ckf-TL-zyI" collectionClass="NSMutableArray" id="wBe-oc-fO7"/>
-                        <outletCollection property="weekViews" destination="jal-Z7-A0W" collectionClass="NSMutableArray" id="GoM-mh-0py"/>
-                        <outletCollection property="weekViews" destination="G0N-QZ-A97" collectionClass="NSMutableArray" id="hIl-tp-ejC"/>
-                        <outletCollection property="weekViews" destination="5RF-9u-sgm" collectionClass="NSMutableArray" id="hZt-yo-WQR"/>
-                        <outletCollection property="weekViews" destination="gWO-6D-AQi" collectionClass="NSMutableArray" id="vLR-1C-2y8"/>
-                        <outletCollection property="periodViews" destination="4Ez-XX-xAU" collectionClass="NSMutableArray" id="s8j-YA-kFX"/>
-                        <outletCollection property="periodViews" destination="79c-uF-aWe" collectionClass="NSMutableArray" id="kEV-lx-fwh"/>
-                        <outletCollection property="periodViews" destination="arG-gG-ReO" collectionClass="NSMutableArray" id="vCj-Aq-O1X"/>
-                        <outletCollection property="periodViews" destination="vDk-lD-972" collectionClass="NSMutableArray" id="ew9-zw-wd6"/>
-                        <outletCollection property="periodViews" destination="B8y-aX-RWL" collectionClass="NSMutableArray" id="i8E-Qj-jVW"/>
-                        <outletCollection property="periodViews" destination="HdL-EP-LrW" collectionClass="NSMutableArray" id="Kp7-Eo-nyR"/>
+                        <outlet property="fivePeriodView" destination="B8y-aX-RWL" id="PWj-Zc-keW"/>
+                        <outlet property="fourPeriodView" destination="vDk-lD-972" id="AeJ-QB-pol"/>
+                        <outlet property="fridayView" destination="5RF-9u-sgm" id="U1W-KY-aKI"/>
+                        <outlet property="mondayView" destination="a1k-dB-NMW" id="lJL-ho-R1i"/>
+                        <outlet property="onePeriodView" destination="4Ez-XX-xAU" id="HpK-pX-3Rs"/>
+                        <outlet property="saturdayView" destination="gWO-6D-AQi" id="zAL-rO-fRb"/>
+                        <outlet property="sixPeriodView" destination="HdL-EP-LrW" id="hC5-IF-DVj"/>
+                        <outlet property="threePeriodView" destination="arG-gG-ReO" id="izS-26-8C5"/>
+                        <outlet property="thursdayView" destination="G0N-QZ-A97" id="dIn-4W-ydt"/>
+                        <outlet property="tuesdayView" destination="ckf-TL-zyI" id="JvW-pU-a5h"/>
+                        <outlet property="twoPeriodView" destination="79c-uF-aWe" id="JTK-0I-EIe"/>
+                        <outlet property="wednesdayView" destination="jal-Z7-A0W" id="nz3-2g-VcB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zR5-a2-vPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

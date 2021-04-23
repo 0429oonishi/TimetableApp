@@ -8,7 +8,6 @@
 import Foundation
 
 enum Week: String, CaseIterable {
-    case sunday = "日"
     case monday = "月"
     case tuesday = "火"
     case wednesday = "水"

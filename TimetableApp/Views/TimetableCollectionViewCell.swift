@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TimetableCollectionViewCellDelegate: class {
+    func myViewDidTapped()
+}
+
 final class TimetableCollectionViewCell: UICollectionViewCell {
     
     static var identifier: String {
@@ -15,6 +19,7 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
     static func nib() -> UINib {
         return UINib(nibName: String(describing: self), bundle: nil)
     }
+    weak var delegate: TimetableCollectionViewCellDelegate?
     
     @IBOutlet private weak var myView: NeumorphismView!
     
@@ -33,7 +38,7 @@ private extension TimetableCollectionViewCell {
     func setupNeumorphismView() {
         myView.type = .pushButton
         myView.cornerRadius = 15
-        myView.addTarget(self, action: #selector(someFunc), for: .touchUpInside)
+        myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
         
         let baseView = UIView()
         baseView.translatesAutoresizingMaskIntoConstraints = false
@@ -71,8 +76,8 @@ private extension TimetableCollectionViewCell {
 
 private extension TimetableCollectionViewCell {
     
-    @objc func someFunc() {
-        print(#function)
+    @objc func myViewDidTapped() {
+        delegate?.myViewDidTapped()
     }
     
 }
