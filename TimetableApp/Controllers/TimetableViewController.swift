@@ -24,7 +24,7 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var fourPeriodView: NeumorphismView!
     @IBOutlet private weak var fivePeriodView: NeumorphismView!
     @IBOutlet private weak var sixPeriodView: NeumorphismView!
-
+    
     private var weeks = Week.allCases
     private var periods = Period.allCases
     private var horizontalItemCount: Int { weeks.count }
@@ -55,7 +55,7 @@ final class TimetableViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         setupCollectionView()
         setupWeekAndPeriodViews()
         
@@ -166,14 +166,24 @@ extension TimetableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimetableCollectionViewCell.identifier,
                                                       for: indexPath) as! TimetableCollectionViewCell
         cell.delegate = self
+        cell.setup(index: indexPath.row)
         return cell
     }
-    
+
 }
 
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
-    func myViewDidTapped() {
+    func collectionView(didSelectItemAt index: Int) {
+        let storyboard = UIStoryboard(name: "AdditionalLecture", bundle: nil)
+        let additionalLectureVC = storyboard.instantiateViewController(
+            identifier: AdditionalLectureViewController.identifier
+        ) as! AdditionalLectureViewController
+        additionalLectureVC.modalPresentationStyle = .fullScreen
+        additionalLectureVC.lectureText = "授業名: \(index)"
+        additionalLectureVC.lectureTime = "開始時間: \(index)"
+        additionalLectureVC.lectureRoom = "教室番号: \(index)"
+        present(additionalLectureVC, animated: true, completion: nil)
     }
     
 }
