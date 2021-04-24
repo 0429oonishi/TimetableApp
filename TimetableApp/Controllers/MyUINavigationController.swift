@@ -46,23 +46,15 @@ private extension MyUINavigationController {
         screenshotButton.addTarget(self, action: #selector(screenshotButtonDidTapped), for: .touchUpInside)
         navigationBar.addSubview(screenshotButton)
         
-        let baseView = UIView()
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        screenshotButton.setContentView(baseView)
-        
         let label = UILabel()
         label.text = "スクショ"
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
-        baseView.addSubview(label)
-        [label.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: baseView.centerYAnchor),
-        ].forEach { $0.isActive = true }
-        
-        [baseView.centerXAnchor.constraint(equalTo: screenshotButton.centerXAnchor),
-         baseView.centerYAnchor.constraint(equalTo: screenshotButton.centerYAnchor),
+        screenshotButton.addSubview(label)
+        [label.centerXAnchor.constraint(equalTo: screenshotButton.centerXAnchor),
+         label.centerYAnchor.constraint(equalTo: screenshotButton.centerYAnchor),
         ].forEach { $0.isActive = true }
     }
     
@@ -81,23 +73,15 @@ private extension MyUINavigationController {
         titleButton.addTarget(self, action: #selector(titleButtonDidTapped), for: .touchUpInside)
         navigationBar.addSubview(titleButton)
         
-        let baseView = UIView()
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        titleButton.setContentView(baseView)
-        
         let label = UILabel()
         label.text = "タイトル"
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
-        baseView.addSubview(label)
-        [label.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: baseView.centerYAnchor),
-        ].forEach { $0.isActive = true }
-        
-        [baseView.centerXAnchor.constraint(equalTo: titleButton.centerXAnchor),
-         baseView.centerYAnchor.constraint(equalTo: titleButton.centerYAnchor),
+        titleButton.addSubview(label)
+        [label.centerXAnchor.constraint(equalTo: titleButton.centerXAnchor),
+         label.centerYAnchor.constraint(equalTo: titleButton.centerYAnchor),
         ].forEach { $0.isActive = true }
     }
     
@@ -116,21 +100,13 @@ private extension MyUINavigationController {
         settingButton.addTarget(self, action: #selector(settingButtonDidTapped), for: .touchUpInside)
         navigationBar.addSubview(settingButton)
         
-        let baseView = UIView()
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        settingButton.setContentView(baseView)
-        
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "gearshape")
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        baseView.addSubview(imageView)
-        [imageView.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
-         imageView.centerYAnchor.constraint(equalTo: baseView.centerYAnchor),
-        ].forEach { $0.isActive = true }
-        
-        [baseView.centerXAnchor.constraint(equalTo: settingButton.centerXAnchor),
-         baseView.centerYAnchor.constraint(equalTo: settingButton.centerYAnchor),
+        settingButton.addSubview(imageView)
+        [imageView.centerXAnchor.constraint(equalTo: settingButton.centerXAnchor),
+         imageView.centerYAnchor.constraint(equalTo: settingButton.centerYAnchor),
         ].forEach { $0.isActive = true }
     }
     
