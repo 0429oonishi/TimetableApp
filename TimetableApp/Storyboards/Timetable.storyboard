@@ -287,6 +287,7 @@
                         <outlet property="fridayView" destination="5RF-9u-sgm" id="U1W-KY-aKI"/>
                         <outlet property="mondayView" destination="a1k-dB-NMW" id="lJL-ho-R1i"/>
                         <outlet property="onePeriodView" destination="4Ez-XX-xAU" id="HpK-pX-3Rs"/>
+                        <outlet property="periodStackView" destination="jSp-lJ-9GK" id="TDy-Fh-WDk"/>
                         <outlet property="saturdayView" destination="gWO-6D-AQi" id="zAL-rO-fRb"/>
                         <outlet property="sixPeriodView" destination="HdL-EP-LrW" id="hC5-IF-DVj"/>
                         <outlet property="threePeriodView" destination="arG-gG-ReO" id="izS-26-8C5"/>
@@ -294,6 +295,7 @@
                         <outlet property="tuesdayView" destination="ckf-TL-zyI" id="JvW-pU-a5h"/>
                         <outlet property="twoPeriodView" destination="79c-uF-aWe" id="JTK-0I-EIe"/>
                         <outlet property="wednesdayView" destination="jal-Z7-A0W" id="nz3-2g-VcB"/>
+                        <outlet property="weekStackView" destination="oec-wu-alq" id="F6K-uk-Whn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zR5-a2-vPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

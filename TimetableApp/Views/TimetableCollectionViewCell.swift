@@ -13,15 +13,11 @@ protocol TimetableCollectionViewCellDelegate: class {
 
 final class TimetableCollectionViewCell: UICollectionViewCell {
     
-    static var identifier: String {
-        return String(describing: self)
-    }
-    static func nib() -> UINib {
-        return UINib(nibName: String(describing: self), bundle: nil)
-    }
-    weak var delegate: TimetableCollectionViewCellDelegate?
-    
     @IBOutlet private weak var myView: NeumorphismView!
+    
+    static var identifier: String { String(describing: self) }
+    static func nib() -> UINib { UINib(nibName: String(describing: self), bundle: nil) }
+    weak var delegate: TimetableCollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,20 +35,16 @@ private extension TimetableCollectionViewCell {
         myView.type = .pushButton
         myView.cornerRadius = 15
         myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
-        
-        let baseView = UIView()
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        baseView.backgroundColor = .clear
-        
+
         let label = UILabel()
         label.text = "授業"
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
-        baseView.addSubview(label)
-        [label.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: baseView.centerYAnchor),
+        myView.addSubview(label)
+        [label.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
+         label.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
         ].forEach { $0.isActive = true }
         
         let label2 = UILabel()
@@ -61,14 +53,9 @@ private extension TimetableCollectionViewCell {
         label.textAlignment = .center
         label2.font = .boldSystemFont(ofSize: 12)
         label2.translatesAutoresizingMaskIntoConstraints = false
-        baseView.addSubview(label2)
-        [label2.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
-         label2.centerYAnchor.constraint(equalTo: baseView.centerYAnchor, constant: 25),
-        ].forEach { $0.isActive = true }
-        
-        myView.setContentView(baseView)
-        [baseView.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
-         baseView.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
+        myView.addSubview(label2)
+        [label2.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
+         label2.centerYAnchor.constraint(equalTo: myView.centerYAnchor, constant: 25),
         ].forEach { $0.isActive = true }
     }
     

@@ -44,22 +44,15 @@ private extension MyUITabBarController {
         timetableButton.addTarget(self, action: #selector(timetableButtonDidTapped), for: .touchUpInside)
         tabBar.addSubview(timetableButton)
 
-        let baseView = UIView()
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        timetableButton.setContentView(baseView)
-
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "graduationcap")
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        baseView.addSubview(imageView)
-        [imageView.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
-         imageView.centerYAnchor.constraint(equalTo: baseView.centerYAnchor),
+        timetableButton.addSubview(imageView)
+        [imageView.centerXAnchor.constraint(equalTo: timetableButton.centerXAnchor),
+         imageView.centerYAnchor.constraint(equalTo: timetableButton.centerYAnchor),
         ].forEach { $0.isActive = true }
         
-        [baseView.centerXAnchor.constraint(equalTo: timetableButton.centerXAnchor),
-         baseView.centerYAnchor.constraint(equalTo: timetableButton.centerYAnchor),
-        ].forEach { $0.isActive = true }
     }
     
 }

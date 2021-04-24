@@ -147,7 +147,15 @@ private extension MyUINavigationController {
     }
     
     @objc func settingButtonDidTapped() {
-        print(#function)
+        let storyboard = UIStoryboard(name: "TimetableSetting", bundle: nil)
+        let timetableSettingVC = storyboard.instantiateViewController(
+            identifier: TimetableSettingViewController.identifier
+        ) as! TimetableSettingViewController
+        timetableSettingVC.modalPresentationStyle = .fullScreen
+        if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
+            timetableSettingVC.timetableSettingInts = ints
+        }
+        present(timetableSettingVC, animated: true, completion: nil)
     }
     
 }

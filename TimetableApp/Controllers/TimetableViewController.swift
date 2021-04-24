@@ -10,12 +10,14 @@ import UIKit
 final class TimetableViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var weekStackView: UIStackView!
     @IBOutlet private weak var mondayView: NeumorphismView!
     @IBOutlet private weak var tuesdayView: NeumorphismView!
     @IBOutlet private weak var wednesdayView: NeumorphismView!
     @IBOutlet private weak var thursdayView: NeumorphismView!
     @IBOutlet private weak var fridayView: NeumorphismView!
     @IBOutlet private weak var saturdayView: NeumorphismView!
+    @IBOutlet private weak var periodStackView: UIStackView!
     @IBOutlet private weak var onePeriodView: NeumorphismView!
     @IBOutlet private weak var twoPeriodView: NeumorphismView!
     @IBOutlet private weak var threePeriodView: NeumorphismView!
@@ -23,8 +25,8 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var fivePeriodView: NeumorphismView!
     @IBOutlet private weak var sixPeriodView: NeumorphismView!
 
-    private var weeks = Week.allCases.map { $0.rawValue }
-    private var periods = Period.allCases.map { $0.rawValue }
+    private var weeks = Week.allCases
+    private var periods = Period.allCases
     private var horizontalItemCount: Int { weeks.count }
     private var verticalItemCount: Int { periods.count }
     
@@ -40,12 +42,59 @@ final class TimetableViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
+            ints[0] == 0 ? deleteSaturday() : addSaturday()
+            ints[1] == 0 ? deleteSixPeriod() : addSixPeriod()
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         setupCollectionView()
         setupWeekAndPeriodViews()
         
+    }
+    
+}
+
+private extension TimetableViewController {
+    
+    func deleteSaturday() {
+        if weeks.contains(.saturday) {
+            let saturdaySuperView = weekStackView.arrangedSubviews[5]
+            saturdaySuperView.isHidden = true
+            weeks.remove(at: 5)
+        }
+    }
+    
+    func addSaturday() {
+        if !weeks.contains(.saturday) {
+            let saturdaySuperView = weekStackView.arrangedSubviews[5]
+            saturdaySuperView.isHidden = false
+            weeks.append(.saturday)
+        }
+    }
+    
+    func deleteSixPeriod() {
+        if periods.contains(.six) {
+            let sixPeriodSuperView = periodStackView.arrangedSubviews[5]
+            sixPeriodSuperView.isHidden = true
+            periods.remove(at: 5)
+        }
+    }
+    
+    func addSixPeriod() {
+        if !periods.contains(.six) {
+            let sixPeriodSuperView = periodStackView.arrangedSubviews[5]
+            sixPeriodSuperView.isHidden = false
+            periods.append(.six)
+        }
     }
     
 }
@@ -69,18 +118,18 @@ private extension TimetableViewController {
     }
     
     func setupWeekAndPeriodViews() {
-        mondayView.setupWeekAndPeriodView(weeks[0])
-        tuesdayView.setupWeekAndPeriodView(weeks[1])
-        wednesdayView.setupWeekAndPeriodView(weeks[2])
-        thursdayView.setupWeekAndPeriodView(weeks[3])
-        fridayView.setupWeekAndPeriodView(weeks[4])
-        saturdayView.setupWeekAndPeriodView(weeks[5])
-        onePeriodView.setupWeekAndPeriodView(periods[0])
-        twoPeriodView.setupWeekAndPeriodView(periods[1])
-        threePeriodView.setupWeekAndPeriodView(periods[2])
-        fourPeriodView.setupWeekAndPeriodView(periods[3])
-        fivePeriodView.setupWeekAndPeriodView(periods[4])
-        sixPeriodView.setupWeekAndPeriodView(periods[5])
+        mondayView.setupWeekAndPeriodView(Week.monday.rawValue)
+        tuesdayView.setupWeekAndPeriodView(Week.tuesday.rawValue)
+        wednesdayView.setupWeekAndPeriodView(Week.wednesday.rawValue)
+        thursdayView.setupWeekAndPeriodView(Week.thursday.rawValue)
+        fridayView.setupWeekAndPeriodView(Week.friday.rawValue)
+        saturdayView.setupWeekAndPeriodView(Week.saturday.rawValue)
+        onePeriodView.setupWeekAndPeriodView(Period.one.rawValue)
+        twoPeriodView.setupWeekAndPeriodView(Period.two.rawValue)
+        threePeriodView.setupWeekAndPeriodView(Period.three.rawValue)
+        fourPeriodView.setupWeekAndPeriodView(Period.four.rawValue)
+        fivePeriodView.setupWeekAndPeriodView(Period.five.rawValue)
+        sixPeriodView.setupWeekAndPeriodView(Period.six.rawValue)
     }
     
 }
@@ -125,7 +174,6 @@ extension TimetableViewController: UICollectionViewDataSource {
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
     func myViewDidTapped() {
-        
     }
     
 }
