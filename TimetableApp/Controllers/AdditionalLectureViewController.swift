@@ -20,11 +20,12 @@ final class AdditionalLectureViewController: UIViewController {
     var lectureText: String?
     var lectureTime: String?
     var lectureRoom: String?
+    var backButtonEvent: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+        self.view.backgroundColor = .clear
         
     }
     
@@ -105,6 +106,7 @@ private extension NeumorphismView {
 @objc private extension AdditionalLectureViewController {
     
     func backButtonDidTapped() {
+        backButtonEvent?()
         dismiss(animated: true, completion: nil)
     }
     

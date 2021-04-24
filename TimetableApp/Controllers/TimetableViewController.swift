@@ -179,7 +179,9 @@ extension TimetableViewController: TimetableCollectionViewCellDelegate {
         let additionalLectureVC = storyboard.instantiateViewController(
             identifier: AdditionalLectureViewController.identifier
         ) as! AdditionalLectureViewController
-        additionalLectureVC.modalPresentationStyle = .fullScreen
+        additionalLectureVC.modalPresentationStyle = .overCurrentContext
+        self.view.layer.opacity = 0.6
+        additionalLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
         additionalLectureVC.lectureText = "授業名: \(index)"
         additionalLectureVC.lectureTime = "開始時間: \(index)"
         additionalLectureVC.lectureRoom = "教室番号: \(index)"
