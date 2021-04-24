@@ -19,7 +19,6 @@ final class MyUINavigationController: UINavigationController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        setupScreenshotButton()
         setupTitleButton()
         setupSettingButton()
         
@@ -29,34 +28,6 @@ final class MyUINavigationController: UINavigationController {
 
 // MARK: - setup
 private extension MyUINavigationController {
-    
-    func setupScreenshotButton() {
-        let screenshotButtonWidth: CGFloat = 60
-        let screenshotButtonHeight: CGFloat = 30
-        let screenshotButton = NeumorphismView(
-            frame: CGRect(
-                x: navigationBar.frame.size.width - (15 + screenshotButtonWidth),
-                y: (navigationBar.frame.size.height - screenshotButtonHeight) / 2,
-                width: screenshotButtonWidth,
-                height: screenshotButtonHeight
-            )
-        )
-        screenshotButton.type = .pushButton
-        screenshotButton.cornerRadius = screenshotButton.frame.height / 2
-        screenshotButton.addTarget(self, action: #selector(screenshotButtonDidTapped), for: .touchUpInside)
-        navigationBar.addSubview(screenshotButton)
-        
-        let label = UILabel()
-        label.text = "スクショ"
-        label.textColor = .black
-        label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 12)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        screenshotButton.addSubview(label)
-        [label.centerXAnchor.constraint(equalTo: screenshotButton.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: screenshotButton.centerYAnchor),
-        ].forEach { $0.isActive = true }
-    }
     
     func setupTitleButton() {
         let titleButtonWidth: CGFloat = 70
@@ -112,17 +83,13 @@ private extension MyUINavigationController {
     
 }
 
-private extension MyUINavigationController {
+@objc private extension MyUINavigationController {
     
-    @objc func screenshotButtonDidTapped() {
+    func titleButtonDidTapped() {
         print(#function)
     }
     
-    @objc func titleButtonDidTapped() {
-        print(#function)
-    }
-    
-    @objc func settingButtonDidTapped() {
+    func settingButtonDidTapped() {
         let storyboard = UIStoryboard(name: "TimetableSetting", bundle: nil)
         let timetableSettingVC = storyboard.instantiateViewController(
             identifier: TimetableSettingViewController.identifier
@@ -135,3 +102,4 @@ private extension MyUINavigationController {
     }
     
 }
+
