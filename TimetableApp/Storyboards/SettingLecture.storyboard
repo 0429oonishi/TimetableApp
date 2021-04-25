@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Setting Lecture View Controller-->
+        <scene sceneID="iQX-J1-od0">
+            <objects>
+                <viewController storyboardIdentifier="SettingLectureViewController" id="Dls-rF-xzJ" customClass="SettingLectureViewController" customModule="TimetableApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="izH-Cs-Xhv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="TyY-5i-5Bs">
+                                <rect key="frame" x="80" y="294" width="254" height="406"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="PKM-L9-c8S">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="102"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0S-v6-mQA" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="w0S-v6-mQA" secondAttribute="height" multiplier="1:1" id="rqk-kv-C04"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZu-C9-zni" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                                <rect key="frame" x="152" y="0.0" width="102" height="102"/>
+                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="gDj-hV-JSA">
+                                        <rect key="frame" x="0.0" y="152" width="254" height="102"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFd-AC-KQX" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXO-lV-ep1" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                                <rect key="frame" x="152" y="0.0" width="102" height="102"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAm-SG-XmD" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="304" width="254" height="102"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngb-18-5yf" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                <rect key="frame" x="80" y="94" width="254" height="150"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="DGG-79-mYk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="keO-GN-hYl"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ngb-18-5yf" firstAttribute="leading" secondItem="keO-GN-hYl" secondAttribute="leading" constant="80" id="3Yy-b9-noN"/>
+                            <constraint firstItem="ngb-18-5yf" firstAttribute="top" secondItem="keO-GN-hYl" secondAttribute="top" constant="50" id="IzZ-p4-KX5"/>
+                            <constraint firstItem="keO-GN-hYl" firstAttribute="trailing" secondItem="TyY-5i-5Bs" secondAttribute="trailing" constant="80" id="UEx-70-d2p"/>
+                            <constraint firstItem="keO-GN-hYl" firstAttribute="trailing" secondItem="ngb-18-5yf" secondAttribute="trailing" constant="80" id="XIR-Ja-zNz"/>
+                            <constraint firstItem="TyY-5i-5Bs" firstAttribute="leading" secondItem="keO-GN-hYl" secondAttribute="leading" constant="80" id="d7u-Oe-SyQ"/>
+                            <constraint firstItem="TyY-5i-5Bs" firstAttribute="top" secondItem="ngb-18-5yf" secondAttribute="bottom" constant="50" id="ntb-UH-20X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addOrEditButton" destination="w0S-v6-mQA" id="uPp-x3-CvY"/>
+                        <outlet property="attendanceButton" destination="PZu-C9-zni" id="XBf-cY-SS3"/>
+                        <outlet property="backButton" destination="oAm-SG-XmD" id="hyW-5e-awG"/>
+                        <outlet property="colorButton" destination="iXO-lV-ep1" id="OpE-M6-0YA"/>
+                        <outlet property="lectureView" destination="ngb-18-5yf" id="wmW-io-oDb"/>
+                        <outlet property="memoButton" destination="mFd-AC-KQX" id="Khs-SL-4cJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjc-n3-wcy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429" y="-135"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

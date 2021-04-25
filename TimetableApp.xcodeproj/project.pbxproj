@@ -11,8 +11,12 @@
 		AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A811C2633DB41007A20C2 /* String+Extension.swift */; };
 		AB8A81272633E60B007A20C2 /* Bool+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81262633E60B007A20C2 /* Bool+Extension.swift */; };
 		AB8A812B2633ECC8007A20C2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */; };
-		AB8A813026344399007A20C2 /* AdditionalLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A812F26344399007A20C2 /* AdditionalLectureViewController.swift */; };
-		AB8A8133263443B9007A20C2 /* AdditionalLecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A8132263443B9007A20C2 /* AdditionalLecture.storyboard */; };
+		AB8A813026344399007A20C2 /* SettingLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A812F26344399007A20C2 /* SettingLectureViewController.swift */; };
+		AB8A8133263443B9007A20C2 /* SettingLecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A8132263443B9007A20C2 /* SettingLecture.storyboard */; };
+		AB8A81CC26359AFA007A20C2 /* AdditionalLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81CB26359AFA007A20C2 /* AdditionalLectureViewController.swift */; };
+		AB8A81CF26359B17007A20C2 /* EditLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81CE26359B17007A20C2 /* EditLectureViewController.swift */; };
+		AB8A81D226359B28007A20C2 /* AdditionalLecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A81D126359B28007A20C2 /* AdditionalLecture.storyboard */; };
+		AB8A81D526359B30007A20C2 /* EditLecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A81D426359B30007A20C2 /* EditLecture.storyboard */; };
 		ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */; };
 		ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */; };
 		ABB6A2BE262D056100CFB798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2BD262D056100CFB798 /* Assets.xcassets */; };
@@ -37,8 +41,12 @@
 		AB8A811C2633DB41007A20C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AB8A81262633E60B007A20C2 /* Bool+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extension.swift"; sourceTree = "<group>"; };
 		AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
-		AB8A812F26344399007A20C2 /* AdditionalLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalLectureViewController.swift; sourceTree = "<group>"; };
-		AB8A8132263443B9007A20C2 /* AdditionalLecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdditionalLecture.storyboard; sourceTree = "<group>"; };
+		AB8A812F26344399007A20C2 /* SettingLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLectureViewController.swift; sourceTree = "<group>"; };
+		AB8A8132263443B9007A20C2 /* SettingLecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingLecture.storyboard; sourceTree = "<group>"; };
+		AB8A81CB26359AFA007A20C2 /* AdditionalLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalLectureViewController.swift; sourceTree = "<group>"; };
+		AB8A81CE26359B17007A20C2 /* EditLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLectureViewController.swift; sourceTree = "<group>"; };
+		AB8A81D126359B28007A20C2 /* AdditionalLecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdditionalLecture.storyboard; sourceTree = "<group>"; };
+		AB8A81D426359B30007A20C2 /* EditLecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditLecture.storyboard; sourceTree = "<group>"; };
 		ABB6A2B1262D055D00CFB798 /* TimetableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimetableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,7 +137,9 @@
 				ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */,
 				ABD7A675263004BE008F1556 /* MyUITabBarController.swift */,
 				ABB6A2CE262D077300CFB798 /* TimetableViewController.swift */,
-				AB8A812F26344399007A20C2 /* AdditionalLectureViewController.swift */,
+				AB8A812F26344399007A20C2 /* SettingLectureViewController.swift */,
+				AB8A81CB26359AFA007A20C2 /* AdditionalLectureViewController.swift */,
+				AB8A81CE26359B17007A20C2 /* EditLectureViewController.swift */,
 				ABD7A6B02632A3E9008F1556 /* TimetableSettingViewController.swift */,
 			);
 			path = Controllers;
@@ -160,7 +170,9 @@
 			isa = PBXGroup;
 			children = (
 				ABB6A2C9262D074500CFB798 /* Timetable.storyboard */,
-				AB8A8132263443B9007A20C2 /* AdditionalLecture.storyboard */,
+				AB8A8132263443B9007A20C2 /* SettingLecture.storyboard */,
+				AB8A81D126359B28007A20C2 /* AdditionalLecture.storyboard */,
+				AB8A81D426359B30007A20C2 /* EditLecture.storyboard */,
 				ABD7A6B32632A3F7008F1556 /* TimetableSetting.storyboard */,
 			);
 			path = Storyboards;
@@ -223,11 +235,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8A81D226359B28007A20C2 /* AdditionalLecture.storyboard in Resources */,
 				ABB6A2C1262D056100CFB798 /* LaunchScreen.storyboard in Resources */,
 				ABB6A2BE262D056100CFB798 /* Assets.xcassets in Resources */,
+				AB8A81D526359B30007A20C2 /* EditLecture.storyboard in Resources */,
 				ABB6A2DC262D1F8200CFB798 /* TimetableCollectionViewCell.xib in Resources */,
 				ABB6A2CA262D074500CFB798 /* Timetable.storyboard in Resources */,
-				AB8A8133263443B9007A20C2 /* AdditionalLecture.storyboard in Resources */,
+				AB8A8133263443B9007A20C2 /* SettingLecture.storyboard in Resources */,
 				ABD7A6C52632A967008F1556 /* TimetableSettingTableViewCell.xib in Resources */,
 				ABD7A6B42632A3F7008F1556 /* TimetableSetting.storyboard in Resources */,
 			);
@@ -249,13 +263,15 @@
 				ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */,
 				AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */,
 				ABD7A6AA2632762C008F1556 /* Period.swift in Sources */,
+				AB8A81CC26359AFA007A20C2 /* AdditionalLectureViewController.swift in Sources */,
 				ABB6A307262DD11600CFB798 /* NeumorphismView.swift in Sources */,
 				AB8A81272633E60B007A20C2 /* Bool+Extension.swift in Sources */,
 				ABB6A2DB262D1F8200CFB798 /* TimetableCollectionViewCell.swift in Sources */,
-				AB8A813026344399007A20C2 /* AdditionalLectureViewController.swift in Sources */,
+				AB8A813026344399007A20C2 /* SettingLectureViewController.swift in Sources */,
 				ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */,
 				ABD7A6C42632A967008F1556 /* TimetableSettingTableViewCell.swift in Sources */,
 				ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */,
+				AB8A81CF26359B17007A20C2 /* EditLectureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

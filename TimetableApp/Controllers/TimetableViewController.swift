@@ -178,18 +178,20 @@ extension TimetableViewController: UICollectionViewDataSource {
 // MARK: - CellDelegate
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
-    func collectionView(didSelectItemAt index: Int) {
-        let storyboard = UIStoryboard(name: .additionalLecture, bundle: nil)
-        let additionalLectureVC = storyboard.instantiateViewController(
-            identifier: AdditionalLectureViewController.identifier
-        ) as! AdditionalLectureViewController
-        additionalLectureVC.modalPresentationStyle = .overCurrentContext
+    func collectionView(didSelectItemAt index: Int, text: String?) {
+        let storyboard = UIStoryboard(name: .settingLecture, bundle: nil)
+        let settingLectureVC = storyboard.instantiateViewController(
+            identifier: SettingLectureViewController.identifier
+        ) as! SettingLectureViewController
+        settingLectureVC.modalPresentationStyle = .overCurrentContext
         self.view.layer.opacity = 0.6
-        additionalLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
-        additionalLectureVC.lectureText = "授業名: \(index)"
-        additionalLectureVC.lectureTime = "開始時間: \(index)"
-        additionalLectureVC.lectureRoom = "教室番号: \(index)"
-        present(additionalLectureVC, animated: true, completion: nil)
+        settingLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
+        if let text = text {
+            settingLectureVC.lectureText = "授業名: \(text)"
+        }
+//        settingLectureVC.lectureTime = "開始時間: \(index)"
+//        settingLectureVC.lectureRoom = "教室番号: \(index)"
+        present(settingLectureVC, animated: true, completion: nil)
     }
     
 }

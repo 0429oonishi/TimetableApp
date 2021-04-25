@@ -14,7 +14,9 @@ extension String {
     
     // MARK: - UIStoryboard name
     static let timetableSetting = "TimetableSetting"
+    static let settingLecture = "SettingLecture"
     static let additionalLecture = "AdditionalLecture"
+    static let editLecture = "EditLecture"
     
 }
 

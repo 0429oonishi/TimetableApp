@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TimetableCollectionViewCellDelegate: class {
-    func collectionView(didSelectItemAt index: Int)
+    func collectionView(didSelectItemAt index: Int, text: String?)
 }
 
 final class TimetableCollectionViewCell: UICollectionViewCell {
@@ -26,8 +26,10 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
 extension TimetableCollectionViewCell {
     
     func setup(index: Int) {
-        myView.tag = index
-        setupMyView(index: myView.tag)
+        setupMyView()
+        if index.isMultiple(of: 3) {
+            setupMyLabel(text: "実験")
+        }
     }
     
 }
@@ -35,16 +37,19 @@ extension TimetableCollectionViewCell {
 // MARK: - setup
 private extension TimetableCollectionViewCell {
     
-    func setupMyView(index: Int) {
+    func setupMyView() {
         myView.type = .pushButton
         myView.cornerRadius = 15
         myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
+    }
+    
+    func setupMyLabel(text: String) {
         myLabel?.removeFromSuperview()
         myLabel = UILabel()
-        myLabel?.text = String(myView.tag)
+        myLabel?.text = text
         myLabel?.textColor = .black
         myLabel?.textAlignment = .center
-        myLabel?.font = .boldSystemFont(ofSize: 20)
+        myLabel?.font = .boldSystemFont(ofSize: 18)
         myLabel?.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(myLabel!)
         [myLabel!.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
@@ -58,7 +63,7 @@ private extension TimetableCollectionViewCell {
 @objc private extension TimetableCollectionViewCell {
     
     func myViewDidTapped() {
-        delegate?.collectionView(didSelectItemAt: myView.tag)
+        delegate?.collectionView(didSelectItemAt: myView.tag, text: myLabel?.text)
     }
     
 }
