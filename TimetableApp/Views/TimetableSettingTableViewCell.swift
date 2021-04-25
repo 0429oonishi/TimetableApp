@@ -11,8 +11,6 @@ final class TimetableSettingTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var myView: NeumorphismView!
     
-    static var identifier: String { String(describing: self) }
-    static func nib() -> UINib { UINib(nibName: String(describing: self), bundle: nil) }
     var onTapEvent: ((UISwitch) -> Void)?
 
 }

@@ -8,12 +8,9 @@
 import UIKit
 
 final class AdditionalLectureViewController: UIViewController {
-    
-    static var identifier: String { String(describing: self) }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     

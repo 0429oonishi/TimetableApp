@@ -11,7 +11,6 @@ final class TimetableSettingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    static var identifier: String { String(describing: self) }
     private var timetableSettings: [TimetableSetting] = [
         TimetableSetting(text: "土曜日を表示", isOn: true),
         TimetableSetting(text: "６限目を表示", isOn: true),

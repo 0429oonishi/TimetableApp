@@ -16,7 +16,6 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var colorButton: NeumorphismView!
     @IBOutlet private weak var backButton: NeumorphismView!
     
-    static var identifier: String { String(describing: self) }
     var lectureText: String?
     var lectureTime: String?
     var lectureRoom: String?

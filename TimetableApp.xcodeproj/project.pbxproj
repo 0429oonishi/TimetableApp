@@ -17,6 +17,9 @@
 		AB8A81CF26359B17007A20C2 /* EditLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81CE26359B17007A20C2 /* EditLectureViewController.swift */; };
 		AB8A81D226359B28007A20C2 /* AdditionalLecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A81D126359B28007A20C2 /* AdditionalLecture.storyboard */; };
 		AB8A81D526359B30007A20C2 /* EditLecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A81D426359B30007A20C2 /* EditLecture.storyboard */; };
+		AB8A81DA26359FA0007A20C2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */; };
+		AB8A81DE2635A434007A20C2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */; };
+		AB8A81E12635A470007A20C2 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81E02635A470007A20C2 /* UICollectionViewCell+Extension.swift */; };
 		ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */; };
 		ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */; };
 		ABB6A2BE262D056100CFB798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2BD262D056100CFB798 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		AB8A81CE26359B17007A20C2 /* EditLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLectureViewController.swift; sourceTree = "<group>"; };
 		AB8A81D126359B28007A20C2 /* AdditionalLecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdditionalLecture.storyboard; sourceTree = "<group>"; };
 		AB8A81D426359B30007A20C2 /* EditLecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditLecture.storyboard; sourceTree = "<group>"; };
+		AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		AB8A81E02635A470007A20C2 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		ABB6A2B1262D055D00CFB798 /* TimetableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimetableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +99,9 @@
 				AB8A811C2633DB41007A20C2 /* String+Extension.swift */,
 				AB8A81262633E60B007A20C2 /* Bool+Extension.swift */,
 				AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */,
+				AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */,
+				AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */,
+				AB8A81E02635A470007A20C2 /* UICollectionViewCell+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -256,14 +265,17 @@
 			files = (
 				AB8A812B2633ECC8007A20C2 /* Int+Extension.swift in Sources */,
 				ABD7A676263004BE008F1556 /* MyUITabBarController.swift in Sources */,
+				AB8A81E12635A470007A20C2 /* UICollectionViewCell+Extension.swift in Sources */,
 				ABD7A6A72632761A008F1556 /* Week.swift in Sources */,
 				AB8A80ED263303CB007A20C2 /* TimetableSetting.swift in Sources */,
 				ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */,
 				ABD7A6B12632A3E9008F1556 /* TimetableSettingViewController.swift in Sources */,
 				ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */,
 				AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */,
+				AB8A81DA26359FA0007A20C2 /* UIViewController+Extension.swift in Sources */,
 				ABD7A6AA2632762C008F1556 /* Period.swift in Sources */,
 				AB8A81CC26359AFA007A20C2 /* AdditionalLectureViewController.swift in Sources */,
+				AB8A81DE2635A434007A20C2 /* UITableViewCell+Extension.swift in Sources */,
 				ABB6A307262DD11600CFB798 /* NeumorphismView.swift in Sources */,
 				AB8A81272633E60B007A20C2 /* Bool+Extension.swift in Sources */,
 				ABB6A2DB262D1F8200CFB798 /* TimetableCollectionViewCell.swift in Sources */,

@@ -16,8 +16,6 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var myView: NeumorphismView!
     private var myLabel: UILabel?
     
-    static var identifier: String { String(describing: self) }
-    static func nib() -> UINib { UINib(nibName: String(describing: self), bundle: nil) }
     weak var delegate: TimetableCollectionViewCellDelegate?
     
 }
