@@ -83,6 +83,7 @@ private extension MyUINavigationController {
     
 }
 
+// MARK: - @objc func
 @objc private extension MyUINavigationController {
     
     func titleButtonDidTapped() {
@@ -90,7 +91,7 @@ private extension MyUINavigationController {
     }
     
     func settingButtonDidTapped() {
-        let storyboard = UIStoryboard(name: "TimetableSetting", bundle: nil)
+        let storyboard = UIStoryboard(name: .timetableSetting, bundle: nil)
         let timetableSettingVC = storyboard.instantiateViewController(
             identifier: TimetableSettingViewController.identifier
         ) as! TimetableSettingViewController

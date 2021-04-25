@@ -14,15 +14,11 @@ protocol TimetableCollectionViewCellDelegate: class {
 final class TimetableCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var myView: NeumorphismView!
+    private var myLabel: UILabel?
     
     static var identifier: String { String(describing: self) }
     static func nib() -> UINib { UINib(nibName: String(describing: self), bundle: nil) }
     weak var delegate: TimetableCollectionViewCellDelegate?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-                
-    }
     
 }
 
@@ -31,7 +27,7 @@ extension TimetableCollectionViewCell {
     
     func setup(index: Int) {
         myView.tag = index
-        setupNeumorphismView()
+        setupMyView(index: myView.tag)
     }
     
 }
@@ -39,41 +35,30 @@ extension TimetableCollectionViewCell {
 // MARK: - setup
 private extension TimetableCollectionViewCell {
     
-    func setupNeumorphismView() {
+    func setupMyView(index: Int) {
         myView.type = .pushButton
         myView.cornerRadius = 15
         myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
-
+        myLabel?.removeFromSuperview()
         let label = UILabel()
         label.text = String(myView.tag)
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
-        myView.addSubview(label)
+        myLabel = label
+        myView.addSubview(myLabel!)
         [label.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
          label.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
         ].forEach { $0.isActive = true }
-
-//        let label2 = UILabel()
-//        label2.text = "教室"
-//        label2.textColor = .black
-//        label.textAlignment = .center
-//        label2.font = .boldSystemFont(ofSize: 12)
-//        label2.translatesAutoresizingMaskIntoConstraints = false
-//        myView.addSubview(label2)
-//        [label2.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
-//         label2.centerYAnchor.constraint(equalTo: myView.centerYAnchor, constant: 25),
-//        ].forEach { $0.isActive = true }
-//
-        
     }
     
 }
 
-private extension TimetableCollectionViewCell {
+// MARK: - @objc func
+@objc private extension TimetableCollectionViewCell {
     
-    @objc func myViewDidTapped() {
+    func myViewDidTapped() {
         delegate?.collectionView(didSelectItemAt: myView.tag)
     }
     

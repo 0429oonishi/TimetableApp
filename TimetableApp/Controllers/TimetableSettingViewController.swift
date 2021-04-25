@@ -28,14 +28,7 @@ final class TimetableSettingViewController: UIViewController {
         tableView.register(TimetableSettingTableViewCell.nib(),
                            forCellReuseIdentifier: TimetableSettingTableViewCell.identifier)
         
-        for n in 0..<timetableSettings.count {
-            if timetableSettingInts.count < timetableSettings.count {
-                timetableSettingInts.append(timetableSettings[n].isOn.toInt)
-            }
-            if let bool = timetableSettingInts[n].toBool {
-                timetableSettings[n].isOn = bool
-            }
-        }
+        changeTimetableSettings()
         
     }
     
@@ -44,6 +37,17 @@ final class TimetableSettingViewController: UIViewController {
         
         setupBackButton()
         
+    }
+    
+    private func changeTimetableSettings() {
+        for n in 0..<timetableSettings.count {
+            if timetableSettingInts.count < timetableSettings.count {
+                timetableSettingInts.append(timetableSettings[n].isOn.toInt)
+            }
+            if let bool = timetableSettingInts[n].toBool {
+                timetableSettings[n].isOn = bool
+            }
+        }
     }
     
 }
@@ -75,20 +79,21 @@ private extension TimetableSettingViewController {
         [imageView.centerXAnchor.constraint(equalTo: backButton.centerXAnchor),
          imageView.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
         ].forEach { $0.isActive = true }
-        
     }
     
 }
 
-private extension TimetableSettingViewController {
+// MARK: - @objc func
+@objc private extension TimetableSettingViewController {
     
-    @objc func backButtonDidTapped(_ sender: Any) {
+    func backButtonDidTapped(_ sender: Any) {
         UserDefaults.standard.set(timetableSettingInts, forKey: .saturdayAndSixPeriodKey)
         dismiss(animated: true, completion: nil)
     }
     
 }
 
+// MARK: - Delegate
 extension TimetableSettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -106,6 +111,7 @@ extension TimetableSettingViewController: UITableViewDelegate {
     
 }
 
+// MARK: - DataSource
 extension TimetableSettingViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

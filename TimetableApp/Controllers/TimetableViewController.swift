@@ -48,8 +48,8 @@ final class TimetableViewController: UIViewController {
         if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
             ints[0] == 0 ? deleteSaturday() : addSaturday()
             ints[1] == 0 ? deleteSixPeriod() : addSixPeriod()
-            collectionView.collectionViewLayout.invalidateLayout()
         }
+        collectionView.collectionViewLayout.invalidateLayout()
         
     }
     
@@ -63,6 +63,7 @@ final class TimetableViewController: UIViewController {
     
 }
 
+// MARK: - control collectionView
 private extension TimetableViewController {
     
     func deleteSaturday() {
@@ -152,10 +153,12 @@ private extension NeumorphismView {
     
 }
 
+// MARK: - Delegate
 extension TimetableViewController: UICollectionViewDelegate {
     
 }
 
+// MARK: - DataSource
 extension TimetableViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -172,10 +175,11 @@ extension TimetableViewController: UICollectionViewDataSource {
 
 }
 
+// MARK: - CellDelegate
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
     func collectionView(didSelectItemAt index: Int) {
-        let storyboard = UIStoryboard(name: "AdditionalLecture", bundle: nil)
+        let storyboard = UIStoryboard(name: .additionalLecture, bundle: nil)
         let additionalLectureVC = storyboard.instantiateViewController(
             identifier: AdditionalLectureViewController.identifier
         ) as! AdditionalLectureViewController

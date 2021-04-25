@@ -9,22 +9,12 @@ import UIKit
 
 final class TimetableSettingTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var myView: NeumorphismView!
+    @IBOutlet private weak var myView: NeumorphismView!
     
     static var identifier: String { String(describing: self) }
     static func nib() -> UINib { UINib(nibName: String(describing: self), bundle: nil) }
     var onTapEvent: ((UISwitch) -> Void)?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
 
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-    
 }
 
 // MARK: - setup
@@ -58,9 +48,10 @@ extension TimetableSettingTableViewCell {
     
 }
 
-private extension TimetableSettingTableViewCell {
+// MARK: - @objc func 
+@objc private extension TimetableSettingTableViewCell {
     
-    @objc func mySwitchDidTapped(_ sender: UISwitch) {
+    func mySwitchDidTapped(_ sender: UISwitch) {
         onTapEvent?(sender)
     }
     

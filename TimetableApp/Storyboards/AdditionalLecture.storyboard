@@ -75,11 +75,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="LectureView" destination="ngb-18-5yf" id="wmW-io-oDb"/>
                         <outlet property="attendanceButton" destination="PZu-C9-zni" id="XBf-cY-SS3"/>
                         <outlet property="backButton" destination="oAm-SG-XmD" id="hyW-5e-awG"/>
                         <outlet property="colorButton" destination="iXO-lV-ep1" id="OpE-M6-0YA"/>
                         <outlet property="editButton" destination="w0S-v6-mQA" id="uPp-x3-CvY"/>
+                        <outlet property="lectureView" destination="ngb-18-5yf" id="wmW-io-oDb"/>
                         <outlet property="memoButton" destination="mFd-AC-KQX" id="Khs-SL-4cJ"/>
                     </connections>
                 </viewController>

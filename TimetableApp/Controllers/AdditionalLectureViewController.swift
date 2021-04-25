@@ -9,7 +9,7 @@ import UIKit
 
 final class AdditionalLectureViewController: UIViewController {
     
-    @IBOutlet private weak var LectureView: NeumorphismView!
+    @IBOutlet private weak var lectureView: NeumorphismView!
     @IBOutlet private weak var editButton: NeumorphismView!
     @IBOutlet private weak var attendanceButton: NeumorphismView!
     @IBOutlet private weak var memoButton: NeumorphismView!
@@ -21,7 +21,7 @@ final class AdditionalLectureViewController: UIViewController {
     var lectureTime: String?
     var lectureRoom: String?
     var backButtonEvent: (() -> Void)?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +32,7 @@ final class AdditionalLectureViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        LectureView.setupLectureView(text: lectureText, time: lectureTime, room: lectureRoom)
+        lectureView.setupLectureView(text: lectureText, time: lectureTime, room: lectureRoom)
         editButton.setupButton("編集")
         attendanceButton.setupButton("出欠")
         memoButton.setupButton("メモ")
@@ -103,6 +103,7 @@ private extension NeumorphismView {
     
 }
 
+// MARK: - @objc func
 @objc private extension AdditionalLectureViewController {
     
     func backButtonDidTapped() {

@@ -57,9 +57,10 @@ private extension MyUITabBarController {
     
 }
 
-private extension MyUITabBarController {
+// MARK: - @objc func
+@objc private extension MyUITabBarController {
     
-    @objc func timetableButtonDidTapped() {
+    func timetableButtonDidTapped() {
         print(#function)
     }
     
