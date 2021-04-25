@@ -69,7 +69,7 @@ private extension TimetableViewController {
         if weeks.contains(.saturday) {
             let saturdaySuperView = weekStackView.arrangedSubviews[5]
             saturdaySuperView.isHidden = true
-            weeks.remove(at: 5)
+            weeks = weeks.filter { $0 != .saturday }
         }
     }
     
@@ -85,7 +85,7 @@ private extension TimetableViewController {
         if periods.contains(.six) {
             let sixPeriodSuperView = periodStackView.arrangedSubviews[5]
             sixPeriodSuperView.isHidden = true
-            periods.remove(at: 5)
+            periods = periods.filter { $0 != .six }
         }
     }
     
