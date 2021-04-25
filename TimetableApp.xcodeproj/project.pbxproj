@@ -20,6 +20,12 @@
 		AB8A81DA26359FA0007A20C2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */; };
 		AB8A81DE2635A434007A20C2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */; };
 		AB8A81E12635A470007A20C2 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81E02635A470007A20C2 /* UICollectionViewCell+Extension.swift */; };
+		AB8A81EE2635A593007A20C2 /* LectureMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81ED2635A593007A20C2 /* LectureMemoViewController.swift */; };
+		AB8A81F72635A614007A20C2 /* LectureAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81F62635A614007A20C2 /* LectureAttendanceViewController.swift */; };
+		AB8A81FB2635A685007A20C2 /* LectureColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81FA2635A685007A20C2 /* LectureColorViewController.swift */; };
+		AB8A81FF2635A6C0007A20C2 /* LectureAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A81FE2635A6C0007A20C2 /* LectureAttendance.storyboard */; };
+		AB8A82022635A6CF007A20C2 /* LectureMemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A82012635A6CF007A20C2 /* LectureMemo.storyboard */; };
+		AB8A82052635A6D9007A20C2 /* LectureColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8A82042635A6D9007A20C2 /* LectureColor.storyboard */; };
 		ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */; };
 		ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */; };
 		ABB6A2BE262D056100CFB798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2BD262D056100CFB798 /* Assets.xcassets */; };
@@ -53,6 +59,12 @@
 		AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		AB8A81E02635A470007A20C2 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		AB8A81ED2635A593007A20C2 /* LectureMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureMemoViewController.swift; sourceTree = "<group>"; };
+		AB8A81F62635A614007A20C2 /* LectureAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureAttendanceViewController.swift; sourceTree = "<group>"; };
+		AB8A81FA2635A685007A20C2 /* LectureColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureColorViewController.swift; sourceTree = "<group>"; };
+		AB8A81FE2635A6C0007A20C2 /* LectureAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LectureAttendance.storyboard; sourceTree = "<group>"; };
+		AB8A82012635A6CF007A20C2 /* LectureMemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LectureMemo.storyboard; sourceTree = "<group>"; };
+		AB8A82042635A6D9007A20C2 /* LectureColor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LectureColor.storyboard; sourceTree = "<group>"; };
 		ABB6A2B1262D055D00CFB798 /* TimetableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimetableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +118,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		AB8A81F42635A5D8007A20C2 /* Lectures */ = {
+			isa = PBXGroup;
+			children = (
+				AB8A812F26344399007A20C2 /* SettingLectureViewController.swift */,
+				AB8A81CB26359AFA007A20C2 /* AdditionalLectureViewController.swift */,
+				AB8A81CE26359B17007A20C2 /* EditLectureViewController.swift */,
+				AB8A81F62635A614007A20C2 /* LectureAttendanceViewController.swift */,
+				AB8A81ED2635A593007A20C2 /* LectureMemoViewController.swift */,
+				AB8A81FA2635A685007A20C2 /* LectureColorViewController.swift */,
+			);
+			path = Lectures;
+			sourceTree = "<group>";
+		};
+		AB8A81FD2635A6A2007A20C2 /* Lectures */ = {
+			isa = PBXGroup;
+			children = (
+				AB8A8132263443B9007A20C2 /* SettingLecture.storyboard */,
+				AB8A81D126359B28007A20C2 /* AdditionalLecture.storyboard */,
+				AB8A81D426359B30007A20C2 /* EditLecture.storyboard */,
+				AB8A81FE2635A6C0007A20C2 /* LectureAttendance.storyboard */,
+				AB8A82012635A6CF007A20C2 /* LectureMemo.storyboard */,
+				AB8A82042635A6D9007A20C2 /* LectureColor.storyboard */,
+			);
+			path = Lectures;
+			sourceTree = "<group>";
+		};
 		ABB6A2A8262D055D00CFB798 = {
 			isa = PBXGroup;
 			children = (
@@ -146,10 +184,8 @@
 				ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */,
 				ABD7A675263004BE008F1556 /* MyUITabBarController.swift */,
 				ABB6A2CE262D077300CFB798 /* TimetableViewController.swift */,
-				AB8A812F26344399007A20C2 /* SettingLectureViewController.swift */,
-				AB8A81CB26359AFA007A20C2 /* AdditionalLectureViewController.swift */,
-				AB8A81CE26359B17007A20C2 /* EditLectureViewController.swift */,
 				ABD7A6B02632A3E9008F1556 /* TimetableSettingViewController.swift */,
+				AB8A81F42635A5D8007A20C2 /* Lectures */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,10 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				ABB6A2C9262D074500CFB798 /* Timetable.storyboard */,
-				AB8A8132263443B9007A20C2 /* SettingLecture.storyboard */,
-				AB8A81D126359B28007A20C2 /* AdditionalLecture.storyboard */,
-				AB8A81D426359B30007A20C2 /* EditLecture.storyboard */,
 				ABD7A6B32632A3F7008F1556 /* TimetableSetting.storyboard */,
+				AB8A81FD2635A6A2007A20C2 /* Lectures */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -245,13 +279,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB8A81D226359B28007A20C2 /* AdditionalLecture.storyboard in Resources */,
+				AB8A82052635A6D9007A20C2 /* LectureColor.storyboard in Resources */,
 				ABB6A2C1262D056100CFB798 /* LaunchScreen.storyboard in Resources */,
 				ABB6A2BE262D056100CFB798 /* Assets.xcassets in Resources */,
 				AB8A81D526359B30007A20C2 /* EditLecture.storyboard in Resources */,
 				ABB6A2DC262D1F8200CFB798 /* TimetableCollectionViewCell.xib in Resources */,
 				ABB6A2CA262D074500CFB798 /* Timetable.storyboard in Resources */,
+				AB8A81FF2635A6C0007A20C2 /* LectureAttendance.storyboard in Resources */,
 				AB8A8133263443B9007A20C2 /* SettingLecture.storyboard in Resources */,
 				ABD7A6C52632A967008F1556 /* TimetableSettingTableViewCell.xib in Resources */,
+				AB8A82022635A6CF007A20C2 /* LectureMemo.storyboard in Resources */,
 				ABD7A6B42632A3F7008F1556 /* TimetableSetting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +302,7 @@
 			files = (
 				AB8A812B2633ECC8007A20C2 /* Int+Extension.swift in Sources */,
 				ABD7A676263004BE008F1556 /* MyUITabBarController.swift in Sources */,
+				AB8A81F72635A614007A20C2 /* LectureAttendanceViewController.swift in Sources */,
 				AB8A81E12635A470007A20C2 /* UICollectionViewCell+Extension.swift in Sources */,
 				ABD7A6A72632761A008F1556 /* Week.swift in Sources */,
 				AB8A80ED263303CB007A20C2 /* TimetableSetting.swift in Sources */,
@@ -272,7 +310,9 @@
 				ABD7A6B12632A3E9008F1556 /* TimetableSettingViewController.swift in Sources */,
 				ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */,
 				AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */,
+				AB8A81FB2635A685007A20C2 /* LectureColorViewController.swift in Sources */,
 				AB8A81DA26359FA0007A20C2 /* UIViewController+Extension.swift in Sources */,
+				AB8A81EE2635A593007A20C2 /* LectureMemoViewController.swift in Sources */,
 				ABD7A6AA2632762C008F1556 /* Period.swift in Sources */,
 				AB8A81CC26359AFA007A20C2 /* AdditionalLectureViewController.swift in Sources */,
 				AB8A81DE2635A434007A20C2 /* UITableViewCell+Extension.swift in Sources */,
