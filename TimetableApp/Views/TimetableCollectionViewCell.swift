@@ -40,16 +40,15 @@ private extension TimetableCollectionViewCell {
         myView.cornerRadius = 15
         myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
         myLabel?.removeFromSuperview()
-        let label = UILabel()
-        label.text = String(myView.tag)
-        label.textColor = .black
-        label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        myLabel = label
+        myLabel = UILabel()
+        myLabel?.text = String(myView.tag)
+        myLabel?.textColor = .black
+        myLabel?.textAlignment = .center
+        myLabel?.font = .boldSystemFont(ofSize: 20)
+        myLabel?.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(myLabel!)
-        [label.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
+        [myLabel!.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
+         myLabel!.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
         ].forEach { $0.isActive = true }
     }
     
