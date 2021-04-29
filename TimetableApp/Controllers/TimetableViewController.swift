@@ -37,7 +37,7 @@ final class TimetableViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(TimetableCollectionViewCell.nib(),
+        collectionView.register(TimetableCollectionViewCell.nib,
                                 forCellWithReuseIdentifier: TimetableCollectionViewCell.identifier)
         
     }
@@ -179,8 +179,7 @@ extension TimetableViewController: UICollectionViewDataSource {
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
     func collectionView(didSelectItemAt index: Int, text: String?) {
-        let storyboard = UIStoryboard(name: .settingLecture, bundle: nil)
-        let settingLectureVC = storyboard.instantiateViewController(
+        let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController( 
             identifier: SettingLectureViewController.identifier
         ) as! SettingLectureViewController
         settingLectureVC.modalPresentationStyle = .overCurrentContext

@@ -117,36 +117,31 @@ private extension NeumorphismView {
 @objc private extension SettingLectureViewController {
     
     func addButtonDidTapped() {
-        let storyboard = UIStoryboard(name: .additionalLecture, bundle: nil)
-        let additionalLectureVC = storyboard.instantiateViewController(identifier: AdditionalLectureViewController.identifier) as! AdditionalLectureViewController
+        let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(identifier: AdditionalLectureViewController.identifier) as! AdditionalLectureViewController
         additionalLectureVC.modalPresentationStyle = .fullScreen
         present(additionalLectureVC, animated: true, completion: nil)
     }
     
     func editButtonDidTapped() {
-        let storyboard = UIStoryboard(name: .editLecture, bundle: nil)
-        let editLectureVC = storyboard.instantiateViewController(identifier: EditLectureViewController.identifier) as! EditLectureViewController
+        let editLectureVC = UIStoryboard.editLecture.instantiateViewController(identifier: EditLectureViewController.identifier) as! EditLectureViewController
         editLectureVC.modalPresentationStyle = .fullScreen
         present(editLectureVC, animated: true, completion: nil)
     }
     
     func attendanceButtonDidTapped() {
-        let storyboard = UIStoryboard(name: .lectureAttendance, bundle: nil)
-        let lectureAttendanceVC = storyboard.instantiateViewController(identifier: LectureAttendanceViewController.identifier) as! LectureAttendanceViewController
+        let lectureAttendanceVC = UIStoryboard.lectureAttendance.instantiateViewController(identifier: LectureAttendanceViewController.identifier) as! LectureAttendanceViewController
         lectureAttendanceVC.modalPresentationStyle = .fullScreen
         present(lectureAttendanceVC, animated: true, completion: nil)
     }
     
     func memoButtonDidTapped() {
-        let storyboard = UIStoryboard(name: .lectureMemo, bundle: nil)
-        let lectureMemoVC = storyboard.instantiateViewController(identifier: LectureMemoViewController.identifier) as! LectureMemoViewController
+        let lectureMemoVC = UIStoryboard.lectureMemo.instantiateViewController(identifier: LectureMemoViewController.identifier) as! LectureMemoViewController
         lectureMemoVC.modalPresentationStyle = .fullScreen
         present(lectureMemoVC, animated: true, completion: nil)
     }
     
     func colorButtonDidTapped() {
-        let storyboard = UIStoryboard(name: .lectureColor, bundle: nil)
-        let lectureColorVC = storyboard.instantiateViewController(identifier: LectureColorViewController.identifier) as! LectureColorViewController
+        let lectureColorVC = UIStoryboard.lectureColor.instantiateViewController(identifier: LectureColorViewController.identifier) as! LectureColorViewController
         lectureColorVC.modalPresentationStyle = .fullScreen
         present(lectureColorVC, animated: true, completion: nil)
     }

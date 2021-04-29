@@ -22,4 +22,3 @@ extension String {
     static let lectureColor = "LectureColor"
     
 }
-

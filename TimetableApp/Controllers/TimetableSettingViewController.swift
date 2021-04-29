@@ -21,7 +21,7 @@ final class TimetableSettingViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(TimetableSettingTableViewCell.nib(),
+        tableView.register(TimetableSettingTableViewCell.nib,
                            forCellReuseIdentifier: TimetableSettingTableViewCell.identifier)
         
         changeTimetableSettings()

@@ -35,6 +35,7 @@
 		ABB6A2DB262D1F8200CFB798 /* TimetableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2D9262D1F8200CFB798 /* TimetableCollectionViewCell.swift */; };
 		ABB6A2DC262D1F8200CFB798 /* TimetableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2DA262D1F8200CFB798 /* TimetableCollectionViewCell.xib */; };
 		ABB6A307262DD11600CFB798 /* NeumorphismView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A306262DD11600CFB798 /* NeumorphismView.swift */; };
+		ABD66280263A5B4500027589 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */; };
 		ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */; };
 		ABD7A676263004BE008F1556 /* MyUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A675263004BE008F1556 /* MyUITabBarController.swift */; };
 		ABD7A6A72632761A008F1556 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6A62632761A008F1556 /* Week.swift */; };
@@ -76,6 +77,7 @@
 		ABB6A2D9262D1F8200CFB798 /* TimetableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABB6A2DA262D1F8200CFB798 /* TimetableCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABB6A306262DD11600CFB798 /* NeumorphismView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismView.swift; sourceTree = "<group>"; };
+		ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUINavigationController.swift; sourceTree = "<group>"; };
 		ABD7A675263004BE008F1556 /* MyUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUITabBarController.swift; sourceTree = "<group>"; };
 		ABD7A6A62632761A008F1556 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
@@ -108,12 +110,8 @@
 		AB8A811B2633DB2E007A20C2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AB8A811C2633DB41007A20C2 /* String+Extension.swift */,
-				AB8A81262633E60B007A20C2 /* Bool+Extension.swift */,
-				AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */,
-				AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */,
-				AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */,
-				AB8A81E02635A470007A20C2 /* UICollectionViewCell+Extension.swift */,
+				ABD66282263A5B7800027589 /* Type+Extensions */,
+				ABD66281263A5B5E00027589 /* UIKit+Extensions */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +198,27 @@
 				ABD7A6C32632A967008F1556 /* TimetableSettingTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		ABD66281263A5B5E00027589 /* UIKit+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */,
+				AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */,
+				AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */,
+				AB8A81E02635A470007A20C2 /* UICollectionViewCell+Extension.swift */,
+			);
+			path = "UIKit+Extensions";
+			sourceTree = "<group>";
+		};
+		ABD66282263A5B7800027589 /* Type+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB8A811C2633DB41007A20C2 /* String+Extension.swift */,
+				AB8A81262633E60B007A20C2 /* Bool+Extension.swift */,
+				AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */,
+			);
+			path = "Type+Extensions";
 			sourceTree = "<group>";
 		};
 		ABD7A6A526327600008F1556 /* Enums */ = {
@@ -319,6 +338,7 @@
 				ABB6A307262DD11600CFB798 /* NeumorphismView.swift in Sources */,
 				AB8A81272633E60B007A20C2 /* Bool+Extension.swift in Sources */,
 				ABB6A2DB262D1F8200CFB798 /* TimetableCollectionViewCell.swift in Sources */,
+				ABD66280263A5B4500027589 /* UIStoryboard+Extension.swift in Sources */,
 				AB8A813026344399007A20C2 /* SettingLectureViewController.swift in Sources */,
 				ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */,
 				ABD7A6C42632A967008F1556 /* TimetableSettingTableViewCell.swift in Sources */,

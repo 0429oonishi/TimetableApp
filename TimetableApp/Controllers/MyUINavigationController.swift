@@ -91,8 +91,7 @@ private extension MyUINavigationController {
     }
     
     func settingButtonDidTapped() {
-        let storyboard = UIStoryboard(name: .timetableSetting, bundle: nil)
-        let timetableSettingVC = storyboard.instantiateViewController(
+        let timetableSettingVC = UIStoryboard.timetableSetting.instantiateViewController(
             identifier: TimetableSettingViewController.identifier
         ) as! TimetableSettingViewController
         timetableSettingVC.modalPresentationStyle = .fullScreen
