@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TimetableCollectionViewCellDelegate: class {
+protocol TimetableCollectionViewCellDelegate: AnyObject {
     func collectionView(didSelectItemAt index: Int, text: String?)
 }
 
