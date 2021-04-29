@@ -13,8 +13,10 @@ struct TimetableSetting {
 }
 
 extension TimetableSetting {
+    
     static var data: [TimetableSetting] = [
         TimetableSetting(text: "土曜日を表示", isOn: true),
         TimetableSetting(text: "６限目を表示", isOn: true),
     ]
+    
 }

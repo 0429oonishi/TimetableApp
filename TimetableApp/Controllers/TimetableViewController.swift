@@ -46,8 +46,8 @@ final class TimetableViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
-            ints[0] == 0 ? deleteSaturday() : addSaturday()
-            ints[1] == 0 ? deleteSixPeriod() : addSixPeriod()
+            configureSaturday(isHidden: ints[0] == 0)
+            configureSixPeriod(isHidden: ints[1] == 0)
         }
         collectionView.collectionViewLayout.invalidateLayout()
         
@@ -98,43 +98,26 @@ private extension TimetableViewController {
     
 }
 
-// MARK: - control collectionView
+// MARK: - configure collectionView
 private extension TimetableViewController {
     
-    func deleteSaturday() {
-        if weeks.contains(.saturday) {
+    func configureSaturday(isHidden: Bool) {
+        weeks = Week.configureSaturday(weeks: weeks, isHidden: isHidden) {
             let saturdaySuperView = weekStackView.arrangedSubviews[5]
-            saturdaySuperView.isHidden = true
-            weeks = weeks.filter { $0 != .saturday }
+            saturdaySuperView.isHidden = $0
         }
     }
     
-    func addSaturday() {
-        if !weeks.contains(.saturday) {
-            let saturdaySuperView = weekStackView.arrangedSubviews[5]
-            saturdaySuperView.isHidden = false
-            weeks.append(.saturday)
-        }
-    }
-    
-    func deleteSixPeriod() {
-        if periods.contains(.six) {
+    func configureSixPeriod(isHidden: Bool) {
+        periods = Period.configureSixPeriod(periods: periods, isHidden: isHidden) {
             let sixPeriodSuperView = periodStackView.arrangedSubviews[5]
-            sixPeriodSuperView.isHidden = true
-            periods = periods.filter { $0 != .six }
-        }
-    }
-    
-    func addSixPeriod() {
-        if !periods.contains(.six) {
-            let sixPeriodSuperView = periodStackView.arrangedSubviews[5]
-            sixPeriodSuperView.isHidden = false
-            periods.append(.six)
+            sixPeriodSuperView.isHidden = $0
         }
     }
     
 }
 
+// MARK: - setup NeumorphismView
 private extension NeumorphismView {
     
     func setupWeekAndPeriodView(_ text: String) {
@@ -172,7 +155,7 @@ extension TimetableViewController: UICollectionViewDataSource {
         cell.setup(index: indexPath.row)
         return cell
     }
-
+    
 }
 
 // MARK: - TimetableCollectionViewCellDelegate
@@ -188,8 +171,8 @@ extension TimetableViewController: TimetableCollectionViewCellDelegate {
         if let text = text {
             settingLectureVC.lectureText = "授業名: \(text)"
         }
-//        settingLectureVC.lectureTime = "開始時間: \(index)"
-//        settingLectureVC.lectureRoom = "教室番号: \(index)"
+        //        settingLectureVC.lectureTime = "開始時間: \(index)"
+        //        settingLectureVC.lectureRoom = "教室番号: \(index)"
         present(settingLectureVC, animated: true, completion: nil)
     }
     
