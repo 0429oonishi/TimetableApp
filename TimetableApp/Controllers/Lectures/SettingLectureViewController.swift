@@ -31,6 +31,16 @@ final class SettingLectureViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        setupViews()
+        
+    }
+    
+}
+
+// MARK: - setup views
+private extension SettingLectureViewController {
+    
+    func setupViews() {
         lectureView.setupLectureView(text: lectureText, time: lectureTime, room: lectureRoom)
         if lectureText == nil {
             addOrEditButton.setupButton("追加")
@@ -49,12 +59,11 @@ final class SettingLectureViewController: UIViewController {
         colorButton.addTarget(self, action: #selector(colorButtonDidTapped), for: .touchUpInside)
         backButton.setupButton("戻る")
         backButton.addTarget(self, action: #selector(backButtonDidTapped), for: .touchUpInside)
-        
     }
     
 }
 
-// MARK: - setup views
+// MARK: - setup NeumorphismView
 private extension NeumorphismView {
     
     func setupLectureView(text: String?, time: String?, room: String?) {
@@ -117,31 +126,41 @@ private extension NeumorphismView {
 @objc private extension SettingLectureViewController {
     
     func addButtonDidTapped() {
-        let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(identifier: AdditionalLectureViewController.identifier) as! AdditionalLectureViewController
+        let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(
+            identifier: AdditionalLectureViewController.identifier
+        ) as! AdditionalLectureViewController
         additionalLectureVC.modalPresentationStyle = .fullScreen
         present(additionalLectureVC, animated: true, completion: nil)
     }
     
     func editButtonDidTapped() {
-        let editLectureVC = UIStoryboard.editLecture.instantiateViewController(identifier: EditLectureViewController.identifier) as! EditLectureViewController
+        let editLectureVC = UIStoryboard.editLecture.instantiateViewController(
+            identifier: EditLectureViewController.identifier
+        ) as! EditLectureViewController
         editLectureVC.modalPresentationStyle = .fullScreen
         present(editLectureVC, animated: true, completion: nil)
     }
     
     func attendanceButtonDidTapped() {
-        let lectureAttendanceVC = UIStoryboard.lectureAttendance.instantiateViewController(identifier: LectureAttendanceViewController.identifier) as! LectureAttendanceViewController
+        let lectureAttendanceVC = UIStoryboard.lectureAttendance.instantiateViewController(
+            identifier: LectureAttendanceViewController.identifier
+        ) as! LectureAttendanceViewController
         lectureAttendanceVC.modalPresentationStyle = .fullScreen
         present(lectureAttendanceVC, animated: true, completion: nil)
     }
     
     func memoButtonDidTapped() {
-        let lectureMemoVC = UIStoryboard.lectureMemo.instantiateViewController(identifier: LectureMemoViewController.identifier) as! LectureMemoViewController
+        let lectureMemoVC = UIStoryboard.lectureMemo.instantiateViewController(
+            identifier: LectureMemoViewController.identifier
+        ) as! LectureMemoViewController
         lectureMemoVC.modalPresentationStyle = .fullScreen
         present(lectureMemoVC, animated: true, completion: nil)
     }
     
     func colorButtonDidTapped() {
-        let lectureColorVC = UIStoryboard.lectureColor.instantiateViewController(identifier: LectureColorViewController.identifier) as! LectureColorViewController
+        let lectureColorVC = UIStoryboard.lectureColor.instantiateViewController(
+            identifier: LectureColorViewController.identifier
+        ) as! LectureColorViewController
         lectureColorVC.modalPresentationStyle = .fullScreen
         present(lectureColorVC, animated: true, completion: nil)
     }
