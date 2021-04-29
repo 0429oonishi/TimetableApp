@@ -54,7 +54,7 @@ final class SettingLectureViewController: UIViewController {
     
 }
 
-// MARK: - setup
+// MARK: - setup views
 private extension NeumorphismView {
     
     func setupLectureView(text: String?, time: String?, room: String?) {

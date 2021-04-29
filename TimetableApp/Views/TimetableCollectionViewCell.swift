@@ -20,7 +20,7 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
     
 }
 
-// MARK: - setupCell
+// MARK: - setup cell
 extension TimetableCollectionViewCell {
     
     func setup(index: Int) {
@@ -32,7 +32,7 @@ extension TimetableCollectionViewCell {
     
 }
 
-// MARK: - setup
+// MARK: - setup views
 private extension TimetableCollectionViewCell {
     
     func setupMyView() {

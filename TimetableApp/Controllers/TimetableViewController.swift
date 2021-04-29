@@ -63,6 +63,41 @@ final class TimetableViewController: UIViewController {
     
 }
 
+// MARK: - setup
+private extension TimetableViewController {
+    
+    func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 2
+        let totalItemSize = CGSize(
+            width: collectionView.bounds.width - layout.minimumInteritemSpacing * CGFloat(horizontalItemCount - 1),
+            height: collectionView.bounds.height - layout.minimumLineSpacing * CGFloat(verticalItemCount - 1)
+        )
+        layout.itemSize = CGSize(
+            width: totalItemSize.width / CGFloat(horizontalItemCount),
+            height: totalItemSize.height / CGFloat(verticalItemCount)
+        )
+        collectionView.collectionViewLayout = layout
+    }
+    
+    func setupWeekAndPeriodViews() {
+        mondayView.setupWeekAndPeriodView(Week.monday.rawValue)
+        tuesdayView.setupWeekAndPeriodView(Week.tuesday.rawValue)
+        wednesdayView.setupWeekAndPeriodView(Week.wednesday.rawValue)
+        thursdayView.setupWeekAndPeriodView(Week.thursday.rawValue)
+        fridayView.setupWeekAndPeriodView(Week.friday.rawValue)
+        saturdayView.setupWeekAndPeriodView(Week.saturday.rawValue)
+        onePeriodView.setupWeekAndPeriodView(Period.one.rawValue)
+        twoPeriodView.setupWeekAndPeriodView(Period.two.rawValue)
+        threePeriodView.setupWeekAndPeriodView(Period.three.rawValue)
+        fourPeriodView.setupWeekAndPeriodView(Period.four.rawValue)
+        fivePeriodView.setupWeekAndPeriodView(Period.five.rawValue)
+        sixPeriodView.setupWeekAndPeriodView(Period.six.rawValue)
+    }
+    
+}
+
 // MARK: - control collectionView
 private extension TimetableViewController {
     
@@ -100,41 +135,6 @@ private extension TimetableViewController {
     
 }
 
-// MARK: - setup
-private extension TimetableViewController {
-    
-    func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 2
-        layout.minimumInteritemSpacing = 2
-        let totalItemSize = CGSize(
-            width: collectionView.bounds.width - layout.minimumInteritemSpacing * CGFloat(horizontalItemCount - 1),
-            height: collectionView.bounds.height - layout.minimumLineSpacing * CGFloat(verticalItemCount - 1)
-        )
-        layout.itemSize = CGSize(
-            width: totalItemSize.width / CGFloat(horizontalItemCount),
-            height: totalItemSize.height / CGFloat(verticalItemCount)
-        )
-        collectionView.collectionViewLayout = layout
-    }
-    
-    func setupWeekAndPeriodViews() {
-        mondayView.setupWeekAndPeriodView(Week.monday.rawValue)
-        tuesdayView.setupWeekAndPeriodView(Week.tuesday.rawValue)
-        wednesdayView.setupWeekAndPeriodView(Week.wednesday.rawValue)
-        thursdayView.setupWeekAndPeriodView(Week.thursday.rawValue)
-        fridayView.setupWeekAndPeriodView(Week.friday.rawValue)
-        saturdayView.setupWeekAndPeriodView(Week.saturday.rawValue)
-        onePeriodView.setupWeekAndPeriodView(Period.one.rawValue)
-        twoPeriodView.setupWeekAndPeriodView(Period.two.rawValue)
-        threePeriodView.setupWeekAndPeriodView(Period.three.rawValue)
-        fourPeriodView.setupWeekAndPeriodView(Period.four.rawValue)
-        fivePeriodView.setupWeekAndPeriodView(Period.five.rawValue)
-        sixPeriodView.setupWeekAndPeriodView(Period.six.rawValue)
-    }
-    
-}
-
 private extension NeumorphismView {
     
     func setupWeekAndPeriodView(_ text: String) {
@@ -153,12 +153,12 @@ private extension NeumorphismView {
     
 }
 
-// MARK: - Delegate
+// MARK: - UICollectionViewDelegate
 extension TimetableViewController: UICollectionViewDelegate {
     
 }
 
-// MARK: - DataSource
+// MARK: - UICollectionViewDataSource
 extension TimetableViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -175,7 +175,7 @@ extension TimetableViewController: UICollectionViewDataSource {
 
 }
 
-// MARK: - CellDelegate
+// MARK: - TimetableCollectionViewCellDelegate
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
     func collectionView(didSelectItemAt index: Int, text: String?) {

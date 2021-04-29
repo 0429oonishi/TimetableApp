@@ -11,10 +11,7 @@ final class TimetableSettingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    private var timetableSettings: [TimetableSetting] = [
-        TimetableSetting(text: "土曜日を表示", isOn: true),
-        TimetableSetting(text: "６限目を表示", isOn: true),
-    ]
+    private var timetableSettings = TimetableSetting.data
     var timetableSettingInts = [Int]()
     
     override func viewDidLoad() {
@@ -92,7 +89,7 @@ private extension TimetableSettingViewController {
     
 }
 
-// MARK: - Delegate
+// MARK: - UITableViewDelegate
 extension TimetableSettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,7 +107,7 @@ extension TimetableSettingViewController: UITableViewDelegate {
     
 }
 
-// MARK: - DataSource
+// MARK: - UITableViewDataSource
 extension TimetableSettingViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
