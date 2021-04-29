@@ -18,6 +18,8 @@ enum Week: String, CaseIterable {
 
 extension Week {
     
+    static var data: [Self] { Self.allCases }
+    
     static func configureSaturday(weeks: [Self], isHidden: Bool, handler: (Bool) -> Void) -> [Self] {
         switch (weeks.contains(.saturday), isHidden) {
             case (false, false):

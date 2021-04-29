@@ -18,6 +18,8 @@ enum Period: String, CaseIterable {
 
 extension Period {
     
+    static var data: [Self] { Self.allCases }
+    
     static func configureSixPeriod(periods: [Self], isHidden: Bool, handler: (Bool) -> Void) -> [Self] {
         switch (periods.contains(.six), isHidden) {
             case (false, false):

@@ -25,8 +25,8 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var fivePeriodView: NeumorphismView!
     @IBOutlet private weak var sixPeriodView: NeumorphismView!
     
-    private var weeks = Week.allCases
-    private var periods = Period.allCases
+    private var weeks = Week.data
+    private var periods = Period.data
     private var horizontalItemCount: Int { weeks.count }
     private var verticalItemCount: Int { periods.count }
     
