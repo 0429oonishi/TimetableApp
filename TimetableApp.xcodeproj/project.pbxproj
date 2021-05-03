@@ -99,12 +99,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AB8A80EB263303BA007A20C2 /* Model */ = {
+		AB8A80EB263303BA007A20C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AB8A811B2633DB2E007A20C2 /* Extensions */ = {
@@ -163,10 +163,9 @@
 			children = (
 				AB8A811B2633DB2E007A20C2 /* Extensions */,
 				ABD7A6A526327600008F1556 /* Enums */,
-				AB8A80EB263303BA007A20C2 /* Model */,
+				AB8A80EB263303BA007A20C2 /* Models */,
 				ABB6A2E2262D640E00CFB798 /* Views */,
 				ABB6A2E1262D640400CFB798 /* Controllers */,
-				ABD7A6B62632A55D008F1556 /* Storyboards */,
 				ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */,
 				ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */,
 				ABB6A2BD262D056100CFB798 /* Assets.xcassets */,
@@ -196,6 +195,7 @@
 				ABB6A2DA262D1F8200CFB798 /* TimetableCollectionViewCell.xib */,
 				ABD7A6C22632A967008F1556 /* TimetableSettingTableViewCell.swift */,
 				ABD7A6C32632A967008F1556 /* TimetableSettingTableViewCell.xib */,
+				ABD7A6B62632A55D008F1556 /* Storyboards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
