@@ -25,14 +25,14 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var fivePeriodView: NeumorphismView!
     @IBOutlet private weak var sixPeriodView: NeumorphismView!
     
-    private var weeks = Week.data
-    private var periods = Period.data
-    private var horizontalItemCount: Int { weeks.count }
-    private var verticalItemCount: Int { periods.count }
+    private var timetable: Timetable = (weeks: Week.data, periods: Period.data)
+    private var horizontalItemCount: Int { timetable.weeks.count }
+    private var verticalItemCount: Int { timetable.periods.count }
+    private var lectures = [Lecture]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
         collectionView.delegate = self
@@ -49,7 +49,10 @@ final class TimetableViewController: UIViewController {
             configureSaturday(isHidden: ints[0] == 0)
             configureSixPeriod(isHidden: ints[1] == 0)
         }
-        collectionView.collectionViewLayout.invalidateLayout()
+        
+        lectures.removeAll()
+        setupTimetable()
+        collectionView.reloadData()
         
     }
     
@@ -65,6 +68,18 @@ final class TimetableViewController: UIViewController {
 
 // MARK: - setup
 private extension TimetableViewController {
+    
+    func setupTimetable() {
+        for period in timetable.periods {
+            for week in timetable.weeks {
+                let convert = Convert(week: week, period: period)
+                let index = convert.index(timetable: timetable)!
+                lectures.append(Lecture(name: "\(week.rawValue),\(period.rawValue)",
+                                        time: "\(index.convertWeek(timetable: timetable))",
+                                        room: "\(index.convertPeriod(timetable: timetable))"))
+            }
+        }
+    }
     
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -98,18 +113,18 @@ private extension TimetableViewController {
     
 }
 
-// MARK: - configure collectionView
+// MARK: - configure timetable
 private extension TimetableViewController {
     
     func configureSaturday(isHidden: Bool) {
-        weeks = Week.configureSaturday(weeks: weeks, isHidden: isHidden) {
+        timetable.weeks = Week.configureSaturday(weeks: timetable.weeks, isHidden: isHidden) {
             let saturdaySuperView = weekStackView.arrangedSubviews[5]
             saturdaySuperView.isHidden = $0
         }
     }
     
     func configureSixPeriod(isHidden: Bool) {
-        periods = Period.configureSixPeriod(periods: periods, isHidden: isHidden) {
+        timetable.periods = Period.configureSixPeriod(periods: timetable.periods, isHidden: isHidden) {
             let sixPeriodSuperView = periodStackView.arrangedSubviews[5]
             sixPeriodSuperView.isHidden = $0
         }
@@ -152,7 +167,8 @@ extension TimetableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimetableCollectionViewCell.identifier,
                                                       for: indexPath) as! TimetableCollectionViewCell
         cell.delegate = self
-        cell.setup(index: indexPath.row)
+        let lecture = lectures[indexPath.row]
+        cell.setup(index: indexPath.row, lecture: lecture)
         return cell
     }
     
@@ -161,18 +177,14 @@ extension TimetableViewController: UICollectionViewDataSource {
 // MARK: - TimetableCollectionViewCellDelegate
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
-    func collectionView(didSelectItemAt index: Int, text: String?) {
+    func collectionView(didSelectItemAt index: Int, lecture: Lecture) {
         let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController( 
             identifier: SettingLectureViewController.identifier
         ) as! SettingLectureViewController
         settingLectureVC.modalPresentationStyle = .overCurrentContext
         self.view.layer.opacity = 0.6
         settingLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
-        if let text = text {
-            settingLectureVC.lectureText = "授業名: \(text)"
-        }
-        //        settingLectureVC.lectureTime = "開始時間: \(index)"
-        //        settingLectureVC.lectureRoom = "教室番号: \(index)"
+        settingLectureVC.lecture = lecture
         present(settingLectureVC, animated: true, completion: nil)
     }
     

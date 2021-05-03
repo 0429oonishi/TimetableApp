@@ -18,3 +18,18 @@ extension Int {
     }
     
 }
+
+extension Int {
+    
+    func convertWeek(timetable: Timetable) -> Week {
+        let remainder = self % timetable.weeks.count
+        return timetable.weeks[remainder]
+    }
+    
+    func convertPeriod(timetable: Timetable) -> Period {
+        let quotient = (self - self % timetable.weeks.count) / timetable.weeks.count
+        return timetable.periods[quotient]
+    }
+    
+}
+
