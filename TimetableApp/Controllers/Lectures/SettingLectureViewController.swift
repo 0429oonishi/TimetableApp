@@ -16,9 +16,7 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var colorButton: NeumorphismView!
     @IBOutlet private weak var backButton: NeumorphismView!
     
-    var lectureText: String?
-    var lectureTime: String?
-    var lectureRoom: String?
+    var lecture: Lecture?
     var backButtonEvent: (() -> Void)?
     
     override func viewDidLoad() {
@@ -41,8 +39,8 @@ final class SettingLectureViewController: UIViewController {
 private extension SettingLectureViewController {
     
     func setupViews() {
-        lectureView.setupLectureView(text: lectureText, time: lectureTime, room: lectureRoom)
-        if lectureText == nil {
+        lectureView.setupLectureView(lecture: lecture)
+        if lecture!.name!.isEmpty {
             addOrEditButton.setupButton("追加")
             addOrEditButton.addTarget(self, action: #selector(addButtonDidTapped), for: .touchUpInside)
             lectureView.isHidden = true
@@ -66,11 +64,11 @@ private extension SettingLectureViewController {
 // MARK: - setup NeumorphismView
 private extension NeumorphismView {
     
-    func setupLectureView(text: String?, time: String?, room: String?) {
+    func setupLectureView(lecture: Lecture?) {
         self.type = .normal
         
         let lectureNameLabel = UILabel()
-        lectureNameLabel.text = text
+        lectureNameLabel.text = lecture?.name
         lectureNameLabel.textColor = .black
         lectureNameLabel.textAlignment = .center
         lectureNameLabel.font = .boldSystemFont(ofSize: 25)
@@ -81,7 +79,7 @@ private extension NeumorphismView {
         ].forEach { $0.isActive = true }
         
         let lectureTimeLabel = UILabel()
-        lectureTimeLabel.text = time
+        lectureTimeLabel.text = lecture?.time
         lectureTimeLabel.textColor = .black
         lectureTimeLabel.textAlignment = .center
         lectureTimeLabel.font = .boldSystemFont(ofSize: 15)
@@ -93,7 +91,7 @@ private extension NeumorphismView {
         ].forEach { $0.isActive = true }
         
         let roomLabel = UILabel()
-        roomLabel.text = room
+        roomLabel.text = lecture?.room
         roomLabel.textColor = .black
         roomLabel.textAlignment = .center
         roomLabel.font = .boldSystemFont(ofSize: 15)
@@ -129,7 +127,6 @@ private extension NeumorphismView {
         let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(
             identifier: AdditionalLectureViewController.identifier
         ) as! AdditionalLectureViewController
-        additionalLectureVC.modalPresentationStyle = .fullScreen
         present(additionalLectureVC, animated: true, completion: nil)
     }
     
@@ -137,7 +134,6 @@ private extension NeumorphismView {
         let editLectureVC = UIStoryboard.editLecture.instantiateViewController(
             identifier: EditLectureViewController.identifier
         ) as! EditLectureViewController
-        editLectureVC.modalPresentationStyle = .fullScreen
         present(editLectureVC, animated: true, completion: nil)
     }
     
@@ -145,7 +141,6 @@ private extension NeumorphismView {
         let lectureAttendanceVC = UIStoryboard.lectureAttendance.instantiateViewController(
             identifier: LectureAttendanceViewController.identifier
         ) as! LectureAttendanceViewController
-        lectureAttendanceVC.modalPresentationStyle = .fullScreen
         present(lectureAttendanceVC, animated: true, completion: nil)
     }
     
@@ -153,7 +148,6 @@ private extension NeumorphismView {
         let lectureMemoVC = UIStoryboard.lectureMemo.instantiateViewController(
             identifier: LectureMemoViewController.identifier
         ) as! LectureMemoViewController
-        lectureMemoVC.modalPresentationStyle = .fullScreen
         present(lectureMemoVC, animated: true, completion: nil)
     }
     
@@ -161,7 +155,6 @@ private extension NeumorphismView {
         let lectureColorVC = UIStoryboard.lectureColor.instantiateViewController(
             identifier: LectureColorViewController.identifier
         ) as! LectureColorViewController
-        lectureColorVC.modalPresentationStyle = .fullScreen
         present(lectureColorVC, animated: true, completion: nil)
     }
     
