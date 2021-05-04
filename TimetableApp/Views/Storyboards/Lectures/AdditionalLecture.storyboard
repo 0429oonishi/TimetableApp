@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e52-BS-Mvm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e52-BS-Mvm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,16 +16,87 @@
                     <view key="view" contentMode="scaleToFill" id="4FM-O9-zcX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="KKV-rf-WxD">
+                                <rect key="frame" x="50" y="144" width="314" height="275"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geA-xM-vG2" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="6Xc-PI-xX2"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b33-7p-4Dm" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="75" width="314" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="MF7-9V-gDv"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWH-r1-Roo" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="150" width="314" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Um3-yZ-SZ8"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ee-N8-4Nt" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="225" width="314" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="lCX-CJ-7if"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auk-MB-kfi" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                <rect key="frame" x="30" y="59" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="auk-MB-kfi" secondAttribute="height" id="omH-oP-Jvv"/>
+                                    <constraint firstAttribute="width" constant="50" id="zbz-zB-uIe"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZa-Fc-uUt" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                <rect key="frame" x="334" y="59" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TZa-Fc-uUt" secondAttribute="height" id="djv-js-b45"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EHh-S7-ul0"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="KKV-rf-WxD" firstAttribute="top" secondItem="EHh-S7-ul0" secondAttribute="top" constant="100" id="19F-CL-XgC"/>
+                            <constraint firstItem="TZa-Fc-uUt" firstAttribute="top" secondItem="auk-MB-kfi" secondAttribute="top" id="E0t-z3-Uk0"/>
+                            <constraint firstAttribute="trailing" secondItem="TZa-Fc-uUt" secondAttribute="trailing" constant="30" id="LqI-bj-qSy"/>
+                            <constraint firstItem="KKV-rf-WxD" firstAttribute="leading" secondItem="EHh-S7-ul0" secondAttribute="leading" constant="50" id="MFx-vc-MN3"/>
+                            <constraint firstItem="EHh-S7-ul0" firstAttribute="trailing" secondItem="KKV-rf-WxD" secondAttribute="trailing" constant="50" id="cJO-Cl-ghu"/>
+                            <constraint firstItem="auk-MB-kfi" firstAttribute="leading" secondItem="EHh-S7-ul0" secondAttribute="leading" constant="30" id="nKA-Bo-m5a"/>
+                            <constraint firstItem="auk-MB-kfi" firstAttribute="top" secondItem="EHh-S7-ul0" secondAttribute="top" constant="15" id="tLb-lW-BTf"/>
+                            <constraint firstItem="TZa-Fc-uUt" firstAttribute="centerY" secondItem="auk-MB-kfi" secondAttribute="centerY" id="uvn-su-c9F"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addButtonView" destination="TZa-Fc-uUt" id="btK-U8-dgW"/>
+                        <outlet property="backButtonView" destination="auk-MB-kfi" id="2YL-Gj-Mfg"/>
+                        <outlet property="creditView" destination="1Ee-N8-4Nt" id="1SM-3p-AxA"/>
+                        <outlet property="nameView" destination="geA-xM-vG2" id="XXq-PK-0in"/>
+                        <outlet property="professorView" destination="zWH-r1-Roo" id="rog-aw-NCs"/>
+                        <outlet property="roomView" destination="b33-7p-4Dm" id="qbg-04-Jqa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vM-5l-ydh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-67" y="40"/>
+            <point key="canvasLocation" x="-68.115942028985515" y="39.508928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

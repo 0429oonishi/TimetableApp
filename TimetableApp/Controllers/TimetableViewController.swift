@@ -74,9 +74,10 @@ private extension TimetableViewController {
             for week in timetable.weeks {
                 let convert = Convert(week: week, period: period)
                 let index = convert.index(timetable: timetable)!
-                lectures.append(Lecture(name: "\(week.rawValue),\(period.rawValue)",
-                                        time: "\(index.convertWeek(timetable: timetable))",
-                                        room: "\(index.convertPeriod(timetable: timetable))"))
+//                lectures.append(Lecture(name: "\(week.rawValue),\(period.rawValue)",
+//                                        time: "\(index.convertWeek(timetable: timetable))",
+//                                        room: "\(index.convertPeriod(timetable: timetable))"))
+                lectures.append(Lecture(name: "", time: "", room: ""))
             }
         }
     }

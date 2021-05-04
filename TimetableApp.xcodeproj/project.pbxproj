@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB385C792640258C009625FF /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385C782640258C009625FF /* Convert.swift */; };
 		AB385C7B26402CEC009625FF /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385C7A26402CEC009625FF /* Typealias.swift */; };
+		AB385CA726415299009625FF /* AdditionalViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385CA626415299009625FF /* AdditionalViewType.swift */; };
 		AB8A80ED263303CB007A20C2 /* TimetableSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */; };
 		AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A811C2633DB41007A20C2 /* String+Extension.swift */; };
 		AB8A81272633E60B007A20C2 /* Bool+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81262633E60B007A20C2 /* Bool+Extension.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		AB385C782640258C009625FF /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		AB385C7A26402CEC009625FF /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		AB385CA626415299009625FF /* AdditionalViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalViewType.swift; sourceTree = "<group>"; };
 		AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSetting.swift; sourceTree = "<group>"; };
 		AB8A811C2633DB41007A20C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AB8A81262633E60B007A20C2 /* Bool+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extension.swift"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				ABD7A6A62632761A008F1556 /* Week.swift */,
 				ABD7A6A92632762C008F1556 /* Period.swift */,
+				AB385CA626415299009625FF /* AdditionalViewType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				ABF49E09263FF6F4002B742E /* Lecture.swift in Sources */,
 				AB8A81FB2635A685007A20C2 /* LectureColorViewController.swift in Sources */,
 				AB8A81DA26359FA0007A20C2 /* UIViewController+Extension.swift in Sources */,
+				AB385CA726415299009625FF /* AdditionalViewType.swift in Sources */,
 				AB8A81EE2635A593007A20C2 /* LectureMemoViewController.swift in Sources */,
 				ABD7A6AA2632762C008F1556 /* Period.swift in Sources */,
 				AB8A81CC26359AFA007A20C2 /* AdditionalLectureViewController.swift in Sources */,
