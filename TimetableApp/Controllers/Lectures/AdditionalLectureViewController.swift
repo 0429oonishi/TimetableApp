@@ -49,6 +49,7 @@ final class AdditionalLectureViewController: UIViewController {
         roomTextField.delegate = self
         professorTextField.delegate = self
         creditTextField.delegate = self
+        creditTextField.keyboardType = .numberPad
         
     }
     
