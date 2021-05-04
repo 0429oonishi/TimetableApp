@@ -13,6 +13,7 @@ final class AdditionalLectureViewController: UIViewController {
     @IBOutlet private weak var roomView: NeumorphismView!
     @IBOutlet private weak var professorView: NeumorphismView!
     @IBOutlet private weak var creditView: NeumorphismView!
+    @IBOutlet private weak var weekAndPeriodView: NeumorphismView!
     @IBOutlet private weak var backButtonView: NeumorphismView!
     @IBOutlet private weak var addButtonView: NeumorphismView!
     
@@ -24,13 +25,15 @@ final class AdditionalLectureViewController: UIViewController {
     private var roomTextField = UITextField()
     private var professorTextField = UITextField()
     private var creditTextField = UITextField()
-    
+    var dismissEvent: (() -> Void)?
+    var timetable: Timetable?
+    var index: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
-        
+
         setupViews(type: .name, view: nameView, label: nameLabel, textField: nameTextField)
         setupViews(type: .room, view: roomView, label: roomLabel, textField: roomTextField)
         setupViews(type: .professor, view: professorView, label: professorLabel, textField: professorTextField)
@@ -40,12 +43,17 @@ final class AdditionalLectureViewController: UIViewController {
         addButtonView.addTarget(self, action: #selector(addButtonViewDidTapped), for: .touchUpInside)
         setupButtonView(type: .back, view: backButtonView)
         backButtonView.addTarget(self, action: #selector(backButtonViewDidTapped), for: .touchUpInside)
+        setupWeekAndPeriodView()
         
         nameTextField.delegate = self
         roomTextField.delegate = self
         professorTextField.delegate = self
         creditTextField.delegate = self
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }
@@ -94,6 +102,26 @@ private extension AdditionalLectureViewController {
         ].forEach { $0.isActive = true }
     }
     
+    func setupWeekAndPeriodView() {
+        weekAndPeriodView.type = .pushButton
+        weekAndPeriodView.layer.cornerRadius = 10
+        
+        let label = UILabel()
+        guard let index = index,
+              let timetable = timetable else { return }
+        let week = index.convertWeek(timetable: timetable)
+        let period = index.convertPeriod(timetable: timetable)
+        label.text = "\(week.rawValue)曜 \(period.rawValue)限"
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        weekAndPeriodView.addSubview(label)
+        [label.centerYAnchor.constraint(equalTo: weekAndPeriodView.centerYAnchor),
+         label.centerXAnchor.constraint(equalTo: weekAndPeriodView.centerXAnchor),
+        ].forEach { $0.isActive = true }
+    }
+    
 }
 
 // MARK: - @objc func
@@ -104,6 +132,9 @@ private extension AdditionalLectureViewController {
     }
     
     func addButtonViewDidTapped() {
+        // MARK: - ToDo 保存処理
+        
+        dismissEvent?()
         dismiss(animated: true, completion: nil)
     }
     
@@ -111,6 +142,9 @@ private extension AdditionalLectureViewController {
 
 extension AdditionalLectureViewController: UITextFieldDelegate {
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

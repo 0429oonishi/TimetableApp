@@ -186,6 +186,8 @@ extension TimetableViewController: TimetableCollectionViewCellDelegate {
         self.view.layer.opacity = 0.6
         settingLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
         settingLectureVC.lecture = lecture
+        settingLectureVC.index = index
+        settingLectureVC.timetable = timetable
         present(settingLectureVC, animated: true, completion: nil)
     }
     

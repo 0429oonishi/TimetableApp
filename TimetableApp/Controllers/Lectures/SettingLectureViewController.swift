@@ -17,7 +17,9 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var backButton: NeumorphismView!
     
     var lecture: Lecture?
+    var index: Int?
     var backButtonEvent: (() -> Void)?
+    var timetable: Timetable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +130,12 @@ private extension NeumorphismView {
             identifier: AdditionalLectureViewController.identifier
         ) as! AdditionalLectureViewController
         additionalLectureVC.modalPresentationStyle = .fullScreen
+        additionalLectureVC.index = index
+        additionalLectureVC.timetable = timetable
+        additionalLectureVC.dismissEvent = {
+            self.backButtonEvent?()
+            self.dismiss(animated: true, completion: nil)
+        }
         present(additionalLectureVC, animated: true, completion: nil)
     }
     

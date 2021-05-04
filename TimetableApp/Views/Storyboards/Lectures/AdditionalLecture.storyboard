@@ -65,16 +65,26 @@
                                     <constraint firstAttribute="width" secondItem="TZa-Fc-uUt" secondAttribute="height" id="djv-js-b45"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9e9-NX-jjX" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                <rect key="frame" x="157" y="59" width="100" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9e9-NX-jjX" secondAttribute="height" multiplier="2:1" id="emW-wA-8aJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EHh-S7-ul0"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="KKV-rf-WxD" firstAttribute="top" secondItem="EHh-S7-ul0" secondAttribute="top" constant="100" id="19F-CL-XgC"/>
+                            <constraint firstItem="9e9-NX-jjX" firstAttribute="top" secondItem="auk-MB-kfi" secondAttribute="top" id="4RW-qp-1sG"/>
                             <constraint firstItem="TZa-Fc-uUt" firstAttribute="top" secondItem="auk-MB-kfi" secondAttribute="top" id="E0t-z3-Uk0"/>
                             <constraint firstAttribute="trailing" secondItem="TZa-Fc-uUt" secondAttribute="trailing" constant="30" id="LqI-bj-qSy"/>
                             <constraint firstItem="KKV-rf-WxD" firstAttribute="leading" secondItem="EHh-S7-ul0" secondAttribute="leading" constant="50" id="MFx-vc-MN3"/>
                             <constraint firstItem="EHh-S7-ul0" firstAttribute="trailing" secondItem="KKV-rf-WxD" secondAttribute="trailing" constant="50" id="cJO-Cl-ghu"/>
+                            <constraint firstItem="9e9-NX-jjX" firstAttribute="centerX" secondItem="4FM-O9-zcX" secondAttribute="centerX" id="cLW-Ly-nv1"/>
                             <constraint firstItem="auk-MB-kfi" firstAttribute="leading" secondItem="EHh-S7-ul0" secondAttribute="leading" constant="30" id="nKA-Bo-m5a"/>
+                            <constraint firstItem="9e9-NX-jjX" firstAttribute="bottom" secondItem="auk-MB-kfi" secondAttribute="bottom" id="p3b-PQ-DK0"/>
                             <constraint firstItem="auk-MB-kfi" firstAttribute="top" secondItem="EHh-S7-ul0" secondAttribute="top" constant="15" id="tLb-lW-BTf"/>
                             <constraint firstItem="TZa-Fc-uUt" firstAttribute="centerY" secondItem="auk-MB-kfi" secondAttribute="centerY" id="uvn-su-c9F"/>
                         </constraints>
@@ -86,6 +96,7 @@
                         <outlet property="nameView" destination="geA-xM-vG2" id="XXq-PK-0in"/>
                         <outlet property="professorView" destination="zWH-r1-Roo" id="rog-aw-NCs"/>
                         <outlet property="roomView" destination="b33-7p-4Dm" id="qbg-04-Jqa"/>
+                        <outlet property="weekAndPeriodView" destination="9e9-NX-jjX" id="lzn-cR-5Gf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vM-5l-ydh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
