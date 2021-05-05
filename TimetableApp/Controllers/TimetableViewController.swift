@@ -77,7 +77,8 @@ private extension TimetableViewController {
 //                lectures.append(Lecture(name: "\(week.rawValue),\(period.rawValue)",
 //                                        time: "\(index.convertWeek(timetable: timetable))",
 //                                        room: "\(index.convertPeriod(timetable: timetable))"))
-                lectures.append(Lecture(name: "", time: "", room: ""))
+                let lecture = Lecture(name: "", room: "", time: "", professor: "", credit: "")
+                lectures.append(lecture)
             }
         }
     }

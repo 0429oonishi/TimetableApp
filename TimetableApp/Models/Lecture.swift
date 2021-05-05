@@ -9,7 +9,9 @@ import Foundation
 
 struct Lecture {
     var name: String?
-    var time: String?
     var room: String?
+    var time: String?
+    var professor: String?
+    var credit: String?
 }
 

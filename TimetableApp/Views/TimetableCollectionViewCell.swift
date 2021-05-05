@@ -14,10 +14,12 @@ protocol TimetableCollectionViewCellDelegate: AnyObject {
 final class TimetableCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var myView: NeumorphismView!
+    
     private var nameLabel: UILabel?
     private var timeLabel: UILabel?
     private var roomLabel: UILabel?
-    
+    private var professorLabel: UILabel?
+    private var creditLabel: UILabel?
     weak var delegate: TimetableCollectionViewCellDelegate?
     
 }
@@ -78,7 +80,11 @@ private extension TimetableCollectionViewCell {
 @objc private extension TimetableCollectionViewCell {
     
     func myViewDidTapped() {
-        let lecture = Lecture(name: nameLabel?.text, time: timeLabel?.text, room: roomLabel?.text)
+        let lecture = Lecture(name: nameLabel?.text,
+                              room: roomLabel?.text,
+                              time: timeLabel?.text,
+                              professor: professorLabel?.text,
+                              credit: creditLabel?.text)
         delegate?.collectionView(didSelectItemAt: myView.tag, lecture: lecture)
     }
     
