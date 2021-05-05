@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TimetableCollectionViewCellDelegate: AnyObject {
-    func collectionView(didSelectItemAt index: Int, lecture: Lecture)
+    func collectionView(didSelectItemAt index: Int)
 }
 
 final class TimetableCollectionViewCell: UICollectionViewCell {
@@ -80,12 +80,7 @@ private extension TimetableCollectionViewCell {
 @objc private extension TimetableCollectionViewCell {
     
     func myViewDidTapped() {
-        let lecture = Lecture(name: nameLabel?.text,
-                              room: roomLabel?.text,
-                              time: timeLabel?.text,
-                              professor: professorLabel?.text,
-                              credit: creditLabel?.text)
-        delegate?.collectionView(didSelectItemAt: myView.tag, lecture: lecture)
+        delegate?.collectionView(didSelectItemAt: myView.tag)
     }
     
 }

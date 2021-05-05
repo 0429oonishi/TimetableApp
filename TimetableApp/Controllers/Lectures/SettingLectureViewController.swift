@@ -16,10 +16,10 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var colorButton: NeumorphismView!
     @IBOutlet private weak var backButton: NeumorphismView!
     
-    var lecture: Lecture?
-    var index: Int?
+    var index: Int!
     var backButtonEvent: (() -> Void)?
     var timetable: Timetable?
+    private let lectureUseCase = LectureUseCase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +41,9 @@ final class SettingLectureViewController: UIViewController {
 private extension SettingLectureViewController {
     
     func setupViews() {
+        let lecture = lectureUseCase.read(index: index)
         lectureView.setupLectureView(lecture: lecture)
-        if lecture!.name!.isEmpty {
+        if lecture.name.isEmpty {
             addOrEditButton.setupButton("追加")
             addOrEditButton.addTarget(self, action: #selector(addButtonDidTapped), for: .touchUpInside)
             lectureView.isHidden = true

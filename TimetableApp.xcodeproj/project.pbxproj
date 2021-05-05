@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB2CAD342642A027001F1446 /* LectureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CAD332642A027001F1446 /* LectureRepository.swift */; };
+		AB2CAD362642A031001F1446 /* LectureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CAD352642A031001F1446 /* LectureUseCase.swift */; };
+		AB2CAD382642A03D001F1446 /* LectureDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CAD372642A03D001F1446 /* LectureDataStore.swift */; };
 		AB385C792640258C009625FF /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385C782640258C009625FF /* Convert.swift */; };
 		AB385C7B26402CEC009625FF /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385C7A26402CEC009625FF /* Typealias.swift */; };
 		AB385CA726415299009625FF /* AdditionalViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385CA626415299009625FF /* AdditionalViewType.swift */; };
@@ -54,6 +57,9 @@
 /* Begin PBXFileReference section */
 		232A5316F34155A95B48E40A /* Pods-TimetableApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableApp.debug.xcconfig"; path = "Target Support Files/Pods-TimetableApp/Pods-TimetableApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2CF3788E70FCA9F5C1C44A52 /* Pods_TimetableApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimetableApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB2CAD332642A027001F1446 /* LectureRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureRepository.swift; sourceTree = "<group>"; };
+		AB2CAD352642A031001F1446 /* LectureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureUseCase.swift; sourceTree = "<group>"; };
+		AB2CAD372642A03D001F1446 /* LectureDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureDataStore.swift; sourceTree = "<group>"; };
 		AB385C782640258C009625FF /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		AB385C7A26402CEC009625FF /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		AB385CA626415299009625FF /* AdditionalViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalViewType.swift; sourceTree = "<group>"; };
@@ -118,8 +124,31 @@
 				232A5316F34155A95B48E40A /* Pods-TimetableApp.debug.xcconfig */,
 				E23F0ECEF3ED2F63BD284B17 /* Pods-TimetableApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AB2CAD302642A002001F1446 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AB2CAD332642A027001F1446 /* LectureRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AB2CAD312642A00D001F1446 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				AB2CAD352642A031001F1446 /* LectureUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		AB2CAD322642A014001F1446 /* DataStores */ = {
+			isa = PBXGroup;
+			children = (
+				AB2CAD372642A03D001F1446 /* LectureDataStore.swift */,
+			);
+			path = DataStores;
 			sourceTree = "<group>";
 		};
 		AB385C7C26402E44009625FF /* Typealias */ = {
@@ -136,6 +165,9 @@
 				AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */,
 				ABF49E08263FF6F4002B742E /* Lecture.swift */,
 				AB385C782640258C009625FF /* Convert.swift */,
+				AB2CAD322642A014001F1446 /* DataStores */,
+				AB2CAD312642A00D001F1446 /* UseCases */,
+				AB2CAD302642A002001F1446 /* Repositories */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -418,7 +450,9 @@
 				ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */,
 				ABD7A6B12632A3E9008F1556 /* TimetableSettingViewController.swift in Sources */,
 				ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */,
+				AB2CAD362642A031001F1446 /* LectureUseCase.swift in Sources */,
 				AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */,
+				AB2CAD382642A03D001F1446 /* LectureDataStore.swift in Sources */,
 				AB385C792640258C009625FF /* Convert.swift in Sources */,
 				ABF49E09263FF6F4002B742E /* Lecture.swift in Sources */,
 				AB8A81FB2635A685007A20C2 /* LectureColorViewController.swift in Sources */,
@@ -434,6 +468,7 @@
 				ABD66280263A5B4500027589 /* UIStoryboard+Extension.swift in Sources */,
 				AB8A813026344399007A20C2 /* SettingLectureViewController.swift in Sources */,
 				ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */,
+				AB2CAD342642A027001F1446 /* LectureRepository.swift in Sources */,
 				ABD7A6C42632A967008F1556 /* TimetableSettingTableViewCell.swift in Sources */,
 				ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */,
 				AB8A81CF26359B17007A20C2 /* EditLectureViewController.swift in Sources */,

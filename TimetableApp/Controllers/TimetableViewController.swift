@@ -29,6 +29,7 @@ final class TimetableViewController: UIViewController {
     private var horizontalItemCount: Int { timetable.weeks.count }
     private var verticalItemCount: Int { timetable.periods.count }
     private var lectures = [Lecture]()
+    private let lectureUseCase = LectureUseCase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +51,7 @@ final class TimetableViewController: UIViewController {
             configureSixPeriod(isHidden: ints[1] == 0)
         }
         
-        lectures.removeAll()
         setupTimetable()
-        collectionView.reloadData()
         
     }
     
@@ -70,17 +69,14 @@ final class TimetableViewController: UIViewController {
 private extension TimetableViewController {
     
     func setupTimetable() {
-        for period in timetable.periods {
-            for week in timetable.weeks {
-                let convert = Convert(week: week, period: period)
-                let index = convert.index(timetable: timetable)!
-//                lectures.append(Lecture(name: "\(week.rawValue),\(period.rawValue)",
-//                                        time: "\(index.convertWeek(timetable: timetable))",
-//                                        room: "\(index.convertPeriod(timetable: timetable))"))
-                let lecture = Lecture(name: "", room: "", time: "", professor: "", credit: "")
-                lectures.append(lecture)
-            }
+        lectures.removeAll()
+        for index in 0..<horizontalItemCount * verticalItemCount {
+            lectureUseCase.create(Lecture())
+            let lecture = lectureUseCase.read(index: index)
+            lectures.append(lecture)
         }
+        // MARK: - ToDo 更新
+        collectionView.reloadData()
     }
     
     func setupCollectionView() {
@@ -179,14 +175,13 @@ extension TimetableViewController: UICollectionViewDataSource {
 // MARK: - TimetableCollectionViewCellDelegate
 extension TimetableViewController: TimetableCollectionViewCellDelegate {
     
-    func collectionView(didSelectItemAt index: Int, lecture: Lecture) {
+    func collectionView(didSelectItemAt index: Int) {
         let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController( 
             identifier: SettingLectureViewController.identifier
         ) as! SettingLectureViewController
         settingLectureVC.modalPresentationStyle = .overCurrentContext
         self.view.layer.opacity = 0.6
         settingLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
-        settingLectureVC.lecture = lecture
         settingLectureVC.index = index
         settingLectureVC.timetable = timetable
         present(settingLectureVC, animated: true, completion: nil)
