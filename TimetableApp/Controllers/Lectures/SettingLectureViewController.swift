@@ -82,7 +82,7 @@ private extension NeumorphismView {
         ].forEach { $0.isActive = true }
         
         let lectureTimeLabel = UILabel()
-        lectureTimeLabel.text = lecture?.time
+        lectureTimeLabel.text = "時間を入れる"
         lectureTimeLabel.textColor = .black
         lectureTimeLabel.textAlignment = .center
         lectureTimeLabel.font = .boldSystemFont(ofSize: 15)

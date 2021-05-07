@@ -58,7 +58,7 @@ private extension TimetableCollectionViewCell {
         ].forEach { $0.isActive = true }
         
         timeLabel = UILabel()
-        timeLabel?.text = lecture.time
+        timeLabel?.text = "時間"
         
         roomLabel?.removeFromSuperview()
         roomLabel = UILabel()
