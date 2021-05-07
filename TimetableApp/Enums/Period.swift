@@ -7,18 +7,40 @@
 
 import Foundation
 
-enum Period: String, CaseIterable {
-    case one = "1"
-    case two = "2"
-    case three = "3"
-    case four = "4"
-    case five = "5"
-    case six = "6"
+enum Period: Int, CaseIterable {
+    case one
+    case two
+    case three
+    case four
+    case five
+    case six
 }
 
 extension Period {
     
     static var data: [Self] { Self.allCases }
+    
+    var text: String {
+        switch self {
+            case .one: return "1"
+            case .two: return "2"
+            case .three: return "3"
+            case .four: return "4"
+            case .five: return "5"
+            case .six: return "6"
+        }
+    }
+    
+    var number: Int {
+        switch self {
+            case .one: return 0
+            case .two: return 1
+            case .three: return 2
+            case .four: return 3
+            case .five: return 4
+            case .six: return 5
+        }
+    }
     
     static func configureSixPeriod(periods: [Self], isHidden: Bool, handler: (Bool) -> Void) -> [Self] {
         switch (periods.contains(.six), isHidden) {

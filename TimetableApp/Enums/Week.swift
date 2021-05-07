@@ -7,18 +7,40 @@
 
 import Foundation
 
-enum Week: String, CaseIterable {
-    case monday = "月"
-    case tuesday = "火"
-    case wednesday = "水"
-    case thursday = "木"
-    case friday = "金"
-    case saturday = "土"
+enum Week: Int, CaseIterable {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
 }
 
 extension Week {
     
     static var data: [Self] { Self.allCases }
+    
+    var text: String {
+        switch self {
+            case .monday: return "月"
+            case .tuesday: return "火"
+            case .wednesday: return "水"
+            case .thursday: return "木"
+            case .friday: return "金"
+            case .saturday: return "土"
+        }
+    }
+    
+    var number: Int {
+        switch self {
+            case .monday: return 0
+            case .tuesday: return 1
+            case .wednesday: return 2
+            case .thursday: return 3
+            case .friday: return 4
+            case .saturday: return 5
+        }
+    }
     
     static func configureSaturday(weeks: [Self], isHidden: Bool, handler: (Bool) -> Void) -> [Self] {
         switch (weeks.contains(.saturday), isHidden) {
