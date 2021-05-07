@@ -26,8 +26,8 @@ final class AdditionalLectureViewController: UIViewController {
     private var professorTextField = UITextField()
     private var creditTextField = UITextField()
     var dismissEvent: (() -> Void)?
-    var timetable: Timetable?
-    var index: Int!
+    var week: Week?
+    var period: Period?
     private let lectureUseCase = LectureUseCase()
     
     override func viewDidLoad() {
@@ -107,10 +107,8 @@ private extension AdditionalLectureViewController {
     func setupWeekAndPeriodView() {
         weekAndPeriodView.type = .normal
         weekAndPeriodView.layer.cornerRadius = 10
-        
-        guard let index = index else { return }
-        let week = index.week
-        let period = index.period
+        guard let week = week else { return }
+        guard let period = period else { return }
         let label = UILabel()
         label.text = "\(week.text)曜 \(period.text)限"
         label.textAlignment = .center
@@ -138,6 +136,7 @@ private extension AdditionalLectureViewController {
         let professor = professorTextField.text
         let credit = Int(creditTextField.text ?? "")
         let lecture = LectureElement(name: name, room: room, professor: professor, credit: credit)
+        let index = Convert(week: week, period: period).number
         lectureUseCase.update(index: index, lecture: lecture)
         dismissEvent?()
         dismiss(animated: true, completion: nil)
@@ -145,6 +144,7 @@ private extension AdditionalLectureViewController {
     
 }
 
+// MARK: - UITextFieldDelegate
 extension AdditionalLectureViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

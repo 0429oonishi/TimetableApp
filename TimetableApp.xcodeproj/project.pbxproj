@@ -41,6 +41,7 @@
 		ABB6A2DB262D1F8200CFB798 /* TimetableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A2D9262D1F8200CFB798 /* TimetableCollectionViewCell.swift */; };
 		ABB6A2DC262D1F8200CFB798 /* TimetableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABB6A2DA262D1F8200CFB798 /* TimetableCollectionViewCell.xib */; };
 		ABB6A307262DD11600CFB798 /* NeumorphismView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6A306262DD11600CFB798 /* NeumorphismView.swift */; };
+		ABCA38B02645AF3C0027AC79 /* TimetableSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABCA38AF2645AF3C0027AC79 /* TimetableSettingTableViewCell.xib */; };
 		ABD66280263A5B4500027589 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */; };
 		ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */; };
 		ABD7A676263004BE008F1556 /* MyUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A675263004BE008F1556 /* MyUITabBarController.swift */; };
@@ -49,7 +50,6 @@
 		ABD7A6B12632A3E9008F1556 /* TimetableSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6B02632A3E9008F1556 /* TimetableSettingViewController.swift */; };
 		ABD7A6B42632A3F7008F1556 /* TimetableSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD7A6B32632A3F7008F1556 /* TimetableSetting.storyboard */; };
 		ABD7A6C42632A967008F1556 /* TimetableSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6C22632A967008F1556 /* TimetableSettingTableViewCell.swift */; };
-		ABD7A6C52632A967008F1556 /* TimetableSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD7A6C32632A967008F1556 /* TimetableSettingTableViewCell.xib */; };
 		ABF49E09263FF6F4002B742E /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF49E08263FF6F4002B742E /* Lecture.swift */; };
 		ACB2A830A569AFB70A9F3EFA /* Pods_TimetableApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF3788E70FCA9F5C1C44A52 /* Pods_TimetableApp.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +93,7 @@
 		ABB6A2D9262D1F8200CFB798 /* TimetableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABB6A2DA262D1F8200CFB798 /* TimetableCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableCollectionViewCell.xib; sourceTree = "<group>"; };
 		ABB6A306262DD11600CFB798 /* NeumorphismView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismView.swift; sourceTree = "<group>"; };
+		ABCA38AF2645AF3C0027AC79 /* TimetableSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetableSettingTableViewCell.xib; sourceTree = "<group>"; };
 		ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUINavigationController.swift; sourceTree = "<group>"; };
 		ABD7A675263004BE008F1556 /* MyUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUITabBarController.swift; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		ABD7A6B02632A3E9008F1556 /* TimetableSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSettingViewController.swift; sourceTree = "<group>"; };
 		ABD7A6B32632A3F7008F1556 /* TimetableSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimetableSetting.storyboard; sourceTree = "<group>"; };
 		ABD7A6C22632A967008F1556 /* TimetableSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSettingTableViewCell.swift; sourceTree = "<group>"; };
-		ABD7A6C32632A967008F1556 /* TimetableSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableSettingTableViewCell.xib; sourceTree = "<group>"; };
 		ABF49E08263FF6F4002B742E /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		E23F0ECEF3ED2F63BD284B17 /* Pods-TimetableApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableApp.release.xcconfig"; path = "Target Support Files/Pods-TimetableApp/Pods-TimetableApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,7 +262,7 @@
 				ABB6A2D9262D1F8200CFB798 /* TimetableCollectionViewCell.swift */,
 				ABB6A2DA262D1F8200CFB798 /* TimetableCollectionViewCell.xib */,
 				ABD7A6C22632A967008F1556 /* TimetableSettingTableViewCell.swift */,
-				ABD7A6C32632A967008F1556 /* TimetableSettingTableViewCell.xib */,
+				ABCA38AF2645AF3C0027AC79 /* TimetableSettingTableViewCell.xib */,
 				ABD7A6B62632A55D008F1556 /* Storyboards */,
 			);
 			path = Views;
@@ -385,8 +385,8 @@
 				ABB6A2CA262D074500CFB798 /* Timetable.storyboard in Resources */,
 				AB8A81FF2635A6C0007A20C2 /* LectureAttendance.storyboard in Resources */,
 				AB8A8133263443B9007A20C2 /* SettingLecture.storyboard in Resources */,
-				ABD7A6C52632A967008F1556 /* TimetableSettingTableViewCell.xib in Resources */,
 				AB8A82022635A6CF007A20C2 /* LectureMemo.storyboard in Resources */,
+				ABCA38B02645AF3C0027AC79 /* TimetableSettingTableViewCell.xib in Resources */,
 				ABD7A6B42632A3F7008F1556 /* TimetableSetting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

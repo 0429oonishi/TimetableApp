@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TimetableCollectionViewCellDelegate: AnyObject {
-    func collectionView(didSelectItemAt index: Int)
+    func collectionView(week: Week, period: Period)
 }
 
 final class TimetableCollectionViewCell: UICollectionViewCell {
@@ -20,6 +20,7 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
     private var roomLabel: UILabel?
     private var professorLabel: UILabel?
     private var creditLabel: UILabel?
+    private let lectureUseCase = LectureUseCase()
     weak var delegate: TimetableCollectionViewCellDelegate?
     
 }
@@ -27,9 +28,23 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
 // MARK: - setup cell
 extension TimetableCollectionViewCell {
     
-    func setup(index: Int, lecture: Lecture) {
+    func setup(indexPath: IndexPath, hasSaturday: Bool) {
+        var index = 0
+        if hasSaturday {
+            index = indexPath.row
+        } else {
+            switch indexPath.row {
+                case 0...4:   index = indexPath.row
+                case 5...9:   index = indexPath.row + 1
+                case 10...14: index = indexPath.row + 2
+                case 15...19: index = indexPath.row + 3
+                case 20...24: index = indexPath.row + 4
+                case 25...29: index = indexPath.row + 5
+                default: fatalError()
+            }
+        }
         setupMyView(index: index)
-        setupLabel(lecture: lecture)
+        setupLabel(index: index)
     }
     
 }
@@ -44,10 +59,10 @@ private extension TimetableCollectionViewCell {
         myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
     }
     
-    func setupLabel(lecture: Lecture) {
+    func setupLabel(index: Int) {
         nameLabel?.removeFromSuperview()
         nameLabel = UILabel()
-        nameLabel?.text = lecture.name
+        nameLabel?.text = index.week.text
         nameLabel?.textColor = .black
         nameLabel?.textAlignment = .center
         nameLabel?.font = .boldSystemFont(ofSize: 18)
@@ -62,7 +77,7 @@ private extension TimetableCollectionViewCell {
         
         roomLabel?.removeFromSuperview()
         roomLabel = UILabel()
-        roomLabel?.text = lecture.room
+        roomLabel?.text = index.period.text
         roomLabel?.textColor = .black
         roomLabel?.textAlignment = .center
         roomLabel?.font = .boldSystemFont(ofSize: 12)
@@ -80,7 +95,9 @@ private extension TimetableCollectionViewCell {
 @objc private extension TimetableCollectionViewCell {
     
     func myViewDidTapped() {
-        delegate?.collectionView(didSelectItemAt: myView.tag)
+        let week = myView.tag.week
+        let period = myView.tag.period
+        delegate?.collectionView(week: week, period: period)
     }
     
 }

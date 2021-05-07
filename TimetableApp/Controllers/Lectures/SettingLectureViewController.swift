@@ -16,9 +16,9 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var colorButton: NeumorphismView!
     @IBOutlet private weak var backButton: NeumorphismView!
     
-    var index: Int!
     var backButtonEvent: (() -> Void)?
-    var timetable: Timetable?
+    var week: Week?
+    var period: Period?
     private let lectureUseCase = LectureUseCase()
     
     override func viewDidLoad() {
@@ -41,6 +41,7 @@ final class SettingLectureViewController: UIViewController {
 private extension SettingLectureViewController {
     
     func setupViews() {
+        let index = Convert(week: week, period: period).number
         let lecture = lectureUseCase.read(index: index)
         lectureView.setupLectureView(lecture: lecture)
         if lecture.name.isEmpty {
@@ -131,8 +132,8 @@ private extension NeumorphismView {
             identifier: AdditionalLectureViewController.identifier
         ) as! AdditionalLectureViewController
         additionalLectureVC.modalPresentationStyle = .fullScreen
-        additionalLectureVC.index = index
-        additionalLectureVC.timetable = timetable
+        additionalLectureVC.week = week
+        additionalLectureVC.period = period
         additionalLectureVC.dismissEvent = {
             self.backButtonEvent?()
             self.dismiss(animated: true, completion: nil)

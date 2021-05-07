@@ -7,4 +7,3 @@
 
 import Foundation
 
-typealias Timetable = (weeks: [Week], periods: [Period])

@@ -9,11 +9,13 @@ import Foundation
 
 struct Convert {
     
-    var week: Week
-    var period: Period
+    var week: Week?
+    var period: Period?
     
     var number: Int {
-        week.number + Week.data.count * period.number
+        guard let week = week else { return -1 }
+        guard let period = period else { return -1 }
+        return week.number + Week.data.count * period.number
     }
     
 }
