@@ -29,14 +29,13 @@ class LectureDataStore: LectureRepository {
         return lectures
     }
     
-    func update(index: Int, lecture: Lecture) {
+    func update(index: Int, lecture: LectureElement){
         let lectures = realm.objects(Lecture.self)
         try! realm.write {
-            lectures[index].name = lecture.name
-            lectures[index].room = lecture.room
-            lectures[index].time = lecture.time
-            lectures[index].professor = lecture.professor
-            lectures[index].credit = lecture.credit
+            lectures[index].name = lecture.name ?? ""
+            lectures[index].room = lecture.room ?? ""
+            lectures[index].professor = lecture.professor ?? ""
+            lectures[index].credit = lecture.credit ?? 0
         }
     }
     
@@ -48,11 +47,8 @@ class LectureDataStore: LectureRepository {
     }
     
     func deleteAll() {
-        let lectures = realm.objects(Lecture.self)
         try! realm.write {
-            lectures.forEach { lecture in
-                realm.delete(lecture)
-            }
+            realm.deleteAll()
         }
     }
     

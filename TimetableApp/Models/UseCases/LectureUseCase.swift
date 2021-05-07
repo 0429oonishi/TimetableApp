@@ -27,7 +27,7 @@ class LectureUseCase {
         return repository.readAll()
     }
     
-    func update(index: Int, lecture: Lecture) {
+    func update(index: Int, lecture: LectureElement) {
         repository.update(index: index, lecture: lecture)
     }
     

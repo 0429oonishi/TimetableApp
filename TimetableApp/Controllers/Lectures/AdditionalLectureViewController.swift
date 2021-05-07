@@ -27,7 +27,7 @@ final class AdditionalLectureViewController: UIViewController {
     private var creditTextField = UITextField()
     var dismissEvent: (() -> Void)?
     var timetable: Timetable?
-    var index: Int?
+    var index: Int!
     private let lectureUseCase = LectureUseCase()
     
     override func viewDidLoad() {
@@ -105,15 +105,14 @@ private extension AdditionalLectureViewController {
     }
     
     func setupWeekAndPeriodView() {
-        weekAndPeriodView.type = .pushButton
+        weekAndPeriodView.type = .normal
         weekAndPeriodView.layer.cornerRadius = 10
         
-        guard let index = index,
-              let timetable = timetable else { return }
-        let week = index.convertWeek(timetable: timetable)
-        let period = index.convertPeriod(timetable: timetable)
+        guard let index = index else { return }
+        let week = index.week
+        let period = index.period
         let label = UILabel()
-        label.text = "\(week.rawValue)曜 \(period.rawValue)限"
+        label.text = "\(week.text)曜 \(period.text)限"
         label.textAlignment = .center
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
@@ -134,7 +133,12 @@ private extension AdditionalLectureViewController {
     }
     
     func addButtonViewDidTapped() {
-        // MARK: - ToDo 保存
+        let name = nameTextField.text
+        let room = roomTextField.text
+        let professor = professorTextField.text
+        let credit = Int(creditTextField.text ?? "")
+        let lecture = LectureElement(name: name, room: room, professor: professor, credit: credit)
+        lectureUseCase.update(index: index, lecture: lecture)
         dismissEvent?()
         dismiss(animated: true, completion: nil)
     }

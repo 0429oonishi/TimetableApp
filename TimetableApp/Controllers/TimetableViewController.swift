@@ -28,12 +28,11 @@ final class TimetableViewController: UIViewController {
     private var timetable: Timetable = (weeks: Week.data, periods: Period.data)
     private var horizontalItemCount: Int { timetable.weeks.count }
     private var verticalItemCount: Int { timetable.periods.count }
-    private var lectures = [Lecture]()
     private let lectureUseCase = LectureUseCase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
         collectionView.delegate = self
@@ -59,7 +58,8 @@ final class TimetableViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         setupCollectionView()
-        setupWeekAndPeriodViews()
+        setupWeekViews()
+        setupPeriodViews()
         
     }
     
@@ -69,13 +69,12 @@ final class TimetableViewController: UIViewController {
 private extension TimetableViewController {
     
     func setupTimetable() {
-        lectures.removeAll()
-        for index in 0..<horizontalItemCount * verticalItemCount {
-            lectureUseCase.create(Lecture())
-            let lecture = lectureUseCase.read(index: index)
-            lectures.append(lecture)
+        for _ in 0..<horizontalItemCount * verticalItemCount {
+            if lectureUseCase.readAll().count < horizontalItemCount * verticalItemCount {
+                lectureUseCase.create(Lecture())
+            }
         }
-        // MARK: - ToDo 更新
+        // MARK: - ToDo 決め打ち
         collectionView.reloadData()
     }
     
@@ -94,19 +93,22 @@ private extension TimetableViewController {
         collectionView.collectionViewLayout = layout
     }
     
-    func setupWeekAndPeriodViews() {
-        mondayView.setupWeekAndPeriodView(Week.monday.rawValue)
-        tuesdayView.setupWeekAndPeriodView(Week.tuesday.rawValue)
-        wednesdayView.setupWeekAndPeriodView(Week.wednesday.rawValue)
-        thursdayView.setupWeekAndPeriodView(Week.thursday.rawValue)
-        fridayView.setupWeekAndPeriodView(Week.friday.rawValue)
-        saturdayView.setupWeekAndPeriodView(Week.saturday.rawValue)
-        onePeriodView.setupWeekAndPeriodView(Period.one.rawValue)
-        twoPeriodView.setupWeekAndPeriodView(Period.two.rawValue)
-        threePeriodView.setupWeekAndPeriodView(Period.three.rawValue)
-        fourPeriodView.setupWeekAndPeriodView(Period.four.rawValue)
-        fivePeriodView.setupWeekAndPeriodView(Period.five.rawValue)
-        sixPeriodView.setupWeekAndPeriodView(Period.six.rawValue)
+    func setupWeekViews() {
+        mondayView.setupWeekAndPeriodView(Week.monday.text)
+        tuesdayView.setupWeekAndPeriodView(Week.tuesday.text)
+        wednesdayView.setupWeekAndPeriodView(Week.wednesday.text)
+        thursdayView.setupWeekAndPeriodView(Week.thursday.text)
+        fridayView.setupWeekAndPeriodView(Week.friday.text)
+        saturdayView.setupWeekAndPeriodView(Week.saturday.text)
+    }
+    
+    func setupPeriodViews() {
+        onePeriodView.setupWeekAndPeriodView(Period.one.text)
+        twoPeriodView.setupWeekAndPeriodView(Period.two.text)
+        threePeriodView.setupWeekAndPeriodView(Period.three.text)
+        fourPeriodView.setupWeekAndPeriodView(Period.five.text)
+        fivePeriodView.setupWeekAndPeriodView(Period.five.text)
+        sixPeriodView.setupWeekAndPeriodView(Period.six.text)
     }
     
 }
@@ -165,7 +167,7 @@ extension TimetableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimetableCollectionViewCell.identifier,
                                                       for: indexPath) as! TimetableCollectionViewCell
         cell.delegate = self
-        let lecture = lectures[indexPath.row]
+        let lecture = lectureUseCase.readAll()[indexPath.row]
         cell.setup(index: indexPath.row, lecture: lecture)
         return cell
     }

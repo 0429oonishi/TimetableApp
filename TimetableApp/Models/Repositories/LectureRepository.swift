@@ -11,7 +11,7 @@ protocol LectureRepository {
     func create(_ lecture: Lecture)
     func read(index: Int) -> Lecture
     func readAll() -> [Lecture]
-    func update(index: Int, lecture: Lecture)
+    func update(index: Int, lecture: LectureElement)
     func delete(index: Int)
     func deleteAll()
 }
