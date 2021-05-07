@@ -21,15 +21,14 @@ extension Int {
 
 extension Int {
     
-    func convertWeek(timetable: Timetable) -> Week {
-        let remainder = self % timetable.weeks.count
-        return timetable.weeks[remainder]
+    var week: Week {
+        let remainder = self % Week.data.count
+        return Week(rawValue: remainder)!
     }
     
-    func convertPeriod(timetable: Timetable) -> Period {
-        let quotient = (self - self % timetable.weeks.count) / timetable.weeks.count
-        return timetable.periods[quotient]
+    var period: Period {
+        let quotient = (self - self % Week.data.count) / Week.data.count
+        return Period(rawValue: quotient)!
     }
     
 }
-
