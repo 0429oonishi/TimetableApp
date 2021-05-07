@@ -10,20 +10,8 @@ import UIKit
 final class TimetableViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var weekStackView: UIStackView!
-    @IBOutlet private weak var mondayView: NeumorphismView!
-    @IBOutlet private weak var tuesdayView: NeumorphismView!
-    @IBOutlet private weak var wednesdayView: NeumorphismView!
-    @IBOutlet private weak var thursdayView: NeumorphismView!
-    @IBOutlet private weak var fridayView: NeumorphismView!
-    @IBOutlet private weak var saturdayView: NeumorphismView!
-    @IBOutlet private weak var periodStackView: UIStackView!
-    @IBOutlet private weak var onePeriodView: NeumorphismView!
-    @IBOutlet private weak var twoPeriodView: NeumorphismView!
-    @IBOutlet private weak var threePeriodView: NeumorphismView!
-    @IBOutlet private weak var fourPeriodView: NeumorphismView!
-    @IBOutlet private weak var fivePeriodView: NeumorphismView!
-    @IBOutlet private weak var sixPeriodView: NeumorphismView!
+    @IBOutlet private weak var saturdaySuperView: UIView!
+    @IBOutlet private weak var sixPeriodSuperView: UIView!
     
     private var weeks = Week.data
     private var periods = Period.data
@@ -46,10 +34,6 @@ final class TimetableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
-            configureSaturday(isHidden: ints[0] == 0)
-            configureSixPeriod(isHidden: ints[1] == 0)
-        }
         setupTimetable()
         collectionView.reloadData()
         
@@ -59,8 +43,6 @@ final class TimetableViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         setupCollectionView()
-        setupWeekViews()
-        setupPeriodViews()
         
     }
     
@@ -70,6 +52,18 @@ final class TimetableViewController: UIViewController {
 private extension TimetableViewController {
     
     func setupTimetable() {
+        if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
+            let isSaturdayViewHidden = (ints[0] == 0)
+            if weeks.contains(.saturday) == isSaturdayViewHidden {
+                saturdaySuperView.isHidden = isSaturdayViewHidden
+                weeks = isSaturdayViewHidden ? weeks.filter { $0 != .saturday } : weeks + [.saturday]
+            }
+            let isSixPeriodViewHidden = (ints[1] == 0)
+            if periods.contains(.six) == isSixPeriodViewHidden {
+                sixPeriodSuperView.isHidden = isSixPeriodViewHidden
+                periods = isSixPeriodViewHidden ? periods.filter { $0 != .six } : periods + [.six]
+            }
+        }
         for _ in 0..<horizontalItemCount * verticalItemCount {
             if lectureUseCase.readAll().count < horizontalItemCount * verticalItemCount {
                 lectureUseCase.create(Lecture())
@@ -90,62 +84,6 @@ private extension TimetableViewController {
             height: totalItemSize.height / CGFloat(verticalItemCount)
         )
         collectionView.collectionViewLayout = layout
-    }
-    
-    func setupWeekViews() {
-        mondayView.setupWeekAndPeriodView(Week.monday.text)
-        tuesdayView.setupWeekAndPeriodView(Week.tuesday.text)
-        wednesdayView.setupWeekAndPeriodView(Week.wednesday.text)
-        thursdayView.setupWeekAndPeriodView(Week.thursday.text)
-        fridayView.setupWeekAndPeriodView(Week.friday.text)
-        saturdayView.setupWeekAndPeriodView(Week.saturday.text)
-    }
-    
-    func setupPeriodViews() {
-        onePeriodView.setupWeekAndPeriodView(Period.one.text)
-        twoPeriodView.setupWeekAndPeriodView(Period.two.text)
-        threePeriodView.setupWeekAndPeriodView(Period.three.text)
-        fourPeriodView.setupWeekAndPeriodView(Period.four.text)
-        fivePeriodView.setupWeekAndPeriodView(Period.five.text)
-        sixPeriodView.setupWeekAndPeriodView(Period.six.text)
-    }
-    
-}
-
-// MARK: - configure timetable
-private extension TimetableViewController {
-    
-    func configureSaturday(isHidden: Bool) {
-        weeks = Week.configureSaturday(weeks: weeks, isHidden: isHidden) {
-            let saturdaySuperView = weekStackView.arrangedSubviews[5]
-            saturdaySuperView.isHidden = $0
-        }
-    }
-    
-    func configureSixPeriod(isHidden: Bool) {
-        periods = Period.configureSixPeriod(periods: periods, isHidden: isHidden) {
-            let sixPeriodSuperView = periodStackView.arrangedSubviews[5]
-            sixPeriodSuperView.isHidden = $0
-        }
-    }
-    
-}
-
-// MARK: - setup NeumorphismView
-private extension NeumorphismView {
-    
-    func setupWeekAndPeriodView(_ text: String) {
-        self.type = .normal
-        let label = UILabel()
-        label.text = text
-        label.textColor = .black
-        label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 15)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.setContentView(label)
-        [label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        ].forEach { $0.isActive = true }
     }
     
 }

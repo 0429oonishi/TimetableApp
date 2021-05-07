@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VH-IA-FGq">
                                         <rect key="frame" x="0.0" y="0.0" width="61.5" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-dB-NMW" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-dB-NMW" customClass="WeekView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="1" width="51.5" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -40,7 +40,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7S-Fh-sIC">
                                         <rect key="frame" x="63.5" y="0.0" width="61" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckf-TL-zyI" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckf-TL-zyI" customClass="WeekView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="1" width="51" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -56,7 +56,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALr-L1-M2r">
                                         <rect key="frame" x="126.5" y="0.0" width="61.5" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jal-Z7-A0W" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jal-Z7-A0W" customClass="WeekView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="1" width="51.5" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -72,7 +72,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoK-fx-cwt">
                                         <rect key="frame" x="190" y="0.0" width="61.5" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0N-QZ-A97" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0N-QZ-A97" customClass="WeekView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="1" width="51.5" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -88,7 +88,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysd-kS-trh">
                                         <rect key="frame" x="253.5" y="0.0" width="61" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RF-9u-sgm" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RF-9u-sgm" customClass="WeekView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="1" width="51" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -104,7 +104,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Uu-Km-zYQ">
                                         <rect key="frame" x="316.5" y="0.0" width="61.5" height="30"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWO-6D-AQi" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWO-6D-AQi" customClass="WeekView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="1" width="51.5" height="28"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -143,7 +143,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU5-xH-joa">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="113"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ez-XX-xAU" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ez-XX-xAU" customClass="PeriodView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="5" width="28" height="103"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -159,7 +159,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9Z-9Y-7Xr">
                                         <rect key="frame" x="0.0" y="115" width="30" height="113.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79c-uF-aWe" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79c-uF-aWe" customClass="PeriodView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="5" width="28" height="103.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -175,7 +175,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYu-sw-gfE">
                                         <rect key="frame" x="0.0" y="230.5" width="30" height="113"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arG-gG-ReO" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arG-gG-ReO" customClass="PeriodView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="5" width="28" height="103"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -191,7 +191,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tV-xB-b08">
                                         <rect key="frame" x="0.0" y="345.5" width="30" height="113"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDk-lD-972" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDk-lD-972" customClass="PeriodView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="5" width="28" height="103"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -207,7 +207,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6b-T0-mOB">
                                         <rect key="frame" x="0.0" y="460.5" width="30" height="113.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8y-aX-RWL" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8y-aX-RWL" customClass="PeriodView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="5" width="28" height="103.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -223,7 +223,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWO-yR-dfM">
                                         <rect key="frame" x="0.0" y="576" width="30" height="113"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdL-EP-LrW" customClass="NeumorphismView" customModule="TimetableApp" customModuleProvider="target">
+                                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdL-EP-LrW" customClass="PeriodView" customModule="TimetableApp" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="5" width="28" height="103"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
@@ -282,20 +282,8 @@
                     <navigationItem key="navigationItem" id="FHE-Yl-cus"/>
                     <connections>
                         <outlet property="collectionView" destination="yAA-9s-ty2" id="xn2-hB-gIl"/>
-                        <outlet property="fivePeriodView" destination="B8y-aX-RWL" id="PWj-Zc-keW"/>
-                        <outlet property="fourPeriodView" destination="vDk-lD-972" id="AeJ-QB-pol"/>
-                        <outlet property="fridayView" destination="5RF-9u-sgm" id="U1W-KY-aKI"/>
-                        <outlet property="mondayView" destination="a1k-dB-NMW" id="lJL-ho-R1i"/>
-                        <outlet property="onePeriodView" destination="4Ez-XX-xAU" id="HpK-pX-3Rs"/>
-                        <outlet property="periodStackView" destination="jSp-lJ-9GK" id="TDy-Fh-WDk"/>
-                        <outlet property="saturdayView" destination="gWO-6D-AQi" id="zAL-rO-fRb"/>
-                        <outlet property="sixPeriodView" destination="HdL-EP-LrW" id="hC5-IF-DVj"/>
-                        <outlet property="threePeriodView" destination="arG-gG-ReO" id="izS-26-8C5"/>
-                        <outlet property="thursdayView" destination="G0N-QZ-A97" id="dIn-4W-ydt"/>
-                        <outlet property="tuesdayView" destination="ckf-TL-zyI" id="JvW-pU-a5h"/>
-                        <outlet property="twoPeriodView" destination="79c-uF-aWe" id="JTK-0I-EIe"/>
-                        <outlet property="wednesdayView" destination="jal-Z7-A0W" id="nz3-2g-VcB"/>
-                        <outlet property="weekStackView" destination="oec-wu-alq" id="F6K-uk-Whn"/>
+                        <outlet property="saturdaySuperView" destination="5Uu-Km-zYQ" id="RVz-Dz-ah1"/>
+                        <outlet property="sixPeriodSuperView" destination="XWO-yR-dfM" id="Yf1-p0-Fh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zR5-a2-vPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
