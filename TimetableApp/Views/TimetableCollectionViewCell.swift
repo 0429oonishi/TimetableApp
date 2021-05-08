@@ -7,10 +7,11 @@
 
 import UIKit
 
-protocol TimetableCollectionViewCellDelegate: AnyObject {
-    func collectionView(week: Week, period: Period)
-}
-
+// 責務
+// やること
+// - 渡された情報の表示
+// やらないこと
+// - 表示場所の意識
 final class TimetableCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var myView: NeumorphismView!
@@ -20,49 +21,33 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
     private var roomLabel: UILabel?
     private var professorLabel: UILabel?
     private var creditLabel: UILabel?
-    private let lectureUseCase = LectureUseCase()
-    weak var delegate: TimetableCollectionViewCellDelegate?
-    
+
+    private var didTapHandler: () -> Void = {}
 }
 
 // MARK: - setup cell
 extension TimetableCollectionViewCell {
-    
-    func setup(indexPath: IndexPath, hasSaturday: Bool) {
-        var index = 0
-        if hasSaturday {
-            index = indexPath.row
-        } else {
-            switch indexPath.row {
-                case 0...4:   index = indexPath.row
-                case 5...9:   index = indexPath.row + 1
-                case 10...14: index = indexPath.row + 2
-                case 15...19: index = indexPath.row + 3
-                case 20...24: index = indexPath.row + 4
-                case 25...29: index = indexPath.row + 5
-                default: fatalError()
-            }
-        }
-        setupMyView(index: index)
-        setupLabel(index: index)
+    func setup(week: Week, period: Period, didTap: @escaping () -> Void) {
+        didTapHandler = didTap
+
+        setupMyView()
+        setupLabel(week: week, period: period)
     }
-    
 }
 
 // MARK: - setup views
 private extension TimetableCollectionViewCell {
-    
-    func setupMyView(index: Int) {
+
+    func setupMyView() {
         myView.type = .pushButton
         myView.cornerRadius = 15
-        myView.tag = index
         myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
     }
     
-    func setupLabel(index: Int) {
+    func setupLabel(week: Week, period: Period) {
         nameLabel?.removeFromSuperview()
         nameLabel = UILabel()
-        nameLabel?.text = index.week.text
+        nameLabel?.text = week.text
         nameLabel?.textColor = .black
         nameLabel?.textAlignment = .center
         nameLabel?.font = .boldSystemFont(ofSize: 18)
@@ -77,7 +62,7 @@ private extension TimetableCollectionViewCell {
         
         roomLabel?.removeFromSuperview()
         roomLabel = UILabel()
-        roomLabel?.text = index.period.text
+        roomLabel?.text = period.text
         roomLabel?.textColor = .black
         roomLabel?.textAlignment = .center
         roomLabel?.font = .boldSystemFont(ofSize: 12)
@@ -95,10 +80,6 @@ private extension TimetableCollectionViewCell {
 @objc private extension TimetableCollectionViewCell {
     
     func myViewDidTapped() {
-        let week = myView.tag.week
-        let period = myView.tag.period
-        delegate?.collectionView(week: week, period: period)
+        didTapHandler()
     }
-    
 }
-
