@@ -103,18 +103,16 @@ extension TimetableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimetableCollectionViewCell.identifier,
                                                       for: indexPath) as! TimetableCollectionViewCell
         let hasSaturday = weeks.contains(.saturday)
-        cell.setup(indexPath: indexPath, hasSaturday: hasSaturday)
-        cell.delegate = self
+        guard let week = Week(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
+        guard let period = Period(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
+        cell.setup(week: week, period: period) { [weak self] in
+            self?.presentSettingLectureVC(week: week, period: period)
+        }
         return cell
     }
     
-}
-
-// MARK: - TimetableCollectionViewCellDelegate
-extension TimetableViewController: TimetableCollectionViewCellDelegate {
-    
-    func collectionView(week: Week, period: Period) {
-        let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController( 
+    private func presentSettingLectureVC(week: Week, period: Period) {
+        let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController(
             identifier: SettingLectureViewController.identifier
         ) as! SettingLectureViewController
         settingLectureVC.modalPresentationStyle = .overCurrentContext
@@ -125,4 +123,18 @@ extension TimetableViewController: TimetableCollectionViewCellDelegate {
         present(settingLectureVC, animated: true, completion: nil)
     }
     
+}
+
+private extension Week {
+    init?(item: Int, hasSaturday: Bool) {
+        let horizontalItemCount = hasSaturday ? 6 : 5
+        self.init(rawValue: item % horizontalItemCount)
+    }
+}
+
+private extension Period {
+    init?(item: Int, hasSaturday: Bool) {
+        let horizontalItemCount = hasSaturday ? 6 : 5
+        self.init(rawValue: item / horizontalItemCount)
+    }
 }

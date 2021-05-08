@@ -18,17 +18,3 @@ extension Int {
     }
     
 }
-
-extension Int {
-    
-    var week: Week {
-        let remainder = self % Week.data.count
-        return Week(rawValue: remainder)!
-    }
-    
-    var period: Period {
-        let quotient = (self - self % Week.data.count) / Week.data.count
-        return Period(rawValue: quotient)!
-    }
-    
-}
