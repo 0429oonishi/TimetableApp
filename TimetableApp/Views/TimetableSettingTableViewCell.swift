@@ -7,12 +7,15 @@
 
 import UIKit
 
+protocol TimetableSettingTableViewCellDelegate: AnyObject {
+    func mySwitchDidTapped(type: TimetableSettingType, isOn: Bool)
+}
+
 final class TimetableSettingTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var myView: NeumorphismView!
+    weak var delegate: TimetableSettingTableViewCellDelegate?
     
-    var onTapEvent: ((UISwitch) -> Void)?
-
 }
 
 // MARK: - setup
@@ -50,7 +53,8 @@ extension TimetableSettingTableViewCell {
 @objc private extension TimetableSettingTableViewCell {
     
     func mySwitchDidTapped(_ sender: UISwitch) {
-        onTapEvent?(sender)
+        let type = TimetableSettingType(rawValue: sender.tag)!
+        delegate?.mySwitchDidTapped(type: type, isOn: sender.isOn)
     }
     
 }

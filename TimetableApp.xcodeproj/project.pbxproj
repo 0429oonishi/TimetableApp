@@ -44,6 +44,7 @@
 		ABCA38B02645AF3C0027AC79 /* TimetableSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABCA38AF2645AF3C0027AC79 /* TimetableSettingTableViewCell.xib */; };
 		ABCA38D82645DCA60027AC79 /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA38D72645DCA60027AC79 /* PeriodView.swift */; };
 		ABCA38DA2645E4530027AC79 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA38D92645E4530027AC79 /* WeekView.swift */; };
+		ABCA38DD264620C40027AC79 /* TimetableSettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA38DC264620C40027AC79 /* TimetableSettingType.swift */; };
 		ABD66280263A5B4500027589 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */; };
 		ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */; };
 		ABD7A676263004BE008F1556 /* MyUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A675263004BE008F1556 /* MyUITabBarController.swift */; };
@@ -98,6 +99,7 @@
 		ABCA38AF2645AF3C0027AC79 /* TimetableSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetableSettingTableViewCell.xib; sourceTree = "<group>"; };
 		ABCA38D72645DCA60027AC79 /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
 		ABCA38D92645E4530027AC79 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		ABCA38DC264620C40027AC79 /* TimetableSettingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSettingType.swift; sourceTree = "<group>"; };
 		ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUINavigationController.swift; sourceTree = "<group>"; };
 		ABD7A675263004BE008F1556 /* MyUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUITabBarController.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			children = (
 				ABD7A6A62632761A008F1556 /* Week.swift */,
 				ABD7A6A92632762C008F1556 /* Period.swift */,
+				ABCA38DC264620C40027AC79 /* TimetableSettingType.swift */,
 				AB385CA626415299009625FF /* AdditionalViewType.swift */,
 			);
 			path = Enums;
@@ -485,6 +488,7 @@
 				AB8A813026344399007A20C2 /* SettingLectureViewController.swift in Sources */,
 				ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */,
 				AB2CAD342642A027001F1446 /* LectureRepository.swift in Sources */,
+				ABCA38DD264620C40027AC79 /* TimetableSettingType.swift in Sources */,
 				ABD7A6C42632A967008F1556 /* TimetableSettingTableViewCell.swift in Sources */,
 				ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */,
 				AB8A81CF26359B17007A20C2 /* EditLectureViewController.swift in Sources */,

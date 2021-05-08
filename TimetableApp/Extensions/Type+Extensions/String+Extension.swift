@@ -10,7 +10,8 @@ import Foundation
 extension String {
     
     // MARK: - UserDefaults key
-    static let saturdayAndSixPeriodKey = "saturdayAndSixPeriodKey"
+    static let isHiddenSaturdayViewKey = "isHiddenSaturdayViewKey"
+    static let isHiddenSixPeriodViewKey = "isHiddenSixPeriodViewKey"
     
     // MARK: - UIStoryboard name
     static let timetableSetting = "TimetableSetting"

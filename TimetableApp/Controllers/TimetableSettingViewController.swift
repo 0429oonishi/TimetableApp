@@ -11,9 +11,6 @@ final class TimetableSettingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    private var timetableSettings = TimetableSetting.data
-    var timetableSettingInts = [Int]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,8 +21,9 @@ final class TimetableSettingViewController: UIViewController {
         tableView.register(TimetableSettingTableViewCell.nib,
                            forCellReuseIdentifier: TimetableSettingTableViewCell.identifier)
         
-        changeTimetableSettings()
-        
+        TimetableSetting[.showSaturday].isOn = UserDefaults.standard.bool(forKey: .isHiddenSaturdayViewKey)
+        TimetableSetting[.showSixPeriod].isOn = UserDefaults.standard.bool(forKey: .isHiddenSixPeriodViewKey)
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -33,17 +31,6 @@ final class TimetableSettingViewController: UIViewController {
         
         setupBackButton()
         
-    }
-    
-    private func changeTimetableSettings() {
-        for n in 0..<timetableSettings.count {
-            if timetableSettingInts.count < timetableSettings.count {
-                timetableSettingInts.append(timetableSettings[n].isOn.toInt)
-            }
-            if let bool = timetableSettingInts[n].toBool {
-                timetableSettings[n].isOn = bool
-            }
-        }
     }
     
 }
@@ -83,7 +70,6 @@ private extension TimetableSettingViewController {
 @objc private extension TimetableSettingViewController {
     
     func backButtonDidTapped(_ sender: Any) {
-        UserDefaults.standard.set(timetableSettingInts, forKey: .saturdayAndSixPeriodKey)
         dismiss(animated: true, completion: nil)
     }
     
@@ -111,7 +97,7 @@ extension TimetableSettingViewController: UITableViewDelegate {
 extension TimetableSettingViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return timetableSettings.count
+        return TimetableSetting.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,10 +107,21 @@ extension TimetableSettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TimetableSettingTableViewCell.identifier,
                                                  for: indexPath) as! TimetableSettingTableViewCell
-        let timetableSetting = timetableSettings[indexPath.section]
+        let type = TimetableSettingType(rawValue: indexPath.section)!
+        let timetableSetting = TimetableSetting[type]
         cell.setup(timetableSetting: timetableSetting, index: indexPath.section)
-        cell.onTapEvent = { self.timetableSettingInts[$0.tag] = $0.isOn.toInt }
+        cell.delegate = self
         return cell
+    }
+    
+}
+
+// MARK: - TimetableSettingTableViewCellDelegate
+extension TimetableSettingViewController: TimetableSettingTableViewCellDelegate {
+    
+    func mySwitchDidTapped(type: TimetableSettingType, isOn: Bool) {
+        TimetableSetting[type].isOn = isOn
+        UserDefaults.standard.set(isOn, forKey: type.key)
     }
     
 }

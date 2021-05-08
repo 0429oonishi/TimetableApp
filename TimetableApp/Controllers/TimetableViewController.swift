@@ -52,18 +52,17 @@ final class TimetableViewController: UIViewController {
 private extension TimetableViewController {
     
     func setupTimetable() {
-        if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
-            let isSaturdayViewHidden = (ints[0] == 0)
-            if weeks.contains(.saturday) == isSaturdayViewHidden {
-                saturdaySuperView.isHidden = isSaturdayViewHidden
-                weeks = isSaturdayViewHidden ? weeks.filter { $0 != .saturday } : weeks + [.saturday]
-            }
-            let isSixPeriodViewHidden = (ints[1] == 0)
-            if periods.contains(.six) == isSixPeriodViewHidden {
-                sixPeriodSuperView.isHidden = isSixPeriodViewHidden
-                periods = isSixPeriodViewHidden ? periods.filter { $0 != .six } : periods + [.six]
-            }
+        let isHiddenSaturdayView = !UserDefaults.standard.bool(forKey: .isHiddenSaturdayViewKey)
+        if weeks.contains(.saturday) == isHiddenSaturdayView {
+            saturdaySuperView.isHidden = isHiddenSaturdayView
+            weeks = isHiddenSaturdayView ? weeks.filter { $0 != .saturday } : weeks + [.saturday]
         }
+        let isHiddenSixPeriodView = !UserDefaults.standard.bool(forKey: .isHiddenSixPeriodViewKey)
+        if periods.contains(.six) == isHiddenSixPeriodView {
+            sixPeriodSuperView.isHidden = isHiddenSixPeriodView
+            periods = isHiddenSixPeriodView ? periods.filter { $0 != .six } : periods + [.six]
+        }
+        
         for _ in 0..<horizontalItemCount * verticalItemCount {
             if lectureUseCase.readAll().count < horizontalItemCount * verticalItemCount {
                 lectureUseCase.create(Lecture())

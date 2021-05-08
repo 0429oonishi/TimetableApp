@@ -95,9 +95,6 @@ private extension MyUINavigationController {
             identifier: TimetableSettingViewController.identifier
         ) as! TimetableSettingViewController
         timetableSettingVC.modalPresentationStyle = .fullScreen
-        if let ints = UserDefaults.standard.array(forKey: .saturdayAndSixPeriodKey) as? [Int] {
-            timetableSettingVC.timetableSettingInts = ints
-        }
         present(timetableSettingVC, animated: true, completion: nil)
     }
     
