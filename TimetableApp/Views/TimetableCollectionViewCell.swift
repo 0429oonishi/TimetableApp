@@ -47,7 +47,6 @@ private extension TimetableCollectionViewCell {
         nameLabel?.textColor = .black
         nameLabel?.textAlignment = .center
         nameLabel?.font = .boldSystemFont(ofSize: 18)
-        nameLabel?.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(nameLabel!)
         nameLabel!.anchor(centerY: myView.centerYAnchor, centerX: myView.centerXAnchor)
         
@@ -60,7 +59,6 @@ private extension TimetableCollectionViewCell {
         roomLabel?.textColor = .black
         roomLabel?.textAlignment = .center
         roomLabel?.font = .boldSystemFont(ofSize: 12)
-        roomLabel?.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(roomLabel!)
         roomLabel!.anchor(centerY: myView.centerYAnchor, centerX: myView.centerXAnchor, centerYPadding: 20)
     }

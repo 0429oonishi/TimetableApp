@@ -76,7 +76,6 @@ private extension NeumorphismView {
         lectureNameLabel.textColor = .black
         lectureNameLabel.textAlignment = .center
         lectureNameLabel.font = .boldSystemFont(ofSize: 25)
-        lectureNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lectureNameLabel)
         lectureNameLabel.anchor(centerY: self.centerYAnchor, centerX: self.centerXAnchor)
         
@@ -85,7 +84,6 @@ private extension NeumorphismView {
         lectureTimeLabel.textColor = .black
         lectureTimeLabel.textAlignment = .center
         lectureTimeLabel.font = .boldSystemFont(ofSize: 15)
-        lectureTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lectureTimeLabel)
         lectureTimeLabel.anchor(bottom: lectureNameLabel.bottomAnchor, centerX: self.centerXAnchor, bottomPadding: -50)
         
@@ -94,7 +92,6 @@ private extension NeumorphismView {
         roomLabel.textColor = .black
         roomLabel.textAlignment = .center
         roomLabel.font = .boldSystemFont(ofSize: 15)
-        roomLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(roomLabel)
         lectureTimeLabel.anchor(top: lectureNameLabel.topAnchor, centerX: self.centerXAnchor, bottomPadding: 50)
         
@@ -107,7 +104,6 @@ private extension NeumorphismView {
         label.textColor = .black
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 25)
-        label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
         label.anchor(centerY: self.centerYAnchor, centerX: self.centerXAnchor)
     }

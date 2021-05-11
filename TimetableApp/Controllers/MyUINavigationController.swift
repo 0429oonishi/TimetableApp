@@ -49,7 +49,6 @@ private extension MyUINavigationController {
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 14)
-        label.translatesAutoresizingMaskIntoConstraints = false
         titleButton.addSubview(label)
         label.anchor(centerY: titleButton.centerYAnchor, centerX: titleButton.centerXAnchor)
     }
@@ -72,7 +71,6 @@ private extension MyUINavigationController {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "gearshape")
         imageView.tintColor = .black
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         settingButton.addSubview(imageView)
         imageView.anchor(centerY: settingButton.centerYAnchor, centerX: settingButton.centerXAnchor)
         

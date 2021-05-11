@@ -57,7 +57,6 @@ private extension TimetableSettingViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "chevron.down")
         imageView.tintColor = .black
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         backButton.setContentView(imageView)
         imageView.anchor(centerY: backButton.centerYAnchor, centerX: backButton.centerXAnchor)
         

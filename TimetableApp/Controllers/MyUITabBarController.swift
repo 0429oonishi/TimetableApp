@@ -47,7 +47,6 @@ private extension MyUITabBarController {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "graduationcap")
         imageView.tintColor = .black
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         timetableButton.addSubview(imageView)
         imageView.anchor(centerY: timetableButton.centerYAnchor, centerX: timetableButton.centerXAnchor)
         

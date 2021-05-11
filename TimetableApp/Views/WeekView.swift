@@ -15,7 +15,6 @@ final class WeekView: NeumorphismView {
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 15)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     

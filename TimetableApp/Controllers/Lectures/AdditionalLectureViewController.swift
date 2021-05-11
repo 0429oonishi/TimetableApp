@@ -68,7 +68,6 @@ private extension AdditionalLectureViewController {
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 25)
         label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         label.anchor(left: view.leftAnchor, centerY: view.centerYAnchor, leftPadding: 20)
         
@@ -76,7 +75,6 @@ private extension AdditionalLectureViewController {
         textField.placeholder = type.placeholder
         textField.textColor = .black
         textField.layer.cornerRadius = 5
-        textField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(textField)
         textField.anchor(top: view.topAnchor,
                          bottom: view.bottomAnchor,
@@ -98,7 +96,6 @@ private extension AdditionalLectureViewController {
         label.textAlignment = .center
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         label.anchor(centerY: view.centerYAnchor, centerX: view.centerXAnchor)
     }
@@ -113,7 +110,6 @@ private extension AdditionalLectureViewController {
         label.textAlignment = .center
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
         weekAndPeriodView.addSubview(label)
         label.anchor(centerY: weekAndPeriodView.centerYAnchor, centerX: weekAndPeriodView.centerXAnchor)
     }

@@ -28,7 +28,6 @@ extension TimetableSettingTableViewCell {
         mySwitch.onTintColor = #colorLiteral(red: 62/255, green: 179/255, blue: 112/255, alpha: 0.8)
         mySwitch.thumbTintColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         mySwitch.addTarget(self, action: #selector(mySwitchDidTapped(_:)), for: .valueChanged)
-        mySwitch.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(mySwitch)
         mySwitch.anchor(right: myView.rightAnchor, centerY: myView.centerYAnchor, rightPadding: -20)
         
@@ -37,7 +36,6 @@ extension TimetableSettingTableViewCell {
         myLabel.textColor = .black
         myLabel.textAlignment = .right
         myLabel.font = .boldSystemFont(ofSize: 18)
-        myLabel.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(myLabel)
         myLabel.anchor(right: mySwitch.rightAnchor, centerY: myView.centerYAnchor, rightPadding: -(mySwitch.frame.size.width + 20))
     }
