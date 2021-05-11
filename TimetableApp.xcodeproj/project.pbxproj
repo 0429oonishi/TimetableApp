@@ -11,7 +11,6 @@
 		AB2CAD362642A031001F1446 /* LectureUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CAD352642A031001F1446 /* LectureUseCase.swift */; };
 		AB2CAD382642A03D001F1446 /* LectureDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CAD372642A03D001F1446 /* LectureDataStore.swift */; };
 		AB385C792640258C009625FF /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385C782640258C009625FF /* Convert.swift */; };
-		AB385C7B26402CEC009625FF /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385C7A26402CEC009625FF /* Typealias.swift */; };
 		AB819B93264A2677000D3AE8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB819B92264A2677000D3AE8 /* UIView+Extension.swift */; };
 		AB8A80ED263303CB007A20C2 /* TimetableSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */; };
 		AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A811C2633DB41007A20C2 /* String+Extension.swift */; };
@@ -64,7 +63,6 @@
 		AB2CAD352642A031001F1446 /* LectureUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureUseCase.swift; sourceTree = "<group>"; };
 		AB2CAD372642A03D001F1446 /* LectureDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureDataStore.swift; sourceTree = "<group>"; };
 		AB385C782640258C009625FF /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
-		AB385C7A26402CEC009625FF /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		AB819B92264A2677000D3AE8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSetting.swift; sourceTree = "<group>"; };
 		AB8A811C2633DB41007A20C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -157,14 +155,6 @@
 			path = DataStores;
 			sourceTree = "<group>";
 		};
-		AB385C7C26402E44009625FF /* Typealias */ = {
-			isa = PBXGroup;
-			children = (
-				AB385C7A26402CEC009625FF /* Typealias.swift */,
-			);
-			path = Typealias;
-			sourceTree = "<group>";
-		};
 		AB8A80EB263303BA007A20C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +229,6 @@
 				ABB6A2E1262D640400CFB798 /* Controllers */,
 				AB8A811B2633DB2E007A20C2 /* Extensions */,
 				ABD7A6A526327600008F1556 /* Enums */,
-				AB385C7C26402E44009625FF /* Typealias */,
 				ABB6A2B4262D055D00CFB798 /* AppDelegate.swift */,
 				ABB6A2B6262D055D00CFB798 /* SceneDelegate.swift */,
 				ABB6A2BD262D056100CFB798 /* Assets.xcassets */,
@@ -465,7 +454,6 @@
 				ABD7A6A72632761A008F1556 /* Week.swift in Sources */,
 				ABCA38DA2645E4530027AC79 /* WeekView.swift in Sources */,
 				AB8A80ED263303CB007A20C2 /* TimetableSetting.swift in Sources */,
-				AB385C7B26402CEC009625FF /* Typealias.swift in Sources */,
 				ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */,
 				ABD7A6B12632A3E9008F1556 /* TimetableSettingViewController.swift in Sources */,
 				ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */,
