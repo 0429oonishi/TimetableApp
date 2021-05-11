@@ -43,23 +43,23 @@ private extension SettingLectureViewController {
     func setupViews() {
         let index = Convert(week: week, period: period).number
         let lecture = lectureUseCase.read(index: index)
-        lectureView.setupLectureView(lecture: lecture)
+        lectureView.setupLectureLabels(lecture: lecture)
         if lecture.name.isEmpty {
-            addOrEditButton.setupButton("追加")
+            addOrEditButton.setup("追加")
             addOrEditButton.addTarget(self, action: #selector(addButtonDidTapped), for: .touchUpInside)
             lectureView.isHidden = true
         } else {
-            addOrEditButton.setupButton("編集")
+            addOrEditButton.setup("編集")
             addOrEditButton.addTarget(self, action: #selector(editButtonDidTapped), for: .touchUpInside)
             lectureView.isHidden = false
         }
-        attendanceButton.setupButton("出欠")
+        attendanceButton.setup("出欠")
         attendanceButton.addTarget(self, action: #selector(attendanceButtonDidTapped), for: .touchUpInside)
-        memoButton.setupButton("メモ")
+        memoButton.setup("メモ")
         memoButton.addTarget(self, action: #selector(memoButtonDidTapped), for: .touchUpInside)
-        colorButton.setupButton("カラー")
+        colorButton.setup("カラー")
         colorButton.addTarget(self, action: #selector(colorButtonDidTapped), for: .touchUpInside)
-        backButton.setupButton("戻る")
+        backButton.setup("戻る")
         backButton.addTarget(self, action: #selector(backButtonDidTapped), for: .touchUpInside)
     }
     
@@ -68,7 +68,7 @@ private extension SettingLectureViewController {
 // MARK: - setup NeumorphismView
 private extension NeumorphismView {
     
-    func setupLectureView(lecture: Lecture?) {
+    func setupLectureLabels(lecture: Lecture?) {
         self.type = .normal
         
         let lectureNameLabel = UILabel()
@@ -94,10 +94,9 @@ private extension NeumorphismView {
         roomLabel.font = .boldSystemFont(ofSize: 15)
         self.addSubview(roomLabel)
         lectureTimeLabel.anchor(top: lectureNameLabel.topAnchor, centerX: self.centerXAnchor, bottomPadding: 50)
-        
     }
     
-    func setupButton(_ text: String) {
+    func setup(_ text: String) {
         self.type = .pushButton
         let label = UILabel()
         label.text = text
