@@ -16,10 +16,7 @@ final class TimetableSettingViewController: UIViewController {
         
         self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(TimetableSettingTableViewCell.nib,
-                           forCellReuseIdentifier: TimetableSettingTableViewCell.identifier)
+        setupTableView()
         
         TimetableSetting[.showSaturday].isOn = UserDefaults.standard.bool(forKey: .isHiddenSaturdayViewKey)
         TimetableSetting[.showSixPeriod].isOn = UserDefaults.standard.bool(forKey: .isHiddenSixPeriodViewKey)
@@ -37,6 +34,13 @@ final class TimetableSettingViewController: UIViewController {
 
 // MARK: - setup
 private extension TimetableSettingViewController {
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TimetableSettingTableViewCell.nib,
+                           forCellReuseIdentifier: TimetableSettingTableViewCell.identifier)
+    }
     
     func setupBackButton() {
         let backButtonWidth: CGFloat = 44
