@@ -29,12 +29,44 @@ final class AdditionalLectureViewController: UIViewController {
     var week: Week?
     var period: Period?
     private let lectureUseCase = LectureUseCase()
-    
+    enum AdditionalViewType {
+        case name
+        case room
+        case professor
+        case credit
+        var text: String {
+            switch self {
+                case .name: return "講義"
+                case .room: return "教室"
+                case .professor: return "教員"
+                case .credit: return "単位"
+            }
+        }
+        var placeholder: String {
+            switch self {
+                case .name: return "講義名を入力"
+                case .room: return "教室名を入力"
+                case .professor: return "教員名を入力"
+                case .credit: return "単位数を入力"
+            }
+        }
+    }
+    enum AdditionalButtonType {
+        case add
+        case back
+        var text: String {
+            switch self {
+                case .add: return "追加"
+                case .back: return "戻る"
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
-
+        
         setupViews(type: .name, view: nameView, label: nameLabel, textField: nameTextField)
         setupViews(type: .room, view: roomView, label: roomLabel, textField: roomTextField)
         setupViews(type: .professor, view: professorView, label: professorLabel, textField: professorTextField)
@@ -107,7 +139,8 @@ private extension AdditionalLectureViewController {
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
         weekAndPeriodView.addSubview(label)
-        label.anchor(centerY: weekAndPeriodView.centerYAnchor, centerX: weekAndPeriodView.centerXAnchor)
+        label.anchor(centerY: weekAndPeriodView.centerYAnchor,
+                     centerX: weekAndPeriodView.centerXAnchor)
     }
     
 }
