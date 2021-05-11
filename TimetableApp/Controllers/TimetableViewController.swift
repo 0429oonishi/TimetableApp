@@ -24,10 +24,7 @@ final class TimetableViewController: UIViewController {
         
         self.view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(TimetableCollectionViewCell.nib,
-                                forCellWithReuseIdentifier: TimetableCollectionViewCell.identifier)
+        setupCollectionView()
         
     }
     
@@ -42,7 +39,7 @@ final class TimetableViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        setupCollectionView()
+        setupCollectionViewLayout()
         
     }
     
@@ -71,6 +68,13 @@ private extension TimetableViewController {
     }
     
     func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(TimetableCollectionViewCell.nib,
+                                forCellWithReuseIdentifier: TimetableCollectionViewCell.identifier)
+    }
+    
+    func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 2
         layout.minimumInteritemSpacing = 2
@@ -126,15 +130,19 @@ extension TimetableViewController: UICollectionViewDataSource {
 }
 
 private extension Week {
+    
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5
         self.init(rawValue: item % horizontalItemCount)
     }
+    
 }
 
 private extension Period {
+    
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5
         self.init(rawValue: item / horizontalItemCount)
     }
+    
 }
