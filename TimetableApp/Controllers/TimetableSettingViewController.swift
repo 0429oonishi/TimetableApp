@@ -106,21 +106,12 @@ extension TimetableSettingViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TimetableSettingTableViewCell.identifier,
                                                  for: indexPath) as! TimetableSettingTableViewCell
         let type = TimetableSettingType(rawValue: indexPath.section)!
-        let timetableSetting = TimetableSetting[type]
-        cell.setup(timetableSetting: timetableSetting, index: indexPath.section)
-        cell.delegate = self
+        var timetableSetting = TimetableSetting[type]
+        cell.setup(timetableSetting: timetableSetting) { isOn in
+            timetableSetting.isOn = isOn
+            UserDefaults.standard.set(isOn, forKey: type.key)
+        }
         return cell
     }
     
 }
-
-// MARK: - TimetableSettingTableViewCellDelegate
-extension TimetableSettingViewController: TimetableSettingTableViewCellDelegate {
-    
-    func mySwitchDidTapped(type: TimetableSettingType, isOn: Bool) {
-        TimetableSetting[type].isOn = isOn
-        UserDefaults.standard.set(isOn, forKey: type.key)
-    }
-    
-}
-
