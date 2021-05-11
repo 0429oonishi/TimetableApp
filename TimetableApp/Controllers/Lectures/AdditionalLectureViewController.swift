@@ -76,13 +76,9 @@ private extension AdditionalLectureViewController {
         textField.textColor = .black
         textField.layer.cornerRadius = 5
         view.addSubview(textField)
-        textField.anchor(top: view.topAnchor,
-                         bottom: view.bottomAnchor,
-                         left: label.leadingAnchor,
-                         right: view.trailingAnchor,
+        textField.anchor(left: label.leftAnchor,
+                         right: view.rightAnchor,
                          centerY: view.centerYAnchor,
-                         topPadding: 10,
-                         bottomPadding: -10,
                          leftPadding: 60,
                          rightPadding: -20)
     }
