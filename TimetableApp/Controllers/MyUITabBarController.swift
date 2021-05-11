@@ -29,26 +29,26 @@ final class MyUITabBarController: UITabBarController {
 private extension MyUITabBarController {
     
     func setupTimetableButton() {
-        let timetableButtonWidth: CGFloat = 40
-        let timetableButtonHeight: CGFloat = 40
-        let timetableButton = NeumorphismView(
+        let buttonWidth: CGFloat = 40
+        let buttonHeight: CGFloat = 40
+        let button = NeumorphismView(
             frame: CGRect(
-                x: (tabBar.frame.size.width - timetableButtonWidth) / 2,
-                y: (tabBar.frame.size.height - timetableButtonHeight) / 2 - 10,
-                width: timetableButtonWidth,
-                height: timetableButtonHeight
+                x: (tabBar.frame.size.width - buttonWidth) / 2,
+                y: (tabBar.frame.size.height - buttonHeight) / 2 - 10,
+                width: buttonWidth,
+                height: buttonHeight
             )
         )
-        timetableButton.type = .pushButton
-        timetableButton.cornerRadius = timetableButton.frame.height / 2
-        timetableButton.addTarget(self, action: #selector(timetableButtonDidTapped), for: .touchUpInside)
-        tabBar.addSubview(timetableButton)
+        button.type = .pushButton
+        button.cornerRadius = button.frame.height / 2
+        button.addTarget(self, action: #selector(timetableButtonDidTapped), for: .touchUpInside)
+        tabBar.addSubview(button)
 
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "graduationcap")
         imageView.tintColor = .black
-        timetableButton.addSubview(imageView)
-        imageView.anchor(centerY: timetableButton.centerYAnchor, centerX: timetableButton.centerXAnchor)
+        button.addSubview(imageView)
+        imageView.anchor(centerY: button.centerYAnchor, centerX: button.centerXAnchor)
         
     }
     
