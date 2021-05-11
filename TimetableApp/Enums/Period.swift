@@ -42,17 +42,4 @@ extension Period {
         }
     }
     
-    static func configureSixPeriod(periods: [Self], isHidden: Bool, handler: (Bool) -> Void) -> [Self] {
-        switch (periods.contains(.six), isHidden) {
-            case (false, false):
-                handler(isHidden)
-                return periods + [.six]
-            case (true, true):
-                handler(isHidden)
-                return periods.filter { $0 != .six }
-            default:
-                return periods
-        }
-    }
-    
 }

@@ -42,17 +42,4 @@ extension Week {
         }
     }
     
-    static func configureSaturday(weeks: [Self], isHidden: Bool, handler: (Bool) -> Void) -> [Self] {
-        switch (weeks.contains(.saturday), isHidden) {
-            case (false, false):
-                handler(isHidden)
-                return weeks + [.saturday]
-            case (true, true):
-                handler(isHidden)
-                return weeks.filter { $0 != .saturday }
-            default:
-                return weeks
-        }
-    }
-    
 }
