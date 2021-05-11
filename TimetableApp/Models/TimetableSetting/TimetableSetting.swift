@@ -14,7 +14,8 @@ struct TimetableSetting {
     
     static subscript(type: TimetableSettingType) -> TimetableSetting {
         get {
-            let isOn = UserDefaults.standard.bool(forKey: type.key)
+            let userDefault = UserDefault<UserDefaultsKeys.TimetableSettingType>()
+            let isOn = userDefault.bool(forKey: type.key) ?? false
             return TimetableSetting(text: type.text, isOn: isOn)
         }
         set {

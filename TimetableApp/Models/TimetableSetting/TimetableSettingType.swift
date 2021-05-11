@@ -7,13 +7,14 @@
 
 import Foundation
 
+
 enum TimetableSettingType: Int {
     case showSaturday
     case showSixPeriod
 }
 
 extension TimetableSettingType {
-    
+
     var text: String {
         switch self {
             case .showSaturday: return "土曜日を表示"
@@ -21,10 +22,10 @@ extension TimetableSettingType {
         }
     }
     
-    var key: String {
+    var key: UserDefaultsKeys.TimetableSettingType {
         switch self {
-            case .showSaturday: return .isHiddenSaturdayViewKey
-            case .showSixPeriod: return .isHiddenSixPeriodViewKey
+            case .showSaturday: return .showSaturday
+            case .showSixPeriod: return .showSixPeriod
         }
     }
     

@@ -11,6 +11,8 @@ final class TimetableSettingViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private let userDefault = UserDefault<UserDefaultsKeys.TimetableSettingType>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,8 +20,8 @@ final class TimetableSettingViewController: UIViewController {
         
         setupTableView()
         
-        TimetableSetting[.showSaturday].isOn = UserDefaults.standard.bool(forKey: .isHiddenSaturdayViewKey)
-        TimetableSetting[.showSixPeriod].isOn = UserDefaults.standard.bool(forKey: .isHiddenSixPeriodViewKey)
+        TimetableSetting[.showSaturday].isOn = userDefault.bool(forKey: .showSaturday) ?? false
+        TimetableSetting[.showSixPeriod].isOn = userDefault.bool(forKey: .showSixPeriod) ?? false
         
     }
     
@@ -112,7 +114,7 @@ extension TimetableSettingViewController: UITableViewDataSource {
         var timetableSetting = TimetableSetting[type]
         cell.setup(timetableSetting: timetableSetting) { isOn in
             timetableSetting.isOn = isOn
-            UserDefaults.standard.set(isOn, forKey: type.key)
+            self.userDefault.set(isOn, forKey: type.key)
         }
         return cell
     }

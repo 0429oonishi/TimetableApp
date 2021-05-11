@@ -49,12 +49,13 @@ final class TimetableViewController: UIViewController {
 private extension TimetableViewController {
     
     func setupTimetable() {
-        let isHiddenSaturdayView = !UserDefaults.standard.bool(forKey: .isHiddenSaturdayViewKey)
+        let userDefault = UserDefault<UserDefaultsKeys.TimetableSettingType>()
+        let isHiddenSaturdayView = !(userDefault.bool(forKey: .showSaturday) ?? false)
         if weeks.contains(.saturday) == isHiddenSaturdayView {
             saturdaySuperView.isHidden = isHiddenSaturdayView
             weeks = isHiddenSaturdayView ? weeks.filter { $0 != .saturday } : weeks + [.saturday]
         }
-        let isHiddenSixPeriodView = !UserDefaults.standard.bool(forKey: .isHiddenSixPeriodViewKey)
+        let isHiddenSixPeriodView = !(userDefault.bool(forKey: .showSixPeriod) ?? false)
         if periods.contains(.six) == isHiddenSixPeriodView {
             sixPeriodSuperView.isHidden = isHiddenSixPeriodView
             periods = isHiddenSixPeriodView ? periods.filter { $0 != .six } : periods + [.six]
