@@ -49,9 +49,7 @@ private extension TimetableCollectionViewCell {
         nameLabel?.font = .boldSystemFont(ofSize: 18)
         nameLabel?.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(nameLabel!)
-        [nameLabel!.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
-         nameLabel!.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        nameLabel!.anchor(centerY: myView.centerYAnchor, centerX: myView.centerXAnchor)
         
         timeLabel = UILabel()
         timeLabel?.text = "時間"
@@ -64,10 +62,7 @@ private extension TimetableCollectionViewCell {
         roomLabel?.font = .boldSystemFont(ofSize: 12)
         roomLabel?.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(roomLabel!)
-        [roomLabel!.centerXAnchor.constraint(equalTo: myView.centerXAnchor),
-         roomLabel!.centerYAnchor.constraint(equalTo: myView.centerYAnchor, constant: 20),
-        ].forEach { $0.isActive = true }
-
+        roomLabel!.anchor(centerY: myView.centerYAnchor, centerX: myView.centerXAnchor, centerYPadding: 20)
     }
     
 }

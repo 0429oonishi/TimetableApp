@@ -51,9 +51,7 @@ private extension MyUINavigationController {
         label.font = .boldSystemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         titleButton.addSubview(label)
-        [label.centerXAnchor.constraint(equalTo: titleButton.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: titleButton.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        label.anchor(centerY: titleButton.centerYAnchor, centerX: titleButton.centerXAnchor)
     }
     
     func setupSettingButton() {
@@ -76,9 +74,8 @@ private extension MyUINavigationController {
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
         settingButton.addSubview(imageView)
-        [imageView.centerXAnchor.constraint(equalTo: settingButton.centerXAnchor),
-         imageView.centerYAnchor.constraint(equalTo: settingButton.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        imageView.anchor(centerY: settingButton.centerYAnchor, centerX: settingButton.centerXAnchor)
+        
     }
     
 }

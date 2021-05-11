@@ -30,9 +30,7 @@ extension TimetableSettingTableViewCell {
         mySwitch.addTarget(self, action: #selector(mySwitchDidTapped(_:)), for: .valueChanged)
         mySwitch.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(mySwitch)
-        [mySwitch.trailingAnchor.constraint(equalTo: myView.trailingAnchor, constant: -20),
-         mySwitch.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        mySwitch.anchor(right: myView.rightAnchor, centerY: myView.centerYAnchor, rightPadding: -20)
         
         let myLabel = UILabel()
         myLabel.text = timetableSetting.text
@@ -41,10 +39,7 @@ extension TimetableSettingTableViewCell {
         myLabel.font = .boldSystemFont(ofSize: 18)
         myLabel.translatesAutoresizingMaskIntoConstraints = false
         myView.addSubview(myLabel)
-        [myLabel.trailingAnchor.constraint(equalTo: mySwitch.trailingAnchor,
-                                           constant: -(mySwitch.frame.size.width + 20)),
-         myLabel.centerYAnchor.constraint(equalTo: myView.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        myLabel.anchor(right: mySwitch.rightAnchor, centerY: myView.centerYAnchor, rightPadding: -(mySwitch.frame.size.width + 20))
     }
     
 }

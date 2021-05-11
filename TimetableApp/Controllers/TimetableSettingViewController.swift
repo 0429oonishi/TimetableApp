@@ -8,7 +8,7 @@
 import UIKit
 
 final class TimetableSettingViewController: UIViewController {
-
+    
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ final class TimetableSettingViewController: UIViewController {
         
         TimetableSetting[.showSaturday].isOn = UserDefaults.standard.bool(forKey: .isHiddenSaturdayViewKey)
         TimetableSetting[.showSixPeriod].isOn = UserDefaults.standard.bool(forKey: .isHiddenSixPeriodViewKey)
-
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,9 +59,8 @@ private extension TimetableSettingViewController {
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
         backButton.setContentView(imageView)
-        [imageView.centerXAnchor.constraint(equalTo: backButton.centerXAnchor),
-         imageView.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        imageView.anchor(centerY: backButton.centerYAnchor, centerX: backButton.centerXAnchor)
+        
     }
     
 }

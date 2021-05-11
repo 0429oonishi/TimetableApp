@@ -70,9 +70,7 @@ private extension AdditionalLectureViewController {
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
-        [label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-         label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        ].forEach { $0.isActive = true }
+        label.anchor(left: view.leftAnchor, centerY: view.centerYAnchor, leftPadding: 20)
         
         textField.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
         textField.placeholder = type.placeholder
@@ -80,12 +78,15 @@ private extension AdditionalLectureViewController {
         textField.layer.cornerRadius = 5
         textField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(textField)
-        [textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-         textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-         textField.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: 60),
-         textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-         textField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-        ].forEach { $0.isActive = true }
+        textField.anchor(top: view.topAnchor,
+                         bottom: view.bottomAnchor,
+                         left: label.leadingAnchor,
+                         right: view.trailingAnchor,
+                         centerY: view.centerYAnchor,
+                         topPadding: 10,
+                         bottomPadding: -10,
+                         leftPadding: 60,
+                         rightPadding: -20)
     }
     
     func setupButtonView(type: AdditionalButtonType, view: NeumorphismView) {
@@ -99,9 +100,7 @@ private extension AdditionalLectureViewController {
         label.font = .systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
-        [label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-         label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ].forEach { $0.isActive = true }
+        label.anchor(centerY: view.centerYAnchor, centerX: view.centerXAnchor)
     }
     
     func setupWeekAndPeriodView() {
@@ -116,9 +115,7 @@ private extension AdditionalLectureViewController {
         label.font = .systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         weekAndPeriodView.addSubview(label)
-        [label.centerYAnchor.constraint(equalTo: weekAndPeriodView.centerYAnchor),
-         label.centerXAnchor.constraint(equalTo: weekAndPeriodView.centerXAnchor),
-        ].forEach { $0.isActive = true }
+        label.anchor(centerY: weekAndPeriodView.centerYAnchor, centerX: weekAndPeriodView.centerXAnchor)
     }
     
 }

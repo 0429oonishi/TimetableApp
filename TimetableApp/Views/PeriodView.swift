@@ -42,9 +42,7 @@ private extension PeriodView {
     
     func setupLabel() {
         addSubview(label)
-        [label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        label.anchor(centerY: self.centerYAnchor, centerX: self.centerXAnchor)
     }
     
 }

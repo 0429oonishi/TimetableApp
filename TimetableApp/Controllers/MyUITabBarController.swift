@@ -49,9 +49,7 @@ private extension MyUITabBarController {
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
         timetableButton.addSubview(imageView)
-        [imageView.centerXAnchor.constraint(equalTo: timetableButton.centerXAnchor),
-         imageView.centerYAnchor.constraint(equalTo: timetableButton.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        imageView.anchor(centerY: timetableButton.centerYAnchor, centerX: timetableButton.centerXAnchor)
         
     }
     

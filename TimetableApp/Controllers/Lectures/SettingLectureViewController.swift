@@ -78,9 +78,7 @@ private extension NeumorphismView {
         lectureNameLabel.font = .boldSystemFont(ofSize: 25)
         lectureNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lectureNameLabel)
-        [lectureNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         lectureNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        lectureNameLabel.anchor(centerY: self.centerYAnchor, centerX: self.centerXAnchor)
         
         let lectureTimeLabel = UILabel()
         lectureTimeLabel.text = "時間を入れる"
@@ -89,10 +87,7 @@ private extension NeumorphismView {
         lectureTimeLabel.font = .boldSystemFont(ofSize: 15)
         lectureTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lectureTimeLabel)
-        [lectureTimeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         lectureTimeLabel.bottomAnchor.constraint(equalTo: lectureNameLabel.bottomAnchor,
-                                                  constant: -50),
-        ].forEach { $0.isActive = true }
+        lectureTimeLabel.anchor(bottom: lectureNameLabel.bottomAnchor, centerX: self.centerXAnchor, bottomPadding: -50)
         
         let roomLabel = UILabel()
         roomLabel.text = lecture?.room
@@ -101,10 +96,7 @@ private extension NeumorphismView {
         roomLabel.font = .boldSystemFont(ofSize: 15)
         roomLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(roomLabel)
-        [roomLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         roomLabel.topAnchor.constraint(equalTo: lectureNameLabel.topAnchor,
-                                        constant: 50),
-        ].forEach { $0.isActive = true }
+        lectureTimeLabel.anchor(top: lectureNameLabel.topAnchor, centerX: self.centerXAnchor, bottomPadding: 50)
         
     }
     
@@ -117,9 +109,7 @@ private extension NeumorphismView {
         label.font = .systemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        [label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        ].forEach { $0.isActive = true }
+        label.anchor(centerY: self.centerYAnchor, centerX: self.centerXAnchor)
     }
     
 }
