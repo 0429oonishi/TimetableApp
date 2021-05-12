@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Period: Int, CaseIterable {
+enum Period: CaseIterable {
     case one
     case two
     case three
@@ -17,8 +17,6 @@ enum Period: Int, CaseIterable {
 }
 
 extension Period {
-    
-    static var data: [Self] { Self.allCases }
     
     var text: String {
         switch self {
@@ -30,16 +28,4 @@ extension Period {
             case .six: return "6"
         }
     }
-    
-    var number: Int {
-        switch self {
-            case .one: return 0
-            case .two: return 1
-            case .three: return 2
-            case .four: return 3
-            case .five: return 4
-            case .six: return 5
-        }
-    }
-    
 }

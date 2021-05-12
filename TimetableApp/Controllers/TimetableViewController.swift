@@ -13,8 +13,8 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var saturdaySuperView: UIView!
     @IBOutlet private weak var sixPeriodSuperView: UIView!
     
-    private var weeks = Week.data
-    private var periods = Period.data
+    private var weeks = ManageableWeek.allCases
+    private var periods = Period.allCases
     private var horizontalItemCount: Int { weeks.count }
     private var verticalItemCount: Int { periods.count }
     private let lectureUseCase = LectureUseCase()
@@ -108,7 +108,7 @@ extension TimetableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimetableCollectionViewCell.identifier,
                                                       for: indexPath) as! TimetableCollectionViewCell
         let hasSaturday = weeks.contains(.saturday)
-        guard let week = Week(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
+        guard let week = ManageableWeek(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
         guard let period = Period(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
         cell.setup(week: week, period: period) { [weak self] in
             self?.presentSettingLectureVC(week: week, period: period)
@@ -116,25 +116,29 @@ extension TimetableViewController: UICollectionViewDataSource {
         return cell
     }
     
-    private func presentSettingLectureVC(week: Week, period: Period) {
-        let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController(
-            identifier: SettingLectureViewController.identifier
-        ) as! SettingLectureViewController
-        settingLectureVC.modalPresentationStyle = .overCurrentContext
+    private func presentSettingLectureVC(week: ManageableWeek, period: Period) {
         self.view.layer.opacity = 0.6
-        settingLectureVC.week = week
-        settingLectureVC.period = period
-        settingLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
+
+        let settingLectureVC = SettingLectureViewController.instantiate(
+            week: week,
+            period: period,
+            backButtonEvent: { [weak self] in
+                self?.view.layer.opacity = 1
+            }
+        )
+
+        settingLectureVC.modalPresentationStyle = .overCurrentContext
+
         present(settingLectureVC, animated: true, completion: nil)
     }
     
 }
 
-private extension Week {
+private extension ManageableWeek {
     
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5
-        self.init(rawValue: item % horizontalItemCount)
+        self.init(horizontalIndex: item % horizontalItemCount)
     }
     
 }
@@ -143,7 +147,37 @@ private extension Period {
     
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5
-        self.init(rawValue: item / horizontalItemCount)
+        self.init(horizontalIndex: item / horizontalItemCount)
     }
     
+}
+
+private extension ManageableWeek {
+    init?(horizontalIndex: Int) {
+        switch horizontalIndex {
+        case 0: self = .monday
+        case 1: self = .tuesday
+        case 2: self = .wednesday
+        case 3: self = .thursday
+        case 4: self = .friday
+        case 5: self = .saturday
+        default:
+            return nil
+        }
+    }
+}
+
+private extension Period {
+    init?(horizontalIndex: Int) {
+        switch horizontalIndex {
+        case 0: self = .one
+        case 1: self = .two
+        case 2: self = .three
+        case 3: self = .four
+        case 4: self = .five
+        case 5: self = .six
+        default:
+            return nil
+        }
+    }
 }
