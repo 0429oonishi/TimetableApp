@@ -25,11 +25,11 @@ final class AdditionalLectureViewController: UIViewController {
     private var roomTextField = UITextField()
     private var professorTextField = UITextField()
     private var creditTextField = UITextField()
-    var dismissEvent: (() -> Void)?
-    var week: Week?
-    var period: Period?
+    private var dismissEvent: (() -> Void)?
+    private var week: Week?
+    private var period: Period?
     private let lectureUseCase = LectureUseCase()
-    enum AdditionalViewType {
+    private enum AdditionalViewType {
         case name
         case room
         case professor
@@ -51,7 +51,7 @@ final class AdditionalLectureViewController: UIViewController {
             }
         }
     }
-    enum AdditionalButtonType {
+    private enum AdditionalButtonType {
         case add
         case back
         var text: String {
@@ -60,6 +60,19 @@ final class AdditionalLectureViewController: UIViewController {
                 case .back: return "戻る"
             }
         }
+    }
+
+    // FIXME: weekとperiodを非Optionalにしたい
+    static func instantiate(week: Week?, period: Period?, dismissEvent: @escaping () -> Void) -> AdditionalLectureViewController {
+
+        let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(
+            identifier: AdditionalLectureViewController.identifier
+        ) as! AdditionalLectureViewController
+        additionalLectureVC.week = week
+        additionalLectureVC.period = period
+        additionalLectureVC.dismissEvent = dismissEvent
+
+        return additionalLectureVC
     }
 
     override func viewDidLoad() {
@@ -95,7 +108,7 @@ final class AdditionalLectureViewController: UIViewController {
 // MARK: - setup views
 private extension AdditionalLectureViewController {
     
-    func setupViews(type: AdditionalViewType, view: UIView, label: UILabel, textField: UITextField) {
+    private func setupViews(type: AdditionalViewType, view: UIView, label: UILabel, textField: UITextField) {
         label.text = type.text
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 25)
@@ -115,7 +128,7 @@ private extension AdditionalLectureViewController {
                          rightPadding: -20)
     }
     
-    func setupButtonView(type: AdditionalButtonType, view: NeumorphismView) {
+    private func setupButtonView(type: AdditionalButtonType, view: NeumorphismView) {
         view.type = .pushButton
         view.layer.cornerRadius = 10
         
@@ -128,7 +141,7 @@ private extension AdditionalLectureViewController {
         label.anchor(centerY: view.centerYAnchor, centerX: view.centerXAnchor)
     }
     
-    func setupWeekAndPeriodView() {
+    private func setupWeekAndPeriodView() {
         weekAndPeriodView.type = .normal
         weekAndPeriodView.layer.cornerRadius = 10
         guard let week = week else { return }
@@ -148,11 +161,11 @@ private extension AdditionalLectureViewController {
 // MARK: - @objc func
 @objc private extension AdditionalLectureViewController {
     
-    func backButtonViewDidTapped() {
+    private func backButtonViewDidTapped() {
         dismiss(animated: true, completion: nil)
     }
     
-    func addButtonViewDidTapped() {
+    private func addButtonViewDidTapped() {
         let name = nameTextField.text
         let room = roomTextField.text
         let professor = professorTextField.text

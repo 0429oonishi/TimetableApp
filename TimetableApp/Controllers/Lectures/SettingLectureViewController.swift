@@ -113,16 +113,17 @@ private extension NeumorphismView {
 @objc private extension SettingLectureViewController {
     
     func addButtonDidTapped() {
-        let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(
-            identifier: AdditionalLectureViewController.identifier
-        ) as! AdditionalLectureViewController
+        let additionalLectureVC = AdditionalLectureViewController.instantiate(
+            week: week,
+            period: period,
+            dismissEvent: { [weak self] in
+                self?.backButtonEvent?()
+                self?.dismiss(animated: true, completion: nil)
+            }
+        )
+
         additionalLectureVC.modalPresentationStyle = .fullScreen
-        additionalLectureVC.week = week
-        additionalLectureVC.period = period
-        additionalLectureVC.dismissEvent = {
-            self.backButtonEvent?()
-            self.dismiss(animated: true, completion: nil)
-        }
+        
         present(additionalLectureVC, animated: true, completion: nil)
     }
     
