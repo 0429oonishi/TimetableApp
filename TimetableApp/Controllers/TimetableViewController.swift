@@ -13,7 +13,7 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var saturdaySuperView: UIView!
     @IBOutlet private weak var sixPeriodSuperView: UIView!
     
-    private var weeks = Week.manageableWeeks
+    private var weeks = ManageableWeek.manageableWeeks
     private var periods = Period.data
     private var horizontalItemCount: Int { weeks.count }
     private var verticalItemCount: Int { periods.count }
@@ -108,7 +108,7 @@ extension TimetableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimetableCollectionViewCell.identifier,
                                                       for: indexPath) as! TimetableCollectionViewCell
         let hasSaturday = weeks.contains(.saturday)
-        guard let week = Week(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
+        guard let week = ManageableWeek(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
         guard let period = Period(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
         cell.setup(week: week, period: period) { [weak self] in
             self?.presentSettingLectureVC(week: week, period: period)
@@ -116,7 +116,7 @@ extension TimetableViewController: UICollectionViewDataSource {
         return cell
     }
     
-    private func presentSettingLectureVC(week: Week, period: Period) {
+    private func presentSettingLectureVC(week: ManageableWeek, period: Period) {
         self.view.layer.opacity = 0.6
 
         let settingLectureVC = SettingLectureViewController.instantiate(
@@ -134,7 +134,7 @@ extension TimetableViewController: UICollectionViewDataSource {
     
 }
 
-private extension Week {
+private extension ManageableWeek {
     
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5

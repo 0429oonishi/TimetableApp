@@ -26,7 +26,7 @@ final class AdditionalLectureViewController: UIViewController {
     private var professorTextField = UITextField()
     private var creditTextField = UITextField()
     private var dismissEvent: (() -> Void)?
-    private var week: Week?
+    private var week: ManageableWeek?
     private var period: Period?
     private let lectureUseCase = LectureUseCase()
     private enum AdditionalViewType {
@@ -63,7 +63,7 @@ final class AdditionalLectureViewController: UIViewController {
     }
 
     // FIXME: weekとperiodを非Optionalにしたい
-    static func instantiate(week: Week?, period: Period?, dismissEvent: @escaping () -> Void) -> AdditionalLectureViewController {
+    static func instantiate(week: ManageableWeek?, period: Period?, dismissEvent: @escaping () -> Void) -> AdditionalLectureViewController {
 
         let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(
             identifier: AdditionalLectureViewController.identifier

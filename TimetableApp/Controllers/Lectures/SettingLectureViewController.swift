@@ -17,11 +17,11 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var backButton: NeumorphismView!
     
     private var backButtonEvent: (() -> Void)?
-    private var week: Week?
+    private var week: ManageableWeek?
     private var period: Period?
     private let lectureUseCase = LectureUseCase()
 
-    static func instantiate(week: Week, period: Period, backButtonEvent: @escaping () -> Void) -> SettingLectureViewController {
+    static func instantiate(week: ManageableWeek, period: Period, backButtonEvent: @escaping () -> Void) -> SettingLectureViewController {
 
         let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController(
             identifier: SettingLectureViewController.identifier

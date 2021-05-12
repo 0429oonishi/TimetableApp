@@ -11,7 +11,7 @@ final class WeekView: NeumorphismView {
     
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.text = Week(rawValue: self.tag)?.text
+        label.text = ManageableWeek(rawValue: self.tag)?.text
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 15)

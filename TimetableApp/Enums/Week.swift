@@ -7,18 +7,17 @@
 
 import Foundation
 
-// 一般的な全曜日を表す
-enum Week: Int, CaseIterable {
+// このアプリで管理可能な曜日を表す
+enum ManageableWeek: Int, CaseIterable {
     case monday
     case tuesday
     case wednesday
     case thursday
     case friday
     case saturday
-    case sunday
 }
 
-extension Week {
+extension ManageableWeek {
 
     // このアプリで管理対象となっている全曜日を表す
     static var manageableWeeks: [Self] {
@@ -38,7 +37,6 @@ extension Week {
             case .thursday: return "木"
             case .friday: return "金"
             case .saturday: return "土"
-            case .sunday: return "日"
         }
     }
 }
