@@ -19,16 +19,6 @@ enum ManageableWeek: Int, CaseIterable {
 
 extension ManageableWeek {
 
-    // このアプリで管理対象となっている全曜日を表す
-    static var manageableWeeks: [Self] {
-        [.monday,
-         .tuesday,
-         .wednesday,
-         .thursday,
-         .friday,
-         .saturday]
-    }
-    
     var text: String {
         switch self {
             case .monday: return "月"
