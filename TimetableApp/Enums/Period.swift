@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Period: Int, CaseIterable {
+enum Period: CaseIterable {
     case one
     case two
     case three

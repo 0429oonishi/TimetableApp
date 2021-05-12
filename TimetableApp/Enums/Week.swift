@@ -8,7 +8,7 @@
 import Foundation
 
 // このアプリで管理可能な曜日を表す
-enum ManageableWeek: Int, CaseIterable {
+enum ManageableWeek: CaseIterable {
     case monday
     case tuesday
     case wednesday

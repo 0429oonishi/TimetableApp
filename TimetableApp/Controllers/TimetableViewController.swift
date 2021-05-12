@@ -138,7 +138,7 @@ private extension ManageableWeek {
     
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5
-        self.init(rawValue: item % horizontalItemCount)
+        self.init(horizontalIndex: item % horizontalItemCount)
     }
     
 }
@@ -147,7 +147,37 @@ private extension Period {
     
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5
-        self.init(rawValue: item / horizontalItemCount)
+        self.init(horizontalIndex: item / horizontalItemCount)
     }
     
+}
+
+private extension ManageableWeek {
+    init?(horizontalIndex: Int) {
+        switch horizontalIndex {
+        case 0: self = .monday
+        case 1: self = .tuesday
+        case 2: self = .wednesday
+        case 3: self = .thursday
+        case 4: self = .friday
+        case 5: self = .saturday
+        default:
+            return nil
+        }
+    }
+}
+
+private extension Period {
+    init?(horizontalIndex: Int) {
+        switch horizontalIndex {
+        case 0: self = .one
+        case 1: self = .two
+        case 2: self = .three
+        case 3: self = .four
+        case 4: self = .five
+        case 5: self = .six
+        default:
+            return nil
+        }
+    }
 }
