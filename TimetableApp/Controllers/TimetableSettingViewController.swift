@@ -12,6 +12,13 @@ final class TimetableSettingViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private let userDefault = UserDefault<UserDefaultsKeys.TimetableSettingType>()
+
+    static func instantiate() -> TimetableSettingViewController {
+        let timetableSettingVC = UIStoryboard.timetableSetting.instantiateViewController(
+            identifier: TimetableSettingViewController.identifier
+        ) as! TimetableSettingViewController
+        return timetableSettingVC
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
