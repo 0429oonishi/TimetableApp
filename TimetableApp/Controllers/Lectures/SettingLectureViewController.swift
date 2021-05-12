@@ -16,10 +16,21 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var colorButton: NeumorphismView!
     @IBOutlet private weak var backButton: NeumorphismView!
     
-    var backButtonEvent: (() -> Void)?
-    var week: Week?
-    var period: Period?
+    private var backButtonEvent: (() -> Void)?
+    private var week: Week?
+    private var period: Period?
     private let lectureUseCase = LectureUseCase()
+
+    static func instantiate(week: Week, period: Period, backButtonEvent: @escaping () -> Void) -> SettingLectureViewController {
+
+        let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController(
+            identifier: SettingLectureViewController.identifier
+        ) as! SettingLectureViewController
+        settingLectureVC.week = week
+        settingLectureVC.period = period
+        settingLectureVC.backButtonEvent = backButtonEvent
+        return settingLectureVC
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +51,7 @@ final class SettingLectureViewController: UIViewController {
 // MARK: - setup views
 private extension SettingLectureViewController {
     
-    func setupViews() {
+    private func setupViews() {
         let index = Convert(week: week, period: period).number
         let lecture = lectureUseCase.read(index: index)
         lectureView.setupLectureLabels(lecture: lecture)
@@ -112,7 +123,7 @@ private extension NeumorphismView {
 // MARK: - @objc func
 @objc private extension SettingLectureViewController {
     
-    func addButtonDidTapped() {
+    private func addButtonDidTapped() {
         let additionalLectureVC = AdditionalLectureViewController.instantiate(
             week: week,
             period: period,
@@ -127,7 +138,7 @@ private extension NeumorphismView {
         present(additionalLectureVC, animated: true, completion: nil)
     }
     
-    func editButtonDidTapped() {
+    private func editButtonDidTapped() {
         let editLectureVC = UIStoryboard.editLecture.instantiateViewController(
             identifier: EditLectureViewController.identifier
         ) as! EditLectureViewController
@@ -135,7 +146,7 @@ private extension NeumorphismView {
         present(editLectureVC, animated: true, completion: nil)
     }
     
-    func attendanceButtonDidTapped() {
+    private func attendanceButtonDidTapped() {
         let lectureAttendanceVC = UIStoryboard.lectureAttendance.instantiateViewController(
             identifier: LectureAttendanceViewController.identifier
         ) as! LectureAttendanceViewController
@@ -143,7 +154,7 @@ private extension NeumorphismView {
         present(lectureAttendanceVC, animated: true, completion: nil)
     }
     
-    func memoButtonDidTapped() {
+    private func memoButtonDidTapped() {
         let lectureMemoVC = UIStoryboard.lectureMemo.instantiateViewController(
             identifier: LectureMemoViewController.identifier
         ) as! LectureMemoViewController
@@ -151,7 +162,7 @@ private extension NeumorphismView {
         present(lectureMemoVC, animated: true, completion: nil)
     }
     
-    func colorButtonDidTapped() {
+    private func colorButtonDidTapped() {
         let lectureColorVC = UIStoryboard.lectureColor.instantiateViewController(
             identifier: LectureColorViewController.identifier
         ) as! LectureColorViewController
@@ -159,7 +170,7 @@ private extension NeumorphismView {
         present(lectureColorVC, animated: true, completion: nil)
     }
     
-    func backButtonDidTapped() {
+    private func backButtonDidTapped() {
         backButtonEvent?()
         dismiss(animated: true, completion: nil)
     }
