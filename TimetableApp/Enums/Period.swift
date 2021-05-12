@@ -18,7 +18,7 @@ enum Period: Int, CaseIterable {
 
 extension Period {
     
-    static var data: [Self] { Self.allCases }
+    static var data: AllCases { Self.allCases }
     
     var text: String {
         switch self {

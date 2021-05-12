@@ -18,7 +18,7 @@ enum Week: Int, CaseIterable {
 
 extension Week {
     
-    static var data: [Self] { Self.allCases }
+    static var data: AllCases { Self.allCases }
     
     var text: String {
         switch self {
