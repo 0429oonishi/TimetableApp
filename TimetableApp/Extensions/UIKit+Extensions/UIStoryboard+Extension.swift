@@ -38,3 +38,16 @@ extension UIStoryboard {
     }
     
 }
+
+private extension String {
+
+    // MARK: - UIStoryboard name
+    static let timetableSetting = "TimetableSetting"
+    static let settingLecture = "SettingLecture"
+    static let additionalLecture = "AdditionalLecture"
+    static let editLecture = "EditLecture"
+    static let lectureAttendance = "LectureAttendance"
+    static let lectureMemo = "LectureMemo"
+    static let lectureColor = "LectureColor"
+
+}

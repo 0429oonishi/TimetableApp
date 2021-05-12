@@ -15,7 +15,6 @@
 		AB385C792640258C009625FF /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB385C782640258C009625FF /* Convert.swift */; };
 		AB819B93264A2677000D3AE8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB819B92264A2677000D3AE8 /* UIView+Extension.swift */; };
 		AB8A80ED263303CB007A20C2 /* TimetableSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */; };
-		AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A811C2633DB41007A20C2 /* String+Extension.swift */; };
 		AB8A81272633E60B007A20C2 /* Bool+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A81262633E60B007A20C2 /* Bool+Extension.swift */; };
 		AB8A812B2633ECC8007A20C2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */; };
 		AB8A813026344399007A20C2 /* SettingLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A812F26344399007A20C2 /* SettingLectureViewController.swift */; };
@@ -69,7 +68,6 @@
 		AB385C782640258C009625FF /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		AB819B92264A2677000D3AE8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AB8A80EC263303CB007A20C2 /* TimetableSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSetting.swift; sourceTree = "<group>"; };
-		AB8A811C2633DB41007A20C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AB8A81262633E60B007A20C2 /* Bool+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extension.swift"; sourceTree = "<group>"; };
 		AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		AB8A812F26344399007A20C2 /* SettingLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLectureViewController.swift; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 		ABD66282263A5B7800027589 /* Type+Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AB8A811C2633DB41007A20C2 /* String+Extension.swift */,
 				AB8A81262633E60B007A20C2 /* Bool+Extension.swift */,
 				AB8A812A2633ECC8007A20C2 /* Int+Extension.swift */,
 			);
@@ -480,7 +477,6 @@
 				ABD7A6B12632A3E9008F1556 /* TimetableSettingViewController.swift in Sources */,
 				ABB6A2CF262D077300CFB798 /* TimetableViewController.swift in Sources */,
 				AB2CAD362642A031001F1446 /* LectureUseCase.swift in Sources */,
-				AB8A811D2633DB41007A20C2 /* String+Extension.swift in Sources */,
 				AB2CAD382642A03D001F1446 /* LectureDataStore.swift in Sources */,
 				AB385C792640258C009625FF /* Convert.swift in Sources */,
 				ABF49E09263FF6F4002B742E /* Lecture.swift in Sources */,
