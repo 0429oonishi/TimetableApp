@@ -188,3 +188,13 @@ extension AdditionalLectureViewController: UITextFieldDelegate {
     }
     
 }
+
+private extension UIStoryboard {
+    static var additionalLecture: UIStoryboard {
+        UIStoryboard(name: .additionalLecture, bundle: nil)
+    }
+}
+
+private extension String {
+    static let additionalLecture = "AdditionalLecture"
+}

@@ -176,3 +176,33 @@ private extension NeumorphismView {
     }
     
 }
+
+private extension UIStoryboard {
+    static var settingLecture: UIStoryboard {
+        UIStoryboard(name: .settingLecture, bundle: nil)
+    }
+
+    static var editLecture: UIStoryboard {
+        UIStoryboard(name: .editLecture, bundle: nil)
+    }
+
+    static var lectureAttendance: UIStoryboard {
+        UIStoryboard(name: .lectureAttendance, bundle: nil)
+    }
+
+    static var lectureMemo: UIStoryboard {
+        UIStoryboard(name: .lectureMemo, bundle: nil)
+    }
+
+    static var lectureColor: UIStoryboard {
+        UIStoryboard(name: .lectureColor, bundle: nil)
+    }
+}
+
+private extension String {
+    static let settingLecture = "SettingLecture"
+    static let editLecture = "EditLecture"
+    static let lectureAttendance = "LectureAttendance"
+    static let lectureMemo = "LectureMemo"
+    static let lectureColor = "LectureColor"
+}

@@ -45,7 +45,6 @@
 		ABCA38D82645DCA60027AC79 /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA38D72645DCA60027AC79 /* PeriodView.swift */; };
 		ABCA38DA2645E4530027AC79 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA38D92645E4530027AC79 /* WeekView.swift */; };
 		ABCA38DD264620C40027AC79 /* TimetableSettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA38DC264620C40027AC79 /* TimetableSettingType.swift */; };
-		ABD66280263A5B4500027589 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */; };
 		ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */; };
 		ABD7A676263004BE008F1556 /* MyUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A675263004BE008F1556 /* MyUITabBarController.swift */; };
 		ABD7A6A72632761A008F1556 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6A62632761A008F1556 /* Week.swift */; };
@@ -100,7 +99,6 @@
 		ABCA38D72645DCA60027AC79 /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
 		ABCA38D92645E4530027AC79 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		ABCA38DC264620C40027AC79 /* TimetableSettingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSettingType.swift; sourceTree = "<group>"; };
-		ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUINavigationController.swift; sourceTree = "<group>"; };
 		ABD7A675263004BE008F1556 /* MyUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUITabBarController.swift; sourceTree = "<group>"; };
 		ABD7A6A62632761A008F1556 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
@@ -297,7 +295,6 @@
 		ABD66281263A5B5E00027589 /* UIKit+Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				ABD6627F263A5B4500027589 /* UIStoryboard+Extension.swift */,
 				AB819B92264A2677000D3AE8 /* UIView+Extension.swift */,
 				AB8A81D926359FA0007A20C2 /* UIViewController+Extension.swift */,
 				AB8A81DD2635A434007A20C2 /* UITableViewCell+Extension.swift */,
@@ -490,7 +487,6 @@
 				ABB6A307262DD11600CFB798 /* NeumorphismView.swift in Sources */,
 				AB8A81272633E60B007A20C2 /* Bool+Extension.swift in Sources */,
 				ABB6A2DB262D1F8200CFB798 /* TimetableCollectionViewCell.swift in Sources */,
-				ABD66280263A5B4500027589 /* UIStoryboard+Extension.swift in Sources */,
 				AB8A813026344399007A20C2 /* SettingLectureViewController.swift in Sources */,
 				ABB6A2B7262D055D00CFB798 /* SceneDelegate.swift in Sources */,
 				AB819B93264A2677000D3AE8 /* UIView+Extension.swift in Sources */,

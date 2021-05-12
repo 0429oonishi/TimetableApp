@@ -127,3 +127,13 @@ extension TimetableSettingViewController: UITableViewDataSource {
     }
     
 }
+
+private extension UIStoryboard {
+    static var timetableSetting: UIStoryboard {
+        UIStoryboard(name: .timetableSetting, bundle: nil)
+    }
+}
+
+private extension String {
+    static let timetableSetting = "TimetableSetting"
+}
