@@ -32,3 +32,16 @@ private extension ManageableWeek {
         }
     }
 }
+
+private extension Period {
+    var number: Int {
+        switch self {
+            case .one: return 0
+            case .two: return 1
+            case .three: return 2
+            case .four: return 3
+            case .five: return 4
+            case .six: return 5
+        }
+    }
+}
