@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum Period: Int, CaseIterable {
+// このアプリで管理対象となっている何限かを表す
+enum ManageablePeriod: Int, CaseIterable {
     case one
     case two
     case three
@@ -16,9 +17,7 @@ enum Period: Int, CaseIterable {
     case six
 }
 
-extension Period {
-    
-    static var data: AllCases { Self.allCases }
+extension ManageablePeriod {
     
     var text: String {
         switch self {

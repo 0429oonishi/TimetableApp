@@ -11,7 +11,7 @@ final class PeriodView: NeumorphismView {
     
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.text = Period(rawValue: self.tag)?.text
+        label.text = ManageablePeriod(rawValue: self.tag)?.text
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 15)

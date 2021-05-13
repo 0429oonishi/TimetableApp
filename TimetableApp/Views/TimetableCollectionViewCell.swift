@@ -23,7 +23,7 @@ final class TimetableCollectionViewCell: UICollectionViewCell {
 // MARK: - setup cell
 extension TimetableCollectionViewCell {
     
-    func setup(week: Week, period: Period, onTapEvent: (() -> Void)?) {
+    func setup(week: ManageableWeek, period: ManageablePeriod, onTapEvent: (() -> Void)?) {
         self.onTapEvent = onTapEvent
         setupMyView()
         setupLabels(week: week, period: period)
@@ -40,7 +40,7 @@ private extension TimetableCollectionViewCell {
         myView.addTarget(self, action: #selector(myViewDidTapped), for: .touchUpInside)
     }
     
-    func setupLabels(week: Week, period: Period) {
+    func setupLabels(week: ManageableWeek, period: ManageablePeriod) {
         nameLabel?.removeFromSuperview()
         nameLabel = UILabel()
         nameLabel?.text = week.text

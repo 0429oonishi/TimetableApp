@@ -13,8 +13,8 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var saturdaySuperView: UIView!
     @IBOutlet private weak var sixPeriodSuperView: UIView!
     
-    private var weeks = Week.manageableWeeks
-    private var periods = Period.data
+    private var weeks = ManageableWeek.allCases
+    private var periods = ManageablePeriod.allCases
     private var horizontalItemCount: Int { weeks.count }
     private var verticalItemCount: Int { periods.count }
     private let lectureUseCase = LectureUseCase()
@@ -108,15 +108,15 @@ extension TimetableViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TimetableCollectionViewCell.identifier,
                                                       for: indexPath) as! TimetableCollectionViewCell
         let hasSaturday = weeks.contains(.saturday)
-        guard let week = Week(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
-        guard let period = Period(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
+        guard let week = ManageableWeek(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
+        guard let period = ManageablePeriod(item: indexPath.item, hasSaturday: hasSaturday) else { fatalError() }
         cell.setup(week: week, period: period) { [weak self] in
             self?.presentSettingLectureVC(week: week, period: period)
         }
         return cell
     }
     
-    private func presentSettingLectureVC(week: Week, period: Period) {
+    private func presentSettingLectureVC(week: ManageableWeek, period: ManageablePeriod) {
         self.view.layer.opacity = 0.6
         let settingLectureVC = SettingLectureViewController.instantiate(
             week: week,
@@ -129,7 +129,7 @@ extension TimetableViewController: UICollectionViewDataSource {
     
 }
 
-private extension Week {
+private extension ManageableWeek {
     
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5
@@ -138,7 +138,7 @@ private extension Week {
     
 }
 
-private extension Period {
+private extension ManageablePeriod {
     
     init?(item: Int, hasSaturday: Bool) {
         let horizontalItemCount = hasSaturday ? 6 : 5

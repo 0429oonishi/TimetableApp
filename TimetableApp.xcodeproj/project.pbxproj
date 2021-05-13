@@ -47,8 +47,8 @@
 		ABCA38DD264620C40027AC79 /* TimetableSettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA38DC264620C40027AC79 /* TimetableSettingType.swift */; };
 		ABD7A66B2630028A008F1556 /* MyUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */; };
 		ABD7A676263004BE008F1556 /* MyUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A675263004BE008F1556 /* MyUITabBarController.swift */; };
-		ABD7A6A72632761A008F1556 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6A62632761A008F1556 /* Week.swift */; };
-		ABD7A6AA2632762C008F1556 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6A92632762C008F1556 /* Period.swift */; };
+		ABD7A6A72632761A008F1556 /* ManageableWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6A62632761A008F1556 /* ManageableWeek.swift */; };
+		ABD7A6AA2632762C008F1556 /* ManageablePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6A92632762C008F1556 /* ManageablePeriod.swift */; };
 		ABD7A6B12632A3E9008F1556 /* TimetableSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6B02632A3E9008F1556 /* TimetableSettingViewController.swift */; };
 		ABD7A6B42632A3F7008F1556 /* TimetableSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD7A6B32632A3F7008F1556 /* TimetableSetting.storyboard */; };
 		ABD7A6C42632A967008F1556 /* TimetableSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7A6C22632A967008F1556 /* TimetableSettingTableViewCell.swift */; };
@@ -101,8 +101,8 @@
 		ABCA38DC264620C40027AC79 /* TimetableSettingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSettingType.swift; sourceTree = "<group>"; };
 		ABD7A66A2630028A008F1556 /* MyUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUINavigationController.swift; sourceTree = "<group>"; };
 		ABD7A675263004BE008F1556 /* MyUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUITabBarController.swift; sourceTree = "<group>"; };
-		ABD7A6A62632761A008F1556 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
-		ABD7A6A92632762C008F1556 /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		ABD7A6A62632761A008F1556 /* ManageableWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageableWeek.swift; sourceTree = "<group>"; };
+		ABD7A6A92632762C008F1556 /* ManageablePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageablePeriod.swift; sourceTree = "<group>"; };
 		ABD7A6B02632A3E9008F1556 /* TimetableSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSettingViewController.swift; sourceTree = "<group>"; };
 		ABD7A6B32632A3F7008F1556 /* TimetableSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimetableSetting.storyboard; sourceTree = "<group>"; };
 		ABD7A6C22632A967008F1556 /* TimetableSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableSettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -315,8 +315,8 @@
 		ABD7A6A526327600008F1556 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				ABD7A6A62632761A008F1556 /* Week.swift */,
-				ABD7A6A92632762C008F1556 /* Period.swift */,
+				ABD7A6A62632761A008F1556 /* ManageableWeek.swift */,
+				ABD7A6A92632762C008F1556 /* ManageablePeriod.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -467,7 +467,7 @@
 				AB8A81F72635A614007A20C2 /* LectureAttendanceViewController.swift in Sources */,
 				AB8A81E12635A470007A20C2 /* UICollectionViewCell+Extension.swift in Sources */,
 				ABCA38D82645DCA60027AC79 /* PeriodView.swift in Sources */,
-				ABD7A6A72632761A008F1556 /* Week.swift in Sources */,
+				ABD7A6A72632761A008F1556 /* ManageableWeek.swift in Sources */,
 				ABCA38DA2645E4530027AC79 /* WeekView.swift in Sources */,
 				AB8A80ED263303CB007A20C2 /* TimetableSetting.swift in Sources */,
 				ABB6A2B5262D055D00CFB798 /* AppDelegate.swift in Sources */,
@@ -480,7 +480,7 @@
 				AB8A81FB2635A685007A20C2 /* LectureColorViewController.swift in Sources */,
 				AB8A81DA26359FA0007A20C2 /* UIViewController+Extension.swift in Sources */,
 				AB8A81EE2635A593007A20C2 /* LectureMemoViewController.swift in Sources */,
-				ABD7A6AA2632762C008F1556 /* Period.swift in Sources */,
+				ABD7A6AA2632762C008F1556 /* ManageablePeriod.swift in Sources */,
 				AB8A81CC26359AFA007A20C2 /* AdditionalLectureViewController.swift in Sources */,
 				AB8A81DE2635A434007A20C2 /* UITableViewCell+Extension.swift in Sources */,
 				AB258675264B45CB0024894D /* UserDefaultsKeys.swift in Sources */,
