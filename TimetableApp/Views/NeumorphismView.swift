@@ -171,19 +171,19 @@ private extension NeumorphismView {
         
         lightOuterShadowLayer = {
             let shadowLayer = createOuterShadowLayer(shadowColor: lightShadowColor, shadowOffset: shadowOffset.inverse)
-            layer.addSublayer(shadowLayer)
+            layer.insertSublayer(shadowLayer, at: 0)
             return shadowLayer
         }()
         
         darkOuterShadowLayer = {
             let shadowLayer = createOuterShadowLayer(shadowColor: darkShadowColor, shadowOffset: shadowOffset)
-            layer.addSublayer(shadowLayer)
+            layer.insertSublayer(shadowLayer, at: 0)
             return shadowLayer
         }()
         
         backgroundLayer = {
             let backgroundLayer = CALayer()
-            layer.addSublayer(backgroundLayer)
+            layer.insertSublayer(backgroundLayer, at: 0)
             backgroundLayer.frame = bounds
             backgroundLayer.cornerRadius = cornerRadius
             backgroundLayer.backgroundColor = mainColor
@@ -192,14 +192,14 @@ private extension NeumorphismView {
         
         darkInnerShadowLayer = {
             let shadowLayer = createInnerShadowLayer(shadowColor: darkShadowColor, shadowOffset: shadowOffset)
-            layer.addSublayer(shadowLayer)
+            layer.insertSublayer(shadowLayer, at: 0)
             shadowLayer.isHidden = true
             return shadowLayer
         }()
         
         lightInnerShadowLayer = {
             let shadowLayer = createInnerShadowLayer(shadowColor: lightShadowColor, shadowOffset: shadowOffset.inverse)
-            layer.addSublayer(shadowLayer)
+            layer.insertSublayer(shadowLayer, at: 0)
             shadowLayer.isHidden = true
             return shadowLayer
         }()
