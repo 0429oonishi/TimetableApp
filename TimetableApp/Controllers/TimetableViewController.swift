@@ -13,7 +13,7 @@ final class TimetableViewController: UIViewController {
     @IBOutlet private weak var saturdaySuperView: UIView!
     @IBOutlet private weak var sixPeriodSuperView: UIView!
     
-    private var weeks = Week.data
+    private var weeks = Week.manageableWeeks
     private var periods = Period.data
     private var horizontalItemCount: Int { weeks.count }
     private var verticalItemCount: Int { periods.count }
