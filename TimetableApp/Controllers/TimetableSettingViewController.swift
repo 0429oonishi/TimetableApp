@@ -32,6 +32,13 @@ final class TimetableSettingViewController: UIViewController {
         
     }
     
+    static func instantiate() -> TimetableSettingViewController {
+        let timetableSettingVC = UIStoryboard.timetableSetting.instantiateViewController(
+            withIdentifier: TimetableSettingViewController.identifier
+        ) as! TimetableSettingViewController
+        return timetableSettingVC
+    }
+    
 }
 
 // MARK: - setup
@@ -117,6 +124,14 @@ extension TimetableSettingViewController: UITableViewDataSource {
             self.userDefault.set(isOn, forKey: type.key)
         }
         return cell
+    }
+    
+}
+
+private extension UIStoryboard {
+    
+    static var timetableSetting: UIStoryboard {
+        UIStoryboard(name: "TimetableSetting", bundle: nil)
     }
     
 }

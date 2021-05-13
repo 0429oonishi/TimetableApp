@@ -25,11 +25,11 @@ final class AdditionalLectureViewController: UIViewController {
     private var roomTextField = UITextField()
     private var professorTextField = UITextField()
     private var creditTextField = UITextField()
-    var dismissEvent: (() -> Void)?
-    var week: Week?
-    var period: Period?
+    private var dismissEvent: (() -> Void)?
+    private var week: Week?
+    private var period: Period?
     private let lectureUseCase = LectureUseCase()
-    enum AdditionalViewType {
+    private enum AdditionalViewType {
         case name
         case room
         case professor
@@ -51,7 +51,7 @@ final class AdditionalLectureViewController: UIViewController {
             }
         }
     }
-    enum AdditionalButtonType {
+    private enum AdditionalButtonType {
         case add
         case back
         var text: String {
@@ -61,7 +61,7 @@ final class AdditionalLectureViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +86,17 @@ final class AdditionalLectureViewController: UIViewController {
         
     }
     
+    static func instantiate(week: Week?, period: Period?, dismissEvent: @escaping () -> Void) -> AdditionalLectureViewController {
+        let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(
+            identifier: AdditionalLectureViewController.identifier
+        ) as! AdditionalLectureViewController
+        additionalLectureVC.modalPresentationStyle = .fullScreen
+        additionalLectureVC.week = week
+        additionalLectureVC.period = period
+        additionalLectureVC.dismissEvent = dismissEvent
+        return additionalLectureVC
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -95,7 +106,8 @@ final class AdditionalLectureViewController: UIViewController {
 // MARK: - setup views
 private extension AdditionalLectureViewController {
     
-    func setupViews(type: AdditionalViewType, view: UIView, label: UILabel, textField: UITextField) {
+    // AdditionalViewTypeをprivateにするため、このメソッドにprivateをつけている
+    private func setupViews(type: AdditionalViewType, view: UIView, label: UILabel, textField: UITextField) {
         label.text = type.text
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 25)
@@ -115,7 +127,8 @@ private extension AdditionalLectureViewController {
                          rightPadding: -20)
     }
     
-    func setupButtonView(type: AdditionalButtonType, view: NeumorphismView) {
+    // AdditionalViewTypeをprivateにするため、このメソッドにprivateをつけている
+    private func setupButtonView(type: AdditionalButtonType, view: NeumorphismView) {
         view.type = .pushButton
         view.layer.cornerRadius = 10
         
@@ -175,3 +188,12 @@ extension AdditionalLectureViewController: UITextFieldDelegate {
     }
     
 }
+
+private extension UIStoryboard {
+    
+    static var additionalLecture: UIStoryboard {
+        UIStoryboard(name: "AdditionalLecture", bundle: nil)
+    }
+    
+}
+

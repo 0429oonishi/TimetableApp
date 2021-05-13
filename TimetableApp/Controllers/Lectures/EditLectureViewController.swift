@@ -14,4 +14,19 @@ final class EditLectureViewController: UIViewController {
         
     }
     
+    static func instantiate() -> EditLectureViewController {
+        let editLectureVC = UIStoryboard.editLecture.instantiateViewController(
+            withIdentifier: EditLectureViewController.identifier
+        ) as! EditLectureViewController
+        return editLectureVC
+    }
+    
+}
+
+private extension UIStoryboard {
+    
+    static var editLecture: UIStoryboard {
+        UIStoryboard(name: "EditLecture", bundle: nil)
+    }
+    
 }

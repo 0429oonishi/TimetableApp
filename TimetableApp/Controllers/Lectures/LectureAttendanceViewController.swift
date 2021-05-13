@@ -14,4 +14,19 @@ final class LectureAttendanceViewController: UIViewController {
         
     }
     
+    static func instantiate() -> LectureAttendanceViewController {
+        let lectureAttendanceVC = UIStoryboard.lectureAttendance.instantiateViewController(
+            withIdentifier: LectureAttendanceViewController.identifier
+        ) as! LectureAttendanceViewController
+        return lectureAttendanceVC
+    }
+    
+}
+
+private extension UIStoryboard {
+    
+    static var lectureAttendance: UIStoryboard {
+        UIStoryboard(name: "LectureAttendance", bundle: nil)
+    }
+    
 }

@@ -14,4 +14,19 @@ final class LectureColorViewController: UIViewController {
         
     }
     
+    static func instantiate() -> LectureColorViewController {
+        let lectureColorVC = UIStoryboard.lectureColor.instantiateViewController(
+            identifier: LectureColorViewController.identifier
+        ) as! LectureColorViewController
+        return lectureColorVC
+    }
+    
+}
+
+private extension UIStoryboard {
+    
+    static var lectureColor: UIStoryboard {
+        UIStoryboard(name: "LectureColor", bundle: nil)
+    }
+    
 }

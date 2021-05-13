@@ -16,9 +16,9 @@ final class SettingLectureViewController: UIViewController {
     @IBOutlet private weak var colorButton: NeumorphismView!
     @IBOutlet private weak var backButton: NeumorphismView!
     
-    var backButtonEvent: (() -> Void)?
-    var week: Week?
-    var period: Period?
+    private var backButtonEvent: (() -> Void)?
+    private var week: Week?
+    private var period: Period?
     private let lectureUseCase = LectureUseCase()
     
     override func viewDidLoad() {
@@ -26,6 +26,16 @@ final class SettingLectureViewController: UIViewController {
         
         self.view.backgroundColor = .clear
         
+    }
+    
+    static func instantiate(week: Week, period: Period, backButtonEvent: @escaping () -> Void) -> SettingLectureViewController {
+        let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController(
+            identifier: Self.identifier
+        ) as! SettingLectureViewController
+        settingLectureVC.week = week
+        settingLectureVC.period = period
+        settingLectureVC.backButtonEvent = backButtonEvent
+        return settingLectureVC
     }
     
     override func viewDidLayoutSubviews() {
@@ -113,47 +123,35 @@ private extension NeumorphismView {
 @objc private extension SettingLectureViewController {
     
     func addButtonDidTapped() {
-        let additionalLectureVC = UIStoryboard.additionalLecture.instantiateViewController(
-            identifier: AdditionalLectureViewController.identifier
-        ) as! AdditionalLectureViewController
-        additionalLectureVC.modalPresentationStyle = .fullScreen
-        additionalLectureVC.week = week
-        additionalLectureVC.period = period
-        additionalLectureVC.dismissEvent = {
-            self.backButtonEvent?()
-            self.dismiss(animated: true, completion: nil)
+        let additionalLectureVC = AdditionalLectureViewController.instantiate(
+            week: week,
+            period: period) { [weak self] in
+            self?.backButtonEvent?()
+            self?.dismiss(animated: true, completion: nil)
         }
         present(additionalLectureVC, animated: true, completion: nil)
     }
     
     func editButtonDidTapped() {
-        let editLectureVC = UIStoryboard.editLecture.instantiateViewController(
-            identifier: EditLectureViewController.identifier
-        ) as! EditLectureViewController
+        let editLectureVC = EditLectureViewController.instantiate()
         editLectureVC.modalPresentationStyle = .fullScreen
         present(editLectureVC, animated: true, completion: nil)
     }
     
     func attendanceButtonDidTapped() {
-        let lectureAttendanceVC = UIStoryboard.lectureAttendance.instantiateViewController(
-            identifier: LectureAttendanceViewController.identifier
-        ) as! LectureAttendanceViewController
+        let lectureAttendanceVC = LectureAttendanceViewController.instantiate()
         lectureAttendanceVC.modalPresentationStyle = .fullScreen
         present(lectureAttendanceVC, animated: true, completion: nil)
     }
     
     func memoButtonDidTapped() {
-        let lectureMemoVC = UIStoryboard.lectureMemo.instantiateViewController(
-            identifier: LectureMemoViewController.identifier
-        ) as! LectureMemoViewController
+        let lectureMemoVC = LectureMemoViewController.instantiate()
         lectureMemoVC.modalPresentationStyle = .fullScreen
         present(lectureMemoVC, animated: true, completion: nil)
     }
     
     func colorButtonDidTapped() {
-        let lectureColorVC = UIStoryboard.lectureColor.instantiateViewController(
-            identifier: LectureColorViewController.identifier
-        ) as! LectureColorViewController
+        let lectureColorVC = LectureColorViewController.instantiate()
         lectureColorVC.modalPresentationStyle = .fullScreen
         present(lectureColorVC, animated: true, completion: nil)
     }
@@ -161,6 +159,14 @@ private extension NeumorphismView {
     func backButtonDidTapped() {
         backButtonEvent?()
         dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+private extension UIStoryboard {
+    
+    static var settingLecture: UIStoryboard {
+        UIStoryboard(name: "SettingLecture", bundle: nil)
     }
     
 }

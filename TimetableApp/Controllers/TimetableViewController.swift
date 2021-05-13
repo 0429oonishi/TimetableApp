@@ -117,14 +117,13 @@ extension TimetableViewController: UICollectionViewDataSource {
     }
     
     private func presentSettingLectureVC(week: Week, period: Period) {
-        let settingLectureVC = UIStoryboard.settingLecture.instantiateViewController(
-            identifier: SettingLectureViewController.identifier
-        ) as! SettingLectureViewController
-        settingLectureVC.modalPresentationStyle = .overCurrentContext
         self.view.layer.opacity = 0.6
-        settingLectureVC.week = week
-        settingLectureVC.period = period
-        settingLectureVC.backButtonEvent = { self.view.layer.opacity = 1 }
+        let settingLectureVC = SettingLectureViewController.instantiate(
+            week: week,
+            period: period) { [weak self] in
+            self?.view.layer.opacity = 1
+        }
+        settingLectureVC.modalPresentationStyle = .overCurrentContext
         present(settingLectureVC, animated: true, completion: nil)
     }
     
@@ -147,3 +146,4 @@ private extension Period {
     }
     
 }
+
